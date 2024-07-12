@@ -1,0 +1,153 @@
+body, html {
+    /*max-width: 1535px;*/
+    max-width: 1536px;
+    margin: 0 auto;
+    font-family: IranSans !important;
+    direction: rtl !important;
+    text-align: right !important;
+    scroll-behavior: smooth;
+    background-color: transparent;
+    overflow-x: hidden;
+}
+
+* {
+    transition: all 0.5s ease !important;
+}
+
+/*.sectionsWrapper{*/
+/*    overflow-y: scroll !important;*/
+/*    scroll-snap-type: y mandatory !important;*/
+/*}*/
+
+::-webkit-scrollbar {
+    width: 5px;
+    cursor: pointer !important;
+    background-color: transparent !important;
+}
+
+
+/* Track */
+::-webkit-scrollbar-track {
+    /*box-shadow: inset 0 0 5px grery;*/
+    /*border-radius: 10px;*/
+    cursor: pointer !important;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: dimgray;
+    border-radius: 5px;
+    cursor: pointer !important;
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: darkgray;
+    cursor: pointer !important;
+
+}
+.bg-white-smoke{
+    background-color: whitesmoke;
+}
+.nav-item{
+    font-size: 13px;
+    font-weight: bold;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.cat-section{
+   cursor: pointer;
+}
+
+.cat-section:hover .cat-label{
+    transition: all 0.1s ease !important;
+    background-color: coral;
+    color:white;
+}
+.cat-img-container{
+    overflow: hidden;
+}
+.cat-img {
+    width: 100% !important;
+}
+.cat-section:hover .cat-img {
+    transform: scale(1.8) rotate(15deg);
+}
+.cat-txt{
+    transition: all 0.001s ease !important;
+}
+
+.product-section-btn{
+    background-color: transparent;
+    border: 0.5px solid lightgray;
+    padding: 10px 25px;
+    border-radius: 2px;
+}
+.product-active{
+    background-color: coral !important;
+    color:white !important;
+}
+.product-section-border-right{
+    border-right: 0.5px solid lightgray;
+}
+.product-section-border-left{
+    border-left: 1px solid lightgray;
+}
+.add-to-cart{
+    width: 100%;
+    height: 35px;
+    background-color: coral !important;
+    color:white !important;
+    border:none;
+    /*border-radius: 2px;*/
+    align-self: end;
+    display: none;
+}
+.add-to-cart-2{
+    width: 100%;
+    height: 35px;
+    color:white !important;
+    border:none;
+    align-self: end;
+    display: none;
+    border-radius: 0 0 2px 2px;
+    transition: all 1s ease !important;
+
+}
+.add-to-cart-3{
+    width: 100%;
+    height: 35px;
+    color:white !important;
+    border:none;
+    align-self: end;
+    border-radius: 0 0 2px 2px;
+    transition: all 1s ease !important;
+
+}
+.card:hover{
+    transform: scale(1.01);
+    box-shadow: 0 25px 29px rgba(63, 78, 100, 0.15) !important;
+    border: solid 2px rgba(235,235,235,1) !important;
+}
+.card:hover .add-to-cart-2{
+    display: block !important;
+}
+.product-card{
+    cursor: pointer;
+}
+.product-card:hover{
+    transition: all 0.2s ease !important;
+    /*background-color: white;*/
+    /*transform: scale(1.01);*/
+    box-shadow: 0 25px 29px rgba(63, 78, 100, 0.15) !important;
+    border: solid 2px rgba(235,235,235,1) !important;
+}
+.product-card:hover .add-to-cart{
+    display: block;
+}
+a, a:hover{
+    text-decoration: none;
+    color: black;
+}
