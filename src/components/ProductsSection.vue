@@ -11,39 +11,8 @@
             {{ cat.title }}</button>
         </div>
         <div class="row pt-5 products-section">
-          <div v-for="(item, index) in data" :key="index" :data-index="index" :data-category="item.category_id"  class="col-3 px-0 product-card mb-5">
-            <div class="p-4 ">
-              <div class="row d-flex justify-content-between" style="height: 28px">
-                <div class="col-6">
-                  <div v-if="item.new" class=" text-center">
-                    <span class="bg-success text-light px-3 d-block" style="border-radius: 2px; width: 65px !important; ">جدید</span>
-                    <div class="bg-success mx-auto" style="width: 7px; height: 7px; transform: rotate(45deg); margin-top: -4px;margin-right: 50px!important"></div>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div v-if="item.off" class=" text-center">
-                    <span class="bg-primary text-light px-3 d-block" style="border-radius: 2px; width: 65px !important; " dir="ltr">{{ item.off }}%</span>
-                    <div class="bg-primary mx-auto" style="width: 7px; height: 7px; transform: rotate(45deg); margin-top: -4px;margin-left: 60px!important"></div>
-                  </div>
-                </div>
-
-              </div>
-              <div>
-                <img :src="item.image" class="img-fluid w-100" alt="">
-              </div>
-              <div class="text-center product-txt">
-                <small class="fw-bold">{{ item.title}}</small><br>
-                <small>محصول کشور {{ item.made_in }}</small><br>
-                <b style="color: coral">{{ item.price}} تومان</b>
-              </div>
-            </div>
-            <div style="height: 40px; display: grid">
-              <button class="add-to-cart">
-<!--                افزودن به سبد خرید-->
-                <i class="bi bi-cart-plus-fill"></i>
-
-              </button>
-            </div>
+          <div v-for="(item, index) in data" :key="index" class="col-6 col-md-3 px-0 product-card mb-5" :data-index="index" :data-category="item.category_id"  >
+            <product-card :product="item" :index="index" />
           </div>
         </div>
       </div>
@@ -53,15 +22,17 @@
 
 <script>
 import {onMounted} from "vue";
+import ProductCard from "@/components/ProductSectionCard.vue";
 
 export default {
   name: "ProductsSection",
+  components:{ProductCard},
   setup(){
 
     const categories = [
       {id:1,title: 'پوست',},
       {id:2,title: 'مـــو',},
-      {id:3,title: 'لاغری',}
+      {id:3,title: 'آرایشی',},
     ];
     const data = [
       { id:1,title: 'کپسول فیتو فانر 120 عددی', made_in: 'ایتالیا', price: '1.600.000', category_id: 2, image: '/img/phyto.png', new: true, off: 0 },

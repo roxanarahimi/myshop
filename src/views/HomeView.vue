@@ -2,7 +2,7 @@
   <main-carousel/>
   <div class="row bg-light pt-5">
     <div class="col-lg-10 mx-auto row px-5">
-      <div class="col-4 p-4">
+      <div class="col-md-4 p-4">
         <div class="row bg-white cat-section">
           <div class="col-4  text-center cat-img-container">
             <img src="/img/phyto.png" class="img-fluid cat-img" alt="">
@@ -16,7 +16,7 @@
           </div>
         </div>
       </div>
-      <div class="col-4 p-4">
+      <div class="col-md-4 p-4">
         <div class="row bg-white cat-section">
           <div class="col-4  text-center cat-img-container">
             <img src="/img/phyto.png" class="img-fluid cat-img" alt="">
@@ -30,7 +30,7 @@
           </div>
         </div>
       </div>
-      <div class="col-4 p-4">
+      <div class="col-md-4 p-4">
         <div class="row bg-white cat-section">
           <div class="col-4  text-center cat-img-container">
             <img src="/img/phyto.png" class="img-fluid cat-img" alt="">
