@@ -7,7 +7,7 @@
           <button @click="categoryToggle('all')" id="cat_all" class="product-section-btn product-active rounded-start-0">همه</button>
           <button v-for="(cat,index) in categories" :key="index" @click="categoryToggle(cat.id)" :id="'cat_'+cat.id"
                   class="product-section-btn border-end-0 rounded-0"
-          :class="{'border-start-2': index==categories.length-1}">
+          :class="{'border-start-2': index===categories.length-1}">
             {{ cat.title }}</button>
         </div>
         <div class="row pt-5 products-section">
@@ -64,18 +64,18 @@ export default {
       {id:3,title: 'لاغری',}
     ];
     const data = [
-      { title: 'کپسول فیتو فانر 120 عددی', made_in: 'ایتالیا', price: '1.600.000', category_id: 2, image: '/img/phyto.png', new: true, off: 0 },
-      { title: 'کپسول هیرتامین 30 عددی', made_in: 'آمریکا', price: '1.100.000', category_id: 2, image: '/img/Hairtamin.png', new: false, off: 0 },
-      { title: 'کپسول کوکونات کلاژن 60 عددی', made_in: 'انگلیس', price: '1.100.000', category_id: 1, image: '/img/colagen.png', new: false, off: 0 },
-      { title: 'کپسول فیتو فانر 120 عددی', made_in: 'ایتالیا', price: '1.600.000', category_id: 2, image: '/img/phyto.png', new: true, off: 12 },
-      { title: 'کپسول هیرتامین 30 عددی', made_in: 'آمریکا', price: '1.100.000', category_id: 2, image: '/img/Hairtamin.png', new: false, off: 0 },
-      { title: 'کپسول کوکونات کلاژن 60 عددی', made_in: 'انگلیس', price: '1.100.000', category_id: 1, image: '/img/colagen.png', new: false, off: 0 },
-      { title: 'کپسول فیتو فانر 120 عددی', made_in: 'ایتالیا', price: '1.600.000', category_id: 2, image: '/img/phyto.png', new: false, off: 0 },
-      { title: 'کپسول هیرتامین 30 عددی', made_in: 'آمریکا', price: '1.100.000', category_id: 2, image: '/img/Hairtamin.png', new: false, off: 10 },
-      { title: 'کپسول کوکونات کلاژن 60 عددی', made_in: 'انگلیس', price: '1.100.000', category_id: 1, image: '/img/colagen.png', new: false, off: 0 },
-      { title: 'کپسول فیتو فانر 120 عددی', made_in: 'ایتالیا', price: '1.600.000', category_id: 2, image: '/img/phyto.png', new: true, off: 0 },
-      { title: 'کپسول هیرتامین 30 عددی', made_in: 'آمریکا', price: '1.100.000', category_id: 2, image: '/img/Hairtamin.png', new: false, off: 8 },
-      { title: 'کپسول کوکونات کلاژن 60 عددی', made_in: 'انگلیس', price: '1.100.000', category_id: 1, image: '/img/colagen.png', new: false, off: 0 }
+      { id:1,title: 'کپسول فیتو فانر 120 عددی', made_in: 'ایتالیا', price: '1.600.000', category_id: 2, image: '/img/phyto.png', new: true, off: 0 },
+      { id:2,title: 'کپسول هیرتامین 30 عددی', made_in: 'آمریکا', price: '1.100.000', category_id: 2, image: '/img/Hairtamin.png', new: false, off: 0 },
+      { id:3,title: 'کپسول کوکونات کلاژن 60 عددی', made_in: 'انگلیس', price: '1.100.000', category_id: 1, image: '/img/colagen.png', new: false, off: 0 },
+      { id:4,title: 'کپسول فیتو فانر 120 عددی', made_in: 'ایتالیا', price: '1.600.000', category_id: 2, image: '/img/phyto.png', new: true, off: 12 },
+      { id:5,title: 'کپسول هیرتامین 30 عددی', made_in: 'آمریکا', price: '1.100.000', category_id: 2, image: '/img/Hairtamin.png', new: false, off: 0 },
+      { id:6,title: 'کپسول کوکونات کلاژن 60 عددی', made_in: 'انگلیس', price: '1.100.000', category_id: 1, image: '/img/colagen.png', new: false, off: 0 },
+      { id:7,title: 'کپسول فیتو فانر 120 عددی', made_in: 'ایتالیا', price: '1.600.000', category_id: 2, image: '/img/phyto.png', new: false, off: 0 },
+      { id:8,title: 'کپسول هیرتامین 30 عددی', made_in: 'آمریکا', price: '1.100.000', category_id: 2, image: '/img/Hairtamin.png', new: false, off: 10 },
+      { id:9,title: 'کپسول کوکونات کلاژن 60 عددی', made_in: 'انگلیس', price: '1.100.000', category_id: 1, image: '/img/colagen.png', new: false, off: 0 },
+      { id:10,title: 'کپسول فیتو فانر 120 عددی', made_in: 'ایتالیا', price: '1.600.000', category_id: 2, image: '/img/phyto.png', new: true, off: 0 },
+      { id:11,title: 'کپسول هیرتامین 30 عددی', made_in: 'آمریکا', price: '1.100.000', category_id: 2, image: '/img/Hairtamin.png', new: false, off: 8 },
+      { id:12,title: 'کپسول کوکونات کلاژن 60 عددی', made_in: 'انگلیس', price: '1.100.000', category_id: 1, image: '/img/colagen.png', new: false, off: 0 }
     ];
     const setBorders = ()=>{
      document.querySelectorAll('.product-card').forEach(element=>{

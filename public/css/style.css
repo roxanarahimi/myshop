@@ -35,10 +35,9 @@ body, html {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: dimgray;
+    background: #b6b6b6;
     border-radius: 5px;
     cursor: pointer !important;
-
 }
 
 /* Handle on hover */
@@ -128,9 +127,9 @@ body, html {
 
 }
 .card:hover{
-    transform: scale(1.01);
-    box-shadow: 0 25px 29px rgba(63, 78, 100, 0.15) !important;
-    border: solid 2px rgba(235,235,235,1) !important;
+    transform: scale(1.001);
+    box-shadow: 0 2px 5px rgba(63, 78, 100, 0.15) !important;
+    border: solid 1px rgba(235,235,235,1) !important;
 }
 .card:hover .add-to-cart-2{
     display: block !important;
@@ -157,4 +156,7 @@ a, a:hover{
 }
 .border-start-2{
     border-radius: 2px 0 0 2px !important;
+}
+.cursor, input[type=checkbox], input[type=radio]{
+    cursor:pointer !important;
 }
