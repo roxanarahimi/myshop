@@ -4,13 +4,14 @@
     <div class="row justify-content-center">
       <div class="col-lg-7">
         <div class="d-flex justify-content-center">
-          <button @click="categoryToggle('all')" id="all" class="product-section-btn  product-active">همه</button>
-          <button @click="categoryToggle('skin')" id="skin" class="product-section-btn border-end-0">پوست</button>
-          <button @click="categoryToggle('hair')" id="hair" class="product-section-btn border-end-0">مــو</button>
-          <button @click="categoryToggle('slimming')" id="slimming" class="product-section-btn border-end-0">لاغری</button>
+          <button @click="categoryToggle('all')" id="cat_all" class="product-section-btn product-active rounded-start-0">همه</button>
+          <button v-for="(cat,index) in categories" :key="index" @click="categoryToggle(cat.id)" :id="'cat_'+cat.id"
+                  class="product-section-btn border-end-0 rounded-0"
+          :class="{'border-start-2': index==categories.length-1}">
+            {{ cat.title }}</button>
         </div>
         <div class="row pt-5 products-section">
-          <div v-for="(item, index) in data" :key="index" :data-index="index" :data-category="item.category"  class="col-3 px-0 product-card mb-5">
+          <div v-for="(item, index) in data" :key="index" :data-index="index" :data-category="item.category_id"  class="col-3 px-0 product-card mb-5">
             <div class="p-4 ">
               <div class="row d-flex justify-content-between" style="height: 28px">
                 <div class="col-6">
@@ -30,7 +31,7 @@
               <div>
                 <img :src="item.image" class="img-fluid w-100" alt="">
               </div>
-              <div class="text-center">
+              <div class="text-center product-txt">
                 <small class="fw-bold">{{ item.title}}</small><br>
                 <small>محصول کشور {{ item.made_in }}</small><br>
                 <b style="color: coral">{{ item.price}} تومان</b>
@@ -57,19 +58,24 @@ export default {
   name: "ProductsSection",
   setup(){
 
+    const categories = [
+      {id:1,title: 'پوست',},
+      {id:2,title: 'مـــو',},
+      {id:3,title: 'لاغری',}
+    ];
     const data = [
-      { title: 'کپسول فیتو فانر 120 عددی', made_in: 'ایتالیا', price: '1.600.000', category: 'hair', image: '/img/phyto.png', new: true, off: 0 },
-      { title: 'کپسول هیرتامین 30 عددی', made_in: 'آمریکا', price: '1.100.000', category: 'hair', image: '/img/Hairtamin.png', new: false, off: 0 },
-      { title: 'کپسول کوکونات کلاژن 60 عددی', made_in: 'انگلیس', price: '1.100.000', category: 'skin', image: '/img/colagen.png', new: false, off: 0 },
-      { title: 'کپسول فیتو فانر 120 عددی', made_in: 'ایتالیا', price: '1.600.000', category: 'hair', image: '/img/phyto.png', new: true, off: 12 },
-      { title: 'کپسول هیرتامین 30 عددی', made_in: 'آمریکا', price: '1.100.000', category: 'hair', image: '/img/Hairtamin.png', new: false, off: 0 },
-      { title: 'کپسول کوکونات کلاژن 60 عددی', made_in: 'انگلیس', price: '1.100.000', category: 'skin', image: '/img/colagen.png', new: false, off: 0 },
-      { title: 'کپسول فیتو فانر 120 عددی', made_in: 'ایتالیا', price: '1.600.000', category: 'hair', image: '/img/phyto.png', new: false, off: 0 },
-      { title: 'کپسول هیرتامین 30 عددی', made_in: 'آمریکا', price: '1.100.000', category: 'hair', image: '/img/Hairtamin.png', new: false, off: 10 },
-      { title: 'کپسول کوکونات کلاژن 60 عددی', made_in: 'انگلیس', price: '1.100.000', category: 'skin', image: '/img/colagen.png', new: false, off: 0 },
-      { title: 'کپسول فیتو فانر 120 عددی', made_in: 'ایتالیا', price: '1.600.000', category: 'hair', image: '/img/phyto.png', new: true, off: 0 },
-      { title: 'کپسول هیرتامین 30 عددی', made_in: 'آمریکا', price: '1.100.000', category: 'hair', image: '/img/Hairtamin.png', new: false, off: 8 },
-      { title: 'کپسول کوکونات کلاژن 60 عددی', made_in: 'انگلیس', price: '1.100.000', category: 'skin', image: '/img/colagen.png', new: false, off: 0 }
+      { title: 'کپسول فیتو فانر 120 عددی', made_in: 'ایتالیا', price: '1.600.000', category_id: 2, image: '/img/phyto.png', new: true, off: 0 },
+      { title: 'کپسول هیرتامین 30 عددی', made_in: 'آمریکا', price: '1.100.000', category_id: 2, image: '/img/Hairtamin.png', new: false, off: 0 },
+      { title: 'کپسول کوکونات کلاژن 60 عددی', made_in: 'انگلیس', price: '1.100.000', category_id: 1, image: '/img/colagen.png', new: false, off: 0 },
+      { title: 'کپسول فیتو فانر 120 عددی', made_in: 'ایتالیا', price: '1.600.000', category_id: 2, image: '/img/phyto.png', new: true, off: 12 },
+      { title: 'کپسول هیرتامین 30 عددی', made_in: 'آمریکا', price: '1.100.000', category_id: 2, image: '/img/Hairtamin.png', new: false, off: 0 },
+      { title: 'کپسول کوکونات کلاژن 60 عددی', made_in: 'انگلیس', price: '1.100.000', category_id: 1, image: '/img/colagen.png', new: false, off: 0 },
+      { title: 'کپسول فیتو فانر 120 عددی', made_in: 'ایتالیا', price: '1.600.000', category_id: 2, image: '/img/phyto.png', new: false, off: 0 },
+      { title: 'کپسول هیرتامین 30 عددی', made_in: 'آمریکا', price: '1.100.000', category_id: 2, image: '/img/Hairtamin.png', new: false, off: 10 },
+      { title: 'کپسول کوکونات کلاژن 60 عددی', made_in: 'انگلیس', price: '1.100.000', category_id: 1, image: '/img/colagen.png', new: false, off: 0 },
+      { title: 'کپسول فیتو فانر 120 عددی', made_in: 'ایتالیا', price: '1.600.000', category_id: 2, image: '/img/phyto.png', new: true, off: 0 },
+      { title: 'کپسول هیرتامین 30 عددی', made_in: 'آمریکا', price: '1.100.000', category_id: 2, image: '/img/Hairtamin.png', new: false, off: 8 },
+      { title: 'کپسول کوکونات کلاژن 60 عددی', made_in: 'انگلیس', price: '1.100.000', category_id: 1, image: '/img/colagen.png', new: false, off: 0 }
     ];
     const setBorders = ()=>{
      document.querySelectorAll('.product-card').forEach(element=>{
@@ -85,7 +91,7 @@ export default {
     });
     const categoryToggle = (id) =>{
       document.querySelector('.product-active').classList.remove('product-active');
-      document.querySelector('#'+id).classList.add('product-active');
+      document.querySelector('#cat_'+id)?.classList.add('product-active');
 
 
       document.querySelectorAll('.product-card').forEach(element=>{
@@ -129,7 +135,7 @@ export default {
     }
 
     return{
-      categoryToggle, data, setBorders
+      categoryToggle, data, setBorders, categories,
     }
   }
 }
