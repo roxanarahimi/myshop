@@ -1,6 +1,6 @@
 <template>
   <nav-bar />
- <main style="margin-top: 56px; min-height: 275px">
+ <main>
    <router-view/>
  </main>
   <the-footer />
