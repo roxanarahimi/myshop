@@ -31,7 +31,7 @@
       </div>
 
     </div>
-    <div class="col-lg-10 py-5">
+    <div class="col-lg-10 pt-5 pb-4">
 
       <div class="row justify-content-between">
         <div class="col-md-4 d-flex justify-content-between px-5 p-md-0 mb-5 mb-md-0">

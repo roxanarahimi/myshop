@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="row px-5 ">
-      <div class="row col-xl-10 px-3 px-md-2 py-3 px-lg-4 py-lg-3 mx-auto p-2   bg-light mt-md-5 justify-content-center ">
+    <div class="row px-4 ">
+      <div class="row col-xl-10 px-3 px-md-2 py-3 px-lg-4 py-lg-3 mx-auto p-2   bg-light mt-2 mt-md-5 justify-content-center ">
         <div class="col-md-10 col-xl-10 col-xxl-8 row p-1 mx-auto product-labels mb-2">
           <div class="col-6 p-0">
             <div v-if="product.new" class=" text-center position-relative new-label">
@@ -49,7 +49,7 @@
 
       </div>
       <div class="row col-xl-10  mx-auto py-3 px-0 ">
-        <div class="col-12 mt-5  p-0">
+        <div class="col-12 mt-5 px-3 px-md-0 py-0">
           <p style="text-align: justify">
             {{ product.text }}
           </p>
@@ -57,7 +57,7 @@
         <h3 class="mt-5">محصولات مشابه</h3>
         <div class="col-12 px-0 row justify-content-end">
           <div class="row col-md-10 px-0" dir="ltr">
-            <div class="col-6 col-md-2 p-0 pe-1" v-for="(item, index) in sameProducts" :key="index" dir="rtl">
+            <div class="col-6 col-md-2 p-0 pe-1" v-for="(item, index) in sameProducts.slice(0, 4)" :key="index" dir="rtl">
               <product-card :product="item" :index="index"/>
             </div>
           </div>
@@ -88,9 +88,6 @@ export default {
       window.scrollTo({top: 0, behavior: 'smooth'});
       product.value = products.find((element) => element.id == route.params.id);
       sameProducts.value = products.filter((element) => element.category_id == product.value.category_id && element.id != product.value.id);
-      sameProducts.value = sameProducts.value.filter((element, index) => {
-        return index <= 3
-      });
     })
     return {
       product, products, sameProducts

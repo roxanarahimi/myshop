@@ -33,10 +33,33 @@
       </nav>
     </div>
   </div>
-  <div class="d-md-none w-100" style="position: fixed; right:0; bottom: 0; z-index: 1000;" >
-    <nav class="navbar navbar-expand bg-body-tertiary w-100">
+  <div class="d-md-none w-100">
+    <nav class="navbar navbar-expand bg-body-tertiary w-100" style="position: fixed; right:0; top: 0; z-index: 1000;">
       <div class="container-fluid px-0 w-100">
-        <ul class="navbar-nav px-0 w-100 bottom-nav d-flex justify-content-between">
+        <ul class="navbar-nav px-0 w-100 bottom-nav-ul d-flex justify-content-between">
+          <li class="nav-item">
+            <div @click="$router.go(1)" class="nav-link">
+              <i class="bi bi-caret-right"></i>
+            </div>
+          </li>
+          <li class="nav-item">
+            <router-link to="/cart" class="nav-link position-relative">
+              <i class="bi bi-cart"></i>
+              <div class="cart-badge">3</div>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <div @click="$router.go(-1)" class="nav-link">
+              <i class="bi bi-caret-left"></i>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+    <nav class="navbar navbar-expand bg-body-tertiary w-100" style="position: fixed; right:0; bottom: 0; z-index: 1000;">
+      <div class="container-fluid px-0 w-100">
+        <ul class="navbar-nav px-0 w-100 bottom-nav-ul d-flex justify-content-between">
           <li class="nav-item">
             <router-link to="/profile" class="nav-link">
               <i class="bi bi-person"></i>
@@ -48,28 +71,20 @@
               <i class="bi bi-shop-window "></i>
             </router-link>
           </li>
-
-          <li class="nav-item">
-            <router-link to="/" class="nav-link active" aria-current="page">
-              <i class="bi bi-house"></i>
-            </router-link>
-          </li>
           <li class="nav-item">
             <router-link to="/help" class="nav-link">
               <i class="bi bi-question-square"></i>
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/cart" class="nav-link position-relative">
-              <i class="bi bi-cart"></i>
-              <div class="cart-badge">3</div>
+            <router-link to="/" class="nav-link active" aria-current="page">
+              <i class="bi bi-house"></i>
             </router-link>
           </li>
 
         </ul>
       </div>
     </nav>
-
   </div>
 </template>
 

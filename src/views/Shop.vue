@@ -1,8 +1,8 @@
 <template>
   <div class="row">
 
-    <div class="col-lg-10 px-4 mx-auto d-flex justify-content-xl-between p-3 ps-2 vh-100">
-      <div class="pt-2 " style="width: 170px; font-size: 13px">
+    <div class="col-lg-10 px-4 mx-auto d-flex justify-content-xl-between p-3 ps-2 pb-5">
+      <div class="pt-2 shop-sidebar">
         <div class="w-100 mb-3 p-3 text-center" style="background: whitesmoke">
           <input type="text" id="search" class="form-control form-control-sm " placeholder="جستجوی محصول">
         </div>
@@ -54,7 +54,7 @@
 
         </div>
       </div>
-      <div class="mt-2 px-3" style="height:95% !important; overflow-y: scroll; overflow-x: hidden; width: calc(100% - 180px )">
+      <div class="mt-2 px-3 shop-products" style="">
         <div class="row">
           <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 h-100 px-1" v-for="(item, index) in data" :key="index">
             <product-card :product="item" :index="index" />
