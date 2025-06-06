@@ -21,8 +21,8 @@
               </li>
             </ul>
             <div class="d-flex" style="font-size: 15px">
-              <i class="bi bi-search mx-3"></i>
-              <i class="bi bi-person-fill mx-3"></i>
+              <router-link to="/shop" class="bi bi-search mx-3"></router-link>
+              <router-link to="/profile" class="bi bi-person-fill mx-3"></router-link>
               <router-link to="/cart" class="nav-link position-relative">
                 <i class="bi bi-cart-fill"></i>
                 <div class="cart-badge">3</div>

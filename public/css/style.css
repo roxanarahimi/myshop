@@ -18,7 +18,10 @@ body, html {
 /*    overflow-y: scroll !important;*/
 /*    scroll-snap-type: y mandatory !important;*/
 /*}*/
-
+.en{
+    text-align: left !important;
+    direction: ltr !important;
+}
 ::-webkit-scrollbar {
     width: 5px;
     cursor: pointer !important;
@@ -52,7 +55,7 @@ body, html {
 }
 
 main {
-    min-height: 275px;
+    min-height: 275px !important;
 }
 
 body {
@@ -139,6 +142,16 @@ body {
     border: none;
     align-self: end;
     display: none;
+    border-radius: 0 0 2px 2px;
+    transition: all 1s ease !important;
+
+}
+.submit-btn {
+    width: 100%;
+    height: 35px;
+    color: white !important;
+    border: 1px solid coral ;
+    align-self: end;
     border-radius: 0 0 2px 2px;
     transition: all 1s ease !important;
 
@@ -299,4 +312,28 @@ label {
         height: calc(100vh - 150px) !important;
     }
 
+}
+input:focus{
+    box-shadow: none !important;
+}input:focus .form-floating > .form-control:focus ~ label, .form-floating > .form-control:not(:placeholder-shown) ~ label, .form-floating > .form-control-plaintext ~ label, .form-floating > .form-select ~ label{
+    color: coral !important;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+.btn-none{
+    background-color: transparent !important;
+    border: 0;
+}
+.gray-scale{
+    filter: grayScale(0.9);
+    opacity: 0.7;
 }

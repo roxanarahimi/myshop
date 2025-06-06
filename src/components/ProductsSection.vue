@@ -51,7 +51,8 @@ export default {
         category_id: 2,
         image: '/img/phyto.png',
         new: true,
-        off: 0
+        off: 0,
+        stock: 0,
       },
       {
         id: 2,
@@ -61,7 +62,8 @@ export default {
         category_id: 2,
         image: '/img/Hairtamin.png',
         new: false,
-        off: 0
+        off: 0,
+        stock: 2,
       },
       {
         id: 3,
@@ -71,7 +73,8 @@ export default {
         category_id: 1,
         image: '/img/colagen.png',
         new: false,
-        off: 0
+        off: 0,
+        stock: 0,
       },
       {
         id: 4,
@@ -81,7 +84,8 @@ export default {
         category_id: 2,
         image: '/img/phyto.png',
         new: true,
-        off: 12
+        off: 12,
+        stock: 3,
       },
       {
         id: 5,
@@ -91,7 +95,8 @@ export default {
         category_id: 2,
         image: '/img/Hairtamin.png',
         new: false,
-        off: 0
+        off: 0,
+        stock: 0,
       },
       {
         id: 6,
@@ -101,7 +106,8 @@ export default {
         category_id: 1,
         image: '/img/colagen.png',
         new: false,
-        off: 0
+        off: 0,
+        stock: 200,
       },
       {
         id: 7,
@@ -111,7 +117,8 @@ export default {
         category_id: 2,
         image: '/img/phyto.png',
         new: false,
-        off: 0
+        off: 0,
+        stock: 40,
       },
       {
         id: 8,
@@ -121,7 +128,8 @@ export default {
         category_id: 2,
         image: '/img/Hairtamin.png',
         new: false,
-        off: 10
+        off: 10,
+        stock: 0,
       },
       {
         id: 9,
@@ -131,7 +139,8 @@ export default {
         category_id: 1,
         image: '/img/colagen.png',
         new: false,
-        off: 0
+        off: 0,
+        stock: 200,
       },
       {
         id: 10,
@@ -141,7 +150,8 @@ export default {
         category_id: 2,
         image: '/img/phyto.png',
         new: true,
-        off: 0
+        off: 0,
+        stock: 880,
       },
       {
         id: 11,
@@ -151,7 +161,8 @@ export default {
         category_id: 2,
         image: '/img/Hairtamin.png',
         new: false,
-        off: 8
+        off: 8,
+        stock: 200,
       },
       {
         id: 12,
@@ -161,7 +172,8 @@ export default {
         category_id: 1,
         image: '/img/colagen.png',
         new: false,
-        off: 0
+        off: 0,
+        stock: 200,
       }
     ];
     const data = ref(products);

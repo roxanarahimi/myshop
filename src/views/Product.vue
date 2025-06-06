@@ -10,7 +10,7 @@
             </div>
           </div>
           <div class="col-6 p-0" dir="ltr">
-            <div v-if="product.off" class=" text-center position-relative off-label" >
+            <div v-if="product.off && product.stock" class=" text-center position-relative off-label" >
               <div class="bg-primary text-light text-center off-label-body ">{{ product.off }}%</div>
               <div class="bg-primary mx-auto off-label-pointer"></div>
             </div>
@@ -29,7 +29,8 @@
               <div class="p-3 p-md-5">
                 <h3 class="">{{ product.title }}</h3>
                 <h6 class="mb-5">{{ product.subtitle }}</h6>
-                <h5 class="text-primary">{{ product.price }} تومان</h5>
+                <h5 v-if="product.stock" class="text-primary">{{ product.price }} تومان</h5>
+                <h5 v-else class="text-primary">ناموجود</h5>
                 <h6>محصول کشور {{ product.made_in }}</h6>
                 <h6>تاریخ انقضا : {{ product.expire }}</h6>
 
@@ -39,7 +40,7 @@
               </div>
 
             </div>
-            <button class="add-to-cart-3 bg-primary">
+            <button v-if="product.stock" class="add-to-cart-3 bg-primary">
               <i class="bi bi-cart-plus-fill"></i>
             </button>
           </div>

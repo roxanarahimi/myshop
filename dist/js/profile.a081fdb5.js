@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkshop3"]=self["webpackChunkshop3"]||[]).push([[845],{9077:function(n,e,r){function u(n,e,r,u,t,s){return null}r.r(e),r.d(e,{default:function(){return f}});var t={name:"Profile"},s=r(89);const c=(0,s.Z)(t,[["render",u]]);var f=c}}]);
+//# sourceMappingURL=profile.a081fdb5.js.map
