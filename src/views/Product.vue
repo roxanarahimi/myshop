@@ -19,7 +19,9 @@
         </div>
         <div class="col-md-4 col-xl-5 col-xxl-4 d-grid h-md-100 bg-white ms-md-1" style="border-radius: 2px">
           <div class="w-100 align-self-center">
-            <img :src="product.image" class="img-fluid w-100" style="align-self: center" :alt="product.title">
+<!--            <img :src="product.image" class="img-fluid w-100"  :alt="product.title">-->
+            <lazy-image style="align-self: center" :data="{image:product.image,title:product.title}"/>
+
           </div>
         </div>
         <div class="col-md-6 col-xl-5 col-xxl-4 h-md-100 bg-white px-0 me-md-1">
@@ -29,8 +31,17 @@
               <div class="p-3 p-md-5">
                 <h3 class="">{{ product.title }}</h3>
                 <h6 class="mb-5">{{ product.subtitle }}</h6>
-                <h5 v-if="product.stock" class="text-primary">{{ product.price }} تومان</h5>
-                <h5 v-else class="text-primary">ناموجود</h5>
+
+
+                <div  v-if="product.stock" class="d-flex">
+                  <h5 v-if="product.off" class=" text-black-50 text-decoration-line-through ms-2">{{ price }}</h5>
+                  <h5  class=" text-primary">{{ offPrice }} تومان</h5>
+                </div>
+                <div v-else  class="d-flex"> <h5 class="text-primary">ناموجود</h5></div>
+
+
+
+
                 <h6>محصول کشور {{ product.made_in }}</h6>
                 <h6>تاریخ انقضا : {{ product.expire }}</h6>
 
@@ -71,27 +82,36 @@
 </template>
 
 <script>
-import {onMounted, ref, registerRuntimeCompiler} from "vue";
+import {onMounted, ref} from "vue";
 import Shop from './Shop';
 import {useRoute} from "vue-router/dist/vue-router";
 import ProductCard from '@/components/ProductCard.vue'
+import LazyImage from '@/components/LazyImage.vue'
 
 export default {
   name: "Product",
-  components: {Shop, ProductCard},
+  components: {Shop, ProductCard,LazyImage},
   setup() {
     const products = Shop.setup().data;
     const product = ref({});
     const sameProducts = ref([]);
     const route = useRoute();
+    const showNumbers = (number)=>{
+      return new Intl.NumberFormat().format(number);
+    }
+    const price = ref();
+    const offPrice = ref();
 
     onMounted(() => {
       window.scrollTo({top: 0, behavior: 'smooth'});
       product.value = products.find((element) => element.id == route.params.id);
+      price.value = showNumbers(product.value.price);
+      offPrice.value = showNumbers(product.value.price - (product.value.price*product.value.off*0.01));
       sameProducts.value = products.filter((element) => element.category_id == product.value.category_id && element.id != product.value.id);
     })
+
     return {
-      product, products, sameProducts
+      product, products, sameProducts, price, offPrice,showNumbers,
     }
   }
 }

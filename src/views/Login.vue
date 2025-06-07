@@ -18,6 +18,13 @@
           </div>
           <div v-else id="verify-mobile">
             <p class="p-3 small">کد تایید 4 رقمی برای شما پیامک شد. لطفا کد را وارد کنید.</p>
+            <div class="col-12 d-flex justify-content-between px-3 ">
+              <small disabled id="resend" @click="resend" class="text-black-50">ارسال مجدد کد
+                <span id="time">{{ time }}</span>
+              </small>
+              <small @click="editNumber" class="text-black-50 cursor">ویرایش شماره</small>
+            </div>
+
             <form class="p-3" dir="ltr" @reset="focus1stInput" @submit.prevent="checkCode">
               <div class="d-flex">
                 <input type="number" @input="inputHandle('1')" class="code me-2 form-control text-center rounded rounded-1" min="0" max="9" minlength="1" maxlength="1" :class="{'border-danger': invalidCode}" id="code1">
@@ -123,8 +130,12 @@ export default {
       invalidCode.value = false;
 
     }
+    const time = ref(59);
+
     return {
-      invalidMobile, validateMobile, errors, sendOtp, invalidCode,inputHandle, checkCode,focus1stInput,mobileValidated
+      invalidMobile, validateMobile, errors, sendOtp, invalidCode,
+      inputHandle, checkCode,focus1stInput,mobileValidated,
+      time,
     }
   }
 }

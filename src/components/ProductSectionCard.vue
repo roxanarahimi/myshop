@@ -1,11 +1,11 @@
 <template>
 <div v-if="product" class="position-relative">
-  <div v-if="!product.stock" class="w-100 text-center" style="position: absolute;top:50px;left:0; z-index:100">
-    <img  width="100" class="" src="/img/sold.png" >
-  </div>
-  <router-link :to="'/product/'+product.id" :class="{'gray-scale': product.stock === 0}">
 
-    <div class="p-4">
+  <router-link :to="'/product/'+product.id" >
+    <div v-if="!product.stock" class="w-100 text-center" style="position: absolute;top:50px;left:0; z-index:100">
+      <img  width="100" class="" src="/img/sold.png" >
+    </div>
+    <div class="p-4" :class="{'gray-scale': product.stock === 0}">
       <div class="row p-0 mx-auto w-100 product-labels">
         <div class="col-6 p-0">
           <div v-if="product.new" class=" text-center position-relative new-label">
@@ -29,8 +29,11 @@
       <div class="text-center product-txt">
         <small class="fw-bold">{{ product.title}}</small><br>
         <small>محصول کشور {{ product.made_in }}</small><br>
-        <b v-if="product.stock" style="color: coral">{{ product.price}} تومان</b>
-        <b v-else style="color: coral">ناموجود</b>
+        <div  v-if="product.stock" class="d-flex justify-content-center">
+          <b v-if="product.off" class=" text-black-50 text-decoration-line-through ms-2">{{ price }}</b>
+          <b  class=" text-primary">{{ offPrice }} تومان</b>
+        </div>
+        <div v-else  class="d-flex justify-content-center"> <b class="text-primary">ناموجود</b></div>
       </div>
     </div>
   </router-link>
@@ -50,6 +53,17 @@ export default {
   name: "ProductSectionCard",
   props: [ 'product', 'index' ],
   components:{ LazyImage},
+  setup(_props){
+    const showNumbers = (number)=>{
+      return new Intl.NumberFormat().format(number);
+    }
+    const price = showNumbers(_props.product.price);
+    const offPrice = showNumbers(_props.product.price - (_props.product.price*_props.product.off*0.01));
+
+    return{
+      price, offPrice,showNumbers,
+    }
+  }
 }
 </script>
 

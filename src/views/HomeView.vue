@@ -3,11 +3,11 @@
   <div class="row bg-light pt-5">
     <div class="col-lg-10 mx-auto row px-5">
       <div class="col-md-4 p-4">
-        <div class="row bg-white cat-section">
-          <div class="col-4  text-center cat-img-container">
+        <div class="row bg-white cat-section py-4 py-md-0 ">
+          <div class="col-5 col-md-4  text-center cat-img-container">
             <img src="/img/phyto.png" class="img-fluid cat-img" alt="">
           </div>
-          <div class="col-8 cat-label d-grid ps-4">
+          <div class="col-7 col-md-8 cat-label d-grid ps-3 ps-md-4">
             <div style="align-self: center">
               <b class="cat-txt">محصولات پوست</b>
               <br><br>
@@ -17,11 +17,11 @@
         </div>
       </div>
       <div class="col-md-4 p-4">
-        <div class="row bg-white cat-section">
-          <div class="col-4  text-center cat-img-container">
+        <div class="row bg-white cat-section py-4 py-md-0 ">
+          <div class="col-5 col-md-4  text-center cat-img-container">
             <img src="/img/phyto.png" class="img-fluid cat-img" alt="">
           </div>
-          <div class="col-8 cat-label d-grid ps-4">
+          <div class="col-7 col-md-8 cat-label d-grid ps-3 ps-md-4">
             <div style="align-self: center">
               <b class="cat-txt">محصولات مو</b>
               <br><br>
@@ -31,11 +31,11 @@
         </div>
       </div>
       <div class="col-md-4 p-4">
-        <div class="row bg-white cat-section">
-          <div class="col-4  text-center cat-img-container">
+        <div class="row bg-white cat-section py-4 py-md-0 ">
+          <div class="col-5 col-md-4  text-center cat-img-container">
             <img src="/img/phyto.png" class="img-fluid cat-img" alt="">
           </div>
-          <div class="col-8 cat-label d-grid ps-4">
+          <div class="col-7 col-md-8 cat-label d-grid ps-3 ps-md-4">
             <div style="align-self: center">
               <b class="cat-txt">محصولات لاغری</b>
               <br><br>
