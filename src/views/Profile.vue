@@ -31,11 +31,11 @@
                                                                             class="form-control form-control-sm en"
                                                                             value="ms.roxanarahimi@gmail.com"></div>
                     <div class="col-12 mb-1 p-1 mt-3">
-                      <button class="btn btn-sm btn-primary text-light w-100">ویرایش</button>
                     </div>
-                  </div>
-                </form>
-              </div>
+                                   </div>
+                               </form>
+                         </div>
+              <button class="btn btn-sm btn-primary text-light w-100">ویرایش</button>
             </div>
           </div>
         </div>
@@ -53,29 +53,34 @@
                       </button>
                     </h2>
                     <div id="collapseAddrOne" class="accordion-collapse collapse show" data-bs-parent="#accordionAddress">
-                      <div class="accordion-body p-4">
-                        <form>
-                          <div class="row px-3">
-                            <div class="col-6 mb-1 p-1"><label>عنوان</label>
-                              <input type="text" class="form-control form-control-sm" value="خانه">
-                            </div>
-                            <div class="col-6 mb-1 p-1"><label>کد پستی</label>
-                              <input type="text" class="form-control form-control-sm en" value="1731899411">
-                            </div>
-                            <div class="col-6 mb-1 p-1"><label>استان</label>
-                              <input type="text" class="form-control form-control-sm" value="تهران">
-                            </div>
-                            <div class="col-6 mb-1 p-1"><label>شهر</label>
-                              <input type="text" class="form-control form-control-sm"  value="تهران">
-                            </div>
-                            <div class="col-12 mb-1 p-1"><label>ادرس</label>
-                              <input type="text" class="form-control form-control-sm" value="پلاک 1">
-                            </div>
-                            <div class="col-12 mb-1 p-1 mt-3">
-                              <button class="btn btn-sm btn-primary text-light w-100">ویرایش</button>
-                            </div>
+                      <div class="accordion-body px-4">
+                        <div class="card p-0">
+                          <div class="card-body">
+                            <form>
+                              <div class="row px-3">
+                                <div class="col-6 mb-1 p-1"><label>عنوان</label>
+                                  <input type="text" class="form-control form-control-sm" value="خانه">
+                                </div>
+                                <div class="col-6 mb-1 p-1"><label>کد پستی</label>
+                                  <input type="text" class="form-control form-control-sm en" value="1731899411">
+                                </div>
+                                <div class="col-6 mb-1 p-1"><label>استان</label>
+                                  <input type="text" class="form-control form-control-sm" value="تهران">
+                                </div>
+                                <div class="col-6 mb-1 p-1"><label>شهر</label>
+                                  <input type="text" class="form-control form-control-sm"  value="تهران">
+                                </div>
+                                <div class="col-12 mb-1 p-1"><label>ادرس</label>
+                                  <input type="text" class="form-control form-control-sm" value="پلاک 1">
+                                </div>
+                                <div class="col-12 mb-1 p-1 mt-3">
+                                </div>
+                              </div>
+                            </form>
                           </div>
-                        </form>
+                          <button class="btn btn-sm btn-primary text-light w-100">ویرایش</button>
+
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -88,28 +93,33 @@
                     </h2>
                     <div id="collapseAddrTwo" class="accordion-collapse collapse" data-bs-parent="#accordionAddress">
                       <div class="accordion-body">
-                        <form>
-                          <div class="row px-3">
-                            <div class="col-6 mb-1 p-1"><label>عنوان</label>
-                              <input type="text" class="form-control form-control-sm" value="دفتر">
-                            </div>
-                            <div class="col-6 mb-1 p-1"><label>کد پستی</label>
-                              <input type="text" class="form-control form-control-sm en" value="1731899411">
-                            </div>
-                            <div class="col-6 mb-1 p-1"><label>استان</label>
-                              <input type="text" class="form-control form-control-sm" value="تهران">
-                            </div>
-                            <div class="col-6 mb-1 p-1"><label>شهر</label>
-                              <input type="text" class="form-control form-control-sm"  value="تهران">
-                            </div>
-                            <div class="col-12 mb-1 p-1"><label>ادرس</label>
-                              <input type="text" class="form-control form-control-sm" value="پلاک 1">
-                            </div>
-                            <div class="col-12 mb-1 p-1 mt-3">
-                              <button class="btn btn-sm btn-primary text-light w-100">ویرایش</button>
-                            </div>
+                        <div class="card p-0">
+                          <div class="card-body">
+                            <form>
+                              <div class="row px-3">
+                                <div class="col-6 mb-1 p-1"><label>عنوان</label>
+                                  <input type="text" class="form-control form-control-sm" value="دفتر">
+                                </div>
+                                <div class="col-6 mb-1 p-1"><label>کد پستی</label>
+                                  <input type="text" class="form-control form-control-sm en" value="1731899411">
+                                </div>
+                                <div class="col-6 mb-1 p-1"><label>استان</label>
+                                  <input type="text" class="form-control form-control-sm" value="تهران">
+                                </div>
+                                <div class="col-6 mb-1 p-1"><label>شهر</label>
+                                  <input type="text" class="form-control form-control-sm"  value="تهران">
+                                </div>
+                                <div class="col-12 mb-1 p-1"><label>ادرس</label>
+                                  <input type="text" class="form-control form-control-sm" value="پلاک 1">
+                                </div>
+                                <div class="col-12 mb-1 p-1 mt-3">
+                                </div>
+                              </div>
+                            </form>
                           </div>
-                        </form>
+                          <button class="btn btn-sm btn-primary text-light w-100">ویرایش</button>
+
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -365,6 +375,13 @@ export default {
   border: none;
 }
 .btn, input{
+  border-radius: 0 !important;
+}
+.card{
+  overflow: hidden;
+  border-radius: 3px !important;
+}
+.accordion, .accordion-item,.accordion-header,.accordion-button{
   border-radius: 0 !important;
 }
 </style>

@@ -4,7 +4,7 @@
       <div class="card w-100" style="border-color: #eeeeee !important; border-radius: 2px;">
         <div class="card-body p-0">
           <div v-if="!mobileValidated" class="mobile-form">
-            <p class="p-3 small">برای ورود یا عضویت در سایت، شماره موبایل خود را وارد کنید.</p>
+            <p class="p-3 small">برای ورود به سایت، شماره موبایل خود را وارد کنید.</p>
             <form class="form-floating p-3" dir="ltr" @submit.prevent="validateMobile">
               <input type="number" class="form-control en rounded rounded-1" :class="{'is-invalid': invalidMobile}"
                      id="mobile">

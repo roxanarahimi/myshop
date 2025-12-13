@@ -7,9 +7,9 @@
           <button @click="categoryToggle('all')" id="cat_all"
                   class="product-section-btn product-active rounded-start-0">همه
           </button>
-          <button v-for="(cat,index) in categories" :key="index" @click="categoryToggle(cat.id)" :id="'cat_'+cat.id"
+          <button v-for="(cat,index) in cats" :key="index" @click="categoryToggle(cat.id)" :id="'cat_'+cat.id"
                   class="product-section-btn border-end-0 rounded-0"
-                  :class="{'border-start-2': index===categories.length-1}">
+                  :class="{'border-start-2': index===cats.length-1}">
             {{ cat.title }}
           </button>
         </div>
@@ -34,14 +34,9 @@ import offcanvas from "../../public/bootstrap-5.3.2/js/src/offcanvas";
 
 export default {
   name: "ProductsSection",
+  props:['cats'],
   components: {ProductCard},
-  setup() {
-
-    const categories = [
-      {id: 1, title: 'پوست',},
-      {id: 2, title: 'مـــو',},
-      {id: 3, title: 'آرایشی',},
-    ];
+  setup(_props) {
     const products = [
       {
         id: 1,
@@ -176,7 +171,7 @@ export default {
         stock: 200,
       }
     ];
-    const data = ref(products);
+    const data = ref([products]);
     const setBorders = () => {
       document.querySelectorAll('.product-card').forEach(element => {
         element.classList.add('product-section-border-right');
@@ -188,6 +183,7 @@ export default {
     }
     onMounted(() => {
       setBorders();
+      console.log('ccc',_props.cats);
     });
     const categoryToggle0 = (id) => {
       document.querySelector('.product-active').classList.remove('product-active');
@@ -256,7 +252,7 @@ export default {
     }
 
     return {
-      categoryToggle, data, setBorders, categories,
+      categoryToggle, data, setBorders,
     }
   }
 }

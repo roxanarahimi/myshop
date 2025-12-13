@@ -5,6 +5,7 @@ const routes = [
     {
         path: '/',
         name: 'home',
+        props: true,
         component: HomeView
     },
     {
