@@ -32,7 +32,7 @@ const routes = [
         component: () => import(/* webpackChunkName: "help" */ '../views/Help.vue')
     },
     {
-        path: '/product/:id',
+        path: '/product/:slug',
         name: 'product',
         props: true,
         params: true,

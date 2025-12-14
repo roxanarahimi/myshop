@@ -18,7 +18,7 @@
       </div>
     </div>
   </div>
-  <new-products-section :cats="categories" />
+  <new-products-section :cats="categories" :url="url" :imgUrl="imgUrl" />
 
 </template>
 

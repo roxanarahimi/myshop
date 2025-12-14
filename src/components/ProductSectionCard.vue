@@ -1,7 +1,7 @@
 <template>
 <div v-if="product" class="position-relative">
 
-  <router-link :to="'/product/'+product.id" >
+  <router-link :to="'/product/'+product.slug" >
     <div v-if="!product.stock" class="w-100 text-center" style="position: absolute;top:50px;left:0; z-index:100">
       <img  width="100" class="" src="/img/sold.png" >
     </div>
@@ -23,7 +23,7 @@
       </div>
       <div>
 <!--        <img :src="product.image" class="img-fluid w-100" alt="">  -->
-        <lazy-image :data="{image:product.image,title:product.title}"/>
+        <lazy-image :data="{image:url+product.images[0],title:product.title}"/>
 
       </div>
       <div class="text-center product-txt">
@@ -51,7 +51,7 @@ import LazyImage from '@/components/LazyImage.vue'
 
 export default {
   name: "ProductSectionCard",
-  props: [ 'product', 'index' ],
+  props: [ 'product', 'index','url' ],
   components:{ LazyImage},
   setup(_props){
     const showNumbers = (number)=>{
