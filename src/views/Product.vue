@@ -30,29 +30,41 @@
 
           <div v-if="product.id" class="details h-100 d-grid" style="border-radius: 2px">
             <div class="details-inner p-0 d-grid">
-              <div class="p-3 p-md-5">
+              <div class="p-3 p-md-5 d-grid">
                 <h3 class="">{{ product?.title }}</h3>
-                <h6 class="mb-5">{{ product?.subtitle }}</h6>
+                <h6 class="mb-3">{{ product?.subtitle }}</h6>
 
+                <select class="form-select rounded-0 mb-3" v-model="selectedProduct" @change="setPrice">
+                  <option v-for="(p,index) in product.products" :value="p" :key="index">{{ p.size }}</option>
+                </select>
 
                 <div  v-if="product?.stock" class="d-flex">
                   <h5 v-if="product?.off" class=" text-black-50 text-decoration-line-through ms-2">{{ price }}</h5>
                   <h5  class=" text-primary">{{ offPrice }} تومان</h5>
                 </div>
-                <div v-else  class="d-flex"> <h5 class="text-primary">ناموجود</h5></div>
+                <div v-else class="d-flex"> <h5 class="text-primary">ناموجود</h5></div>
 
 
+                <div class="my-4 align-self-center">
+                  <p class="mb-0">اورجینال</p>
+                  <p class="mb-0">محصول کشور {{ product?.made_in }}</p>
+<!--                  <p class="mb-0">تاریخ انقضا : {{ // product?.expire }}</p>-->
+                </div>
 
+<!--                <ul class="pe-3">-->
+<!--                  <li v-for="item in product?.features">{{ item }}</li>-->
+<!--                </ul>-->
+                <div class=" align-self-end  d-flex justify-content-end">
+                  <button class="btn btn-sm btn-dark text-light">+</button>
+                  <input type="number" min="0" max="100" value="1" class="form-control form-control-sm rounded-0 d-inline-block text-center" style="width: 40px">
+                  <button class="btn btn-sm btn-dark text-light">-</button>
 
-                <h6>محصول کشور {{ product?.made_in }}</h6>
-                <h6>تاریخ انقضا : {{ product?.expire }}</h6>
-
-                <ul class="pe-3">
-                  <li v-for="item in product?.features">{{ item }}</li>
-                </ul>
+                </div>
               </div>
 
             </div>
+
+
             <button v-if="product.stock" class="add-to-cart-3 bg-primary align-self-end">
               <i class="bi bi-cart-plus-fill"></i>
             </button>
@@ -71,8 +83,8 @@
         <h3 class="mt-5">محصولات مشابه</h3>
         <div class="col-12 px-0 row justify-content-end">
           <div class="row col-md-10 px-0" dir="ltr">
-            <div class="col-6 col-md-2 p-0 pe-1" v-for="(item, index) in sameProducts.slice(0, 4)" :key="index" dir="rtl">
-              <product-card :product="item" :index="index"/>
+            <div class="col-6 col-md-2 p-0 pe-1" v-for="(item, index) in product?.sames" :key="index" dir="rtl">
+              <product-card :product="item" :index="index" :url="imgUrl"/>
             </div>
           </div>
         </div>
@@ -100,6 +112,7 @@ export default {
     const product = ref({});
     const sameProducts = ref([]);
     const route = useRoute();
+    const selectedProduct = ref();
     const showNumbers = (number)=>{
       return new Intl.NumberFormat().format(number);
     }
@@ -114,15 +127,22 @@ export default {
             product.value = response.data;
           })
           .then(()=>{
-            price.value = showNumbers(product.value.price);
-            offPrice.value = showNumbers(product.value.price - (product.value.price*product.value.off*0.01));
-            sameProducts.value = products.filter((element) => element.category_id == product.value.category_id && element.id != product.value.id);
+            selectedProduct.value = product.value.products[0];
+
+            setPrice();
+           sameProducts.value = products.filter((element) => element.category_id == product.value.category_id && element.id != product.value.id);
 
           })
           .catch((error)=>{
             console.error(error);
       })
     };
+    const setPrice = ()=>{
+      let prc = selectedProduct.value.price? selectedProduct.value.price : product.value.price;
+      let offp = selectedProduct.value.off? selectedProduct.value.off : product.value.off;
+      price.value = showNumbers(prc);
+      offPrice.value = showNumbers(prc - (prc*offp*0.01));
+    }
     onMounted(() => {
       console.log(route.params)
       window.scrollTo({top: 0, behavior: 'smooth'});
@@ -130,7 +150,7 @@ export default {
     })
 
     return {
-      product, products, sameProducts, price, offPrice,showNumbers, getData,url,imgUrl
+      product, products, sameProducts, price, offPrice,showNumbers, getData,url,imgUrl,selectedProduct,setPrice
     }
   }
 }
@@ -139,5 +159,9 @@ export default {
 <style scoped>
 small, b {
   font-size: 11px !important;
+}
+
+.btn{
+  border-radius: 0 !important;
 }
 </style>

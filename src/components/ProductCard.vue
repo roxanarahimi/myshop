@@ -1,9 +1,9 @@
 <template>
   <div v-if="product" class="card w-100 mb-2" style="border-color: #eeeeee !important; border-radius: 2px; cursor: pointer">
    <div class="card-body p-0 h-100"  >
-      <a :href="'/product/'+product.id" class="w-100">
+      <a :href="'/product/'+product.slug" class="w-100">
         <div class="w-100 text-center" style="position: absolute;top:50px;left:0; z-index:100;">
-          <img  v-if="!product.stock" width="100" class="" src="/img/sold.png" >
+          <img  v-if="product.stock === 0" width="100" class="" src="/img/sold.png" >
         </div>
         <div :class="{'gray-scale': product.stock === 0}">
           <div class="row p-1 mx-auto w-100 product-labels">
@@ -22,11 +22,11 @@
 
           </div>
           <!--        <img :src="product.image" class="img-fluid w-100" alt="">-->
-          <lazy-image :data="{image:product.image,title:product.title}"/>
+          <lazy-image :data="{image:url+product.images[0],title:product.title}"/>
           <div class="text-center">
             <small class="fw-bold titles-font-size">{{ product.title }}</small><br>
             <small class=" titles-font-size">محصول کشور {{ product.made_in }}</small><br>
-            <div  v-if="product.stock" class="d-flex justify-content-center">
+            <div  v-if="product.stock >0" class="d-flex justify-content-center">
               <b v-if="product.off" class="titles-font-size text-black-50 text-decoration-line-through ms-2">{{ price }}</b>
               <b  class="titles-font-size text-primary">{{ offPrice }} تومان</b>
             </div>
@@ -51,7 +51,7 @@ import LazyImage from '@/components/LazyImage.vue'
 
 export default {
   name: "ProductCard",
-  props: [ 'product', 'index' ],
+  props: [ 'product', 'index','url' ],
   components:{ LazyImage},
   setup(_props){
     const showNumbers = (number)=>{

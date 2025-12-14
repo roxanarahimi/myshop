@@ -80,14 +80,11 @@ export default {
 </script>
 
 <style scoped>
-tr{
-  //display: grid !important;
-}
+
 td:not(.product),th:not(.product){
   text-align: center !important;
 }
 td,th{
-  //align-self: center !important;
   vertical-align: bottom !important;
 }
 .btn{
