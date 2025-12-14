@@ -18,25 +18,13 @@
 
         </div>
         <div class="col-md-4 col-xl-5 col-xxl-4 d-grid h-md-100 bg-white ms-md-1" style="border-radius: 2px">
-          <div class="w-100 align-self-center">
-<!--            <img :src="product.image" class="img-fluid w-100"  :alt="product.title">-->
-            <lazy-image v-if="product?.id" style="align-self: center" :data="{image:imgUrl+product.images[0],title:product.title}"/>
+<!--          <div class="w-100 align-self-center">-->
+<!--&lt;!&ndash;            <img :src="product.image" class="img-fluid w-100"  :alt="product.title">&ndash;&gt;-->
+<!--            <lazy-image v-if="product?.id" style="align-self: center" :data="{image:imgUrl+product.images[0],title:product.title}"/>-->
 
-          </div>
-          <div class="row" v-if="product?.id">
-            <div class="col-3" v-if="product.images[1]">
-              <lazy-image :data="{image:imgUrl+product.images[1],title:product.title}"/>
-            </div>
-            <div class="col-3" v-if="product.images[2]">
-              <lazy-image :data="{image:imgUrl+product.images[2],title:product.title}"/>
-            </div>
-            <div class="col-3" v-if="product.images[3]">
-              <lazy-image :data="{image:imgUrl+product.images[3],title:product.title}"/>
-            </div>
-            <div class="col-3" v-if="product.images[4]">
-              <lazy-image :data="{image:imgUrl+product.images[4],title:product.title}"/>
-            </div>
-          </div>
+<!--          </div>-->
+
+          <product-images-carousel v-if="product?.id"  :images="product.images" :url="imgUrl" />
         </div>
         <div class="col-md-6 col-xl-5 col-xxl-4 h-md-100 bg-white px-0 me-md-1">
 
@@ -102,10 +90,11 @@ import {useRoute} from "vue-router/dist/vue-router";
 import ProductCard from '@/components/ProductCard.vue'
 import LazyImage from '@/components/LazyImage.vue'
 import App from "@/App.vue";
+import productImagesCarousel from "@/components/ProductImagesCarousel.vue";
 
 export default {
   name: "Product",
-  components: {Shop, ProductCard,LazyImage},
+  components: {Shop, ProductCard,LazyImage,productImagesCarousel},
   setup() {
     const products = Shop.setup().data;
     const product = ref({});
