@@ -1,5 +1,8 @@
 <template>
-  <div id="carouselExample" class="carousel carousel-dark slide">
+  <div v-if="images.length ===1">
+    <img :src="url+images[0]" class="d-block w-100" alt="...">
+  </div>
+  <div v-if="images.length>1" id="carouselExample" class="carousel carousel-dark slide">
     <div class="carousel-inner">
       <div v-for="(item,index) in images" :key="index" class="carousel-item" :class="{'active':index===0}">
         <img :src="url+item" class="d-block w-100" alt="...">

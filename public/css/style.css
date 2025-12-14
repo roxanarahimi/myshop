@@ -337,3 +337,47 @@ input[type=number] {
     filter: grayScale(0.9);
     opacity: 0.7;
 }
+
+
+.notif {
+    height: 50px;
+    width: 300px;
+    position: absolute;
+    top: -60px;
+    right: 0;
+    z-index: 100;
+    border-radius: 3px;
+    background-color: rgba(96, 194, 77, 0.2);
+    padding: 15px;
+    border: 1px solid #60C24D;
+    color:#60C24D;
+    transition:500ms ease;
+}
+.slide-up{
+    -webkit-animation: slideup 2s  linear;
+}
+@-webkit-keyframes slideup {
+    0% {
+        display:block;
+
+        transform: translate(0,-15px) ;
+        opacity: 1;
+    }
+    10% {
+        transform: translate(0,-35px) ;
+        opacity: 1;
+    }
+    60% {
+        transform: translate(0,-35px) ;
+        opacity: 1;
+    }
+    99% {
+        transform: translate(0,15px) ;
+        opacity: 0.2;
+    }
+
+    100% {
+        opacity: 0;
+    }
+
+}

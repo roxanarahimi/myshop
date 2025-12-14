@@ -22,7 +22,7 @@
 
           </div>
           <!--        <img :src="product.image" class="img-fluid w-100" alt="">-->
-          <lazy-image :data="{image:url+product.images[0],title:product.title}"/>
+          <lazy-image v-if="product.id" :data="{image:url+product?.images[0],title:product.title}"/>
           <div class="text-center">
             <small class="fw-bold titles-font-size">{{ product.title }}</small><br>
             <small class=" titles-font-size">محصول کشور {{ product.made_in }}</small><br>

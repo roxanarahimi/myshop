@@ -1,7 +1,9 @@
 <template>
-  <div >
+  <div class="">
+
     <div class="row px-4 ">
-      <div class="row col-xl-10 px-3 px-md-2 py-3 px-lg-4 py-lg-3 mx-auto p-2   bg-light mt-2 mt-md-5 justify-content-center ">
+      <div
+          class="row col-xl-10 px-3 px-md-2 py-3 px-lg-4 py-lg-3 mx-auto p-2   bg-light mt-2 mt-md-5 justify-content-center ">
         <div class="col-md-10 col-xl-10 col-xxl-8 row p-1 mx-auto product-labels mb-2">
           <div class="col-6 p-0">
             <div v-if="product?.new" class=" text-center position-relative new-label">
@@ -10,23 +12,26 @@
             </div>
           </div>
           <div class="col-6 p-0" dir="ltr">
-            <div v-if="product?.off && product?.stock" class=" text-center position-relative off-label" >
+            <div v-if="product?.off && product?.stock" class=" text-center position-relative off-label">
               <div class="bg-primary text-light text-center off-label-body ">{{ product?.off }}%</div>
               <div class="bg-primary mx-auto off-label-pointer"></div>
             </div>
           </div>
 
         </div>
-        <div class="col-md-4 col-xl-5 col-xxl-4 d-grid h-md-100 bg-white ms-md-1" style="border-radius: 2px">
-<!--          <div class="w-100 align-self-center">-->
-<!--&lt;!&ndash;            <img :src="product.image" class="img-fluid w-100"  :alt="product.title">&ndash;&gt;-->
-<!--            <lazy-image v-if="product?.id" style="align-self: center" :data="{image:imgUrl+product.images[0],title:product.title}"/>-->
+        <div class="col-md-4 col-xl-5 col-xxl-5 d-grid h-md-100 bg-white ms-md-1" style="border-radius: 2px">
+          <!--          <div class="w-100 align-self-center">-->
+          <!--&lt;!&ndash;            <img :src="product.image" class="img-fluid w-100"  :alt="product.title">&ndash;&gt;-->
+          <!--            <lazy-image v-if="product?.id" style="align-self: center" :data="{image:imgUrl+product.images[0],title:product.title}"/>-->
 
-<!--          </div>-->
+          <!--          </div>-->
 
-          <product-images-carousel v-if="product?.id"  :images="product.images" :url="imgUrl" />
+
+          <product-images-carousel v-if="product?.id" :images="product.images" :url="imgUrl"/>
         </div>
-        <div class="col-md-6 col-xl-5 col-xxl-4 h-md-100 bg-white px-0 me-md-1">
+        <div class="col-md-6 col-xl-5 col-xxl-5 h-md-100 bg-white px-0 me-md-1">
+
+
 
           <div v-if="product.id" class="details h-100 d-grid" style="border-radius: 2px">
             <div class="details-inner p-0 d-grid">
@@ -38,25 +43,26 @@
                   <option v-for="(p,index) in product.products" :value="p" :key="index">{{ p.size }}</option>
                 </select>
 
-                <div  v-if="product?.stock" class="d-flex">
+                <div v-if="product?.stock" class="d-flex">
                   <h5 v-if="product?.off" class=" text-black-50 text-decoration-line-through ms-2">{{ price }}</h5>
-                  <h5  class=" text-primary">{{ offPrice }} تومان</h5>
+                  <h5 class=" text-primary">{{ offPrice }} تومان</h5>
                 </div>
-                <div v-else class="d-flex"> <h5 class="text-primary">ناموجود</h5></div>
+                <div v-else class="d-flex"><h5 class="text-primary">ناموجود</h5></div>
 
 
                 <div class="my-4 align-self-center">
                   <p class="mb-0">اورجینال</p>
                   <p class="mb-0">محصول کشور {{ product?.made_in }}</p>
-<!--                  <p class="mb-0">تاریخ انقضا : {{ // product?.expire }}</p>-->
+                  <!--                  <p class="mb-0">تاریخ انقضا : {{ // product?.expire }}</p>-->
                 </div>
 
-<!--                <ul class="pe-3">-->
-<!--                  <li v-for="item in product?.features">{{ item }}</li>-->
-<!--                </ul>-->
+                <!--                <ul class="pe-3">-->
+                <!--                  <li v-for="item in product?.features">{{ item }}</li>-->
+                <!--                </ul>-->
                 <div class=" align-self-end  d-flex justify-content-end">
                   <button class="btn btn-sm btn-dark text-light">+</button>
-                  <input type="number" min="0" max="100" value="1" class="form-control form-control-sm rounded-0 d-inline-block text-center" style="width: 40px">
+                  <input type="number" min="0" max="100" value="1"
+                         class="form-control form-control-sm rounded-0 d-inline-block text-center" style="width: 40px">
                   <button class="btn btn-sm btn-dark text-light">-</button>
 
                 </div>
@@ -65,9 +71,16 @@
             </div>
 
 
-            <button v-if="product.stock" class="add-to-cart-3 bg-primary align-self-end">
-              <i class="bi bi-cart-plus-fill"></i>
-            </button>
+            <div class="position-relative align-self-end">
+              <div class="notif d-none">
+                <i class="bi bi-check-lg"></i>
+                این محصول در سبد شما قرار گرفت.
+              </div>
+              <button v-if="product.stock" @click="addToCart" class="add-to-cart-3 bg-primary">
+
+                <i class="bi bi-cart-plus-fill"></i>
+              </button>
+            </div>
           </div>
 
 
@@ -106,14 +119,14 @@ import productImagesCarousel from "@/components/ProductImagesCarousel.vue";
 
 export default {
   name: "Product",
-  components: {Shop, ProductCard,LazyImage,productImagesCarousel},
+  components: {Shop, ProductCard, LazyImage, productImagesCarousel},
   setup() {
     const products = Shop.setup().data;
     const product = ref({});
     const sameProducts = ref([]);
     const route = useRoute();
     const selectedProduct = ref();
-    const showNumbers = (number)=>{
+    const showNumbers = (number) => {
       return new Intl.NumberFormat().format(number);
     }
     const price = ref();
@@ -121,27 +134,27 @@ export default {
     const url = App.setup().url;
     const imgUrl = App.setup().imgUrl;
 
-    const getData =()=>{
-      axios.get(url+'/api/get/product/'+route.params.slug)
-          .then((response)=>{
+    const getData = () => {
+      axios.get(url + '/api/get/product/' + route.params.slug)
+          .then((response) => {
             product.value = response.data;
           })
-          .then(()=>{
+          .then(() => {
             selectedProduct.value = product.value.products[0];
 
             setPrice();
-           sameProducts.value = products.filter((element) => element.category_id == product.value.category_id && element.id != product.value.id);
+            sameProducts.value = products.filter((element) => element.category_id == product.value.category_id && element.id != product.value.id);
 
           })
-          .catch((error)=>{
+          .catch((error) => {
             console.error(error);
-      })
+          })
     };
-    const setPrice = ()=>{
-      let prc = selectedProduct.value.price? selectedProduct.value.price : product.value.price;
-      let offp = selectedProduct.value.off? selectedProduct.value.off : product.value.off;
+    const setPrice = () => {
+      let prc = selectedProduct.value.price ? selectedProduct.value.price : product.value.price;
+      let offp = selectedProduct.value.off ? selectedProduct.value.off : product.value.off;
       price.value = showNumbers(prc);
-      offPrice.value = showNumbers(prc - (prc*offp*0.01));
+      offPrice.value = showNumbers(prc - (prc * offp * 0.01));
     }
     onMounted(() => {
       console.log(route.params)
@@ -149,8 +162,20 @@ export default {
       getData();
     })
 
+    const addToCart = ()=>{
+      //axios...
+
+      //if 200
+
+      document.querySelector('.notif').classList.remove('d-none');
+      document.querySelector('.notif').classList.add('slide-up');
+      setTimeout(()=>{
+        document.querySelector('.notif').classList.add('d-none');
+      },1800)
+    }
     return {
-      product, products, sameProducts, price, offPrice,showNumbers, getData,url,imgUrl,selectedProduct,setPrice
+      product, products, sameProducts, price, offPrice, showNumbers,
+      getData, url, imgUrl, selectedProduct, setPrice,addToCart
     }
   }
 }
@@ -161,7 +186,9 @@ small, b {
   font-size: 11px !important;
 }
 
-.btn{
+.btn {
   border-radius: 0 !important;
 }
+
+
 </style>

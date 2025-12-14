@@ -3,8 +3,8 @@
     <h3 class="mb-5 fw-bold" style="color: coral">پر فروش ترین محصولات</h3>
     <div class="row justify-content-center">
       <div class="col-lg-7">
-        <div class="d-flex justify-content-center">
-          <button @click="categoryToggle()" id="cat_"
+        <div v-if="cats.length" class="d-flex justify-content-center">
+          <button @click="categoryToggle('')" id="cat_"
                   class="product-section-btn product-active rounded-start-0">همه
           </button>
           <button v-for="(cat,index) in cats" :key="index" @click="categoryToggle(cat.id)" :id="'cat_'+cat.id"
@@ -49,7 +49,7 @@ export default {
     }
     onMounted(() => {
       setBorders();
-      categoryToggle();
+      categoryToggle('');
     });
     const categoryToggle = (id) => {
       document.querySelector('.product-active')?.classList.remove('product-active');
@@ -72,12 +72,12 @@ export default {
             element.style.transform = 'scale(0,0)';
             setTimeout(() => {
               element.style.transform = 'scale(1,1)';
-            }, 100);
+            }, 1000);
           });
         }, 0); // Or use nextTick in Vue
-      }, 300);
+      }, 100);
 
-      setTimeout(() => { setBorders(); }, 300);
+      setTimeout(() => { setBorders(); }, 100);
 
     }
 
