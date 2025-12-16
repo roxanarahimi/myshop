@@ -32,7 +32,6 @@
         <div class="col-md-6 col-xl-5 col-xxl-5 h-md-100 bg-white px-0 me-md-1">
 
 
-
           <div v-if="product.id" class="details h-100 d-grid" style="border-radius: 2px">
             <div class="details-inner p-0 d-grid">
               <div class="p-3 p-md-5 d-grid">
@@ -162,20 +161,20 @@ export default {
       getData();
     })
 
-    const addToCart = ()=>{
+    const addToCart = () => {
       //axios...
 
       //if 200
 
       document.querySelector('.notif').classList.remove('d-none');
       document.querySelector('.notif').classList.add('slide-up');
-      setTimeout(()=>{
+      setTimeout(() => {
         document.querySelector('.notif').classList.add('d-none');
-      },1800)
+      }, 1800)
     }
     return {
       product, products, sameProducts, price, offPrice, showNumbers,
-      getData, url, imgUrl, selectedProduct, setPrice,addToCart
+      getData, url, imgUrl, selectedProduct, setPrice, addToCart
     }
   }
 }
