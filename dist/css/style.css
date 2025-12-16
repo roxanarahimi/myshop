@@ -1,0 +1,383 @@
+body, html {
+    /*max-width: 1535px;*/
+    max-width: 1536px;
+    margin: 0 auto;
+    font-family: IranSans !important;
+    direction: rtl !important;
+    text-align: right !important;
+    scroll-behavior: smooth;
+    background-color: transparent;
+    overflow-x: hidden;
+}
+
+* {
+    transition: all 0.5s ease !important;
+}
+
+/*.sectionsWrapper{*/
+/*    overflow-y: scroll !important;*/
+/*    scroll-snap-type: y mandatory !important;*/
+/*}*/
+.en{
+    text-align: left !important;
+    direction: ltr !important;
+}
+::-webkit-scrollbar {
+    width: 5px;
+    cursor: pointer !important;
+    background-color: transparent !important;
+}
+
+
+/* Track */
+::-webkit-scrollbar-track {
+    /*box-shadow: inset 0 0 5px grery;*/
+    /*border-radius: 10px;*/
+    cursor: pointer !important;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #b6b6b6;
+    border-radius: 5px;
+    cursor: pointer !important;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: darkgray;
+    cursor: pointer !important;
+
+}
+
+.bg-white-smoke {
+    background-color: whitesmoke;
+}
+
+main {
+    min-height: 275px !important;
+}
+
+body {
+    margin-top: 56px;
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    body {
+        margin-top: 56px;
+        margin-bottom: 56px;
+    }
+}
+
+.nav-item {
+    font-size: 13px;
+    font-weight: bold;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.cat-section {
+    cursor: pointer;
+}
+
+.cat-section:hover .cat-label {
+    transition: all 0.1s ease !important;
+    background-color: coral;
+    color: white;
+}
+
+.cat-img-container {
+    overflow: hidden;
+}
+
+.cat-img {
+    width: 100% !important;
+}
+
+.cat-section:hover .cat-img {
+    transform: scale(1.2) rotate(8deg);
+}
+
+.cat-txt {
+    transition: all 0.001s ease !important;
+}
+
+.product-section-btn {
+    background-color: transparent;
+    border: 0.5px solid lightgray;
+    padding: 10px 25px;
+    border-radius: 2px;
+}
+
+.product-active {
+    background-color: coral !important;
+    border: 0.5px solid coral !important;
+    color: white !important;
+}
+
+.product-section-border-right {
+    border-right: 0.5px solid lightgray;
+}
+
+.product-section-border-left {
+    border-left: 1px solid lightgray;
+}
+
+.add-to-cart {
+    width: 100%;
+    height: 35px;
+    background-color: coral !important;
+    color: white !important;
+    border: none;
+    /*border-radius: 2px;*/
+    align-self: end;
+    display: none;
+}
+
+.add-to-cart-2 {
+    width: 100%;
+    height: 35px;
+    color: white !important;
+    border: none;
+    align-self: end;
+    display: none;
+    border-radius: 0 0 2px 2px;
+    transition: all 1s ease !important;
+
+}
+.submit-btn {
+    width: 100%;
+    height: 35px;
+    color: white !important;
+    border: 1px solid coral ;
+    align-self: end;
+    border-radius: 0 0 2px 2px;
+    transition: all 1s ease !important;
+
+}
+@media(max-width: 768px){
+
+    .add-to-cart-2 {
+        display: block;
+    }
+    .product-txt{
+        font-size: 13px;
+    }
+}
+.add-to-cart-3 {
+    width: 100%;
+    height: 35px;
+    color: white !important;
+    border: none;
+    align-self: end;
+    border-radius: 0 0 2px 2px;
+    transition: all 1s ease !important;
+
+}
+
+.card:hover {
+    transform: scale(1.001);
+    box-shadow: 0 2px 5px rgba(63, 78, 100, 0.15) !important;
+    border: solid 1px rgba(235, 235, 235, 1) !important;
+}
+
+.card:hover .add-to-cart-2 {
+    display: block !important;
+}
+
+.product-card {
+    cursor: pointer;
+}
+
+.product-card:hover {
+    transition: all 0.2s ease !important;
+    /*background-color: white;*/
+    /*transform: scale(1.01);*/
+    box-shadow: 0 25px 29px rgba(63, 78, 100, 0.15) !important;
+    border: solid 2px rgba(235, 235, 235, 1) !important;
+}
+
+.product-card:hover .add-to-cart {
+    display: block;
+}
+
+a, a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.product-txt {
+    white-space: nowrap !important;
+}
+
+.titles-font-size {
+    font-size: 11px !important;
+}
+
+label {
+    cursor: pointer;
+}
+
+.border-start-2 {
+    border-radius: 2px 0 0 2px !important;
+}
+
+.cursor, input[type=checkbox], input[type=radio] {
+    cursor: pointer !important;
+}
+
+.bottom-nav-ul .nav-item .bi {
+    font-size: 16px !important;
+    color: gray;
+}
+
+.cart-badge {
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    font-size: 11px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: coral;
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .cart-badge {
+        width: 17px;
+        height: 17px;
+        line-height: 17px;
+        font-size: 11px;
+        text-align: center;
+        border-radius: 50%;
+        background-color: coral;
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        color: white;
+    }
+}
+
+.product-labels {
+    height: 25px;
+}
+
+.new-label, .off-label {
+    width: 65px;
+}
+
+.new-label-body, .off-label-body {
+    border-radius: 2px;
+    width: 65px !important;
+    font-size: 14px;
+}
+
+.new-label-pointer {
+    width: 7px;
+    height: 7px;
+    transform: rotate(45deg);
+    position: absolute;
+    bottom: -3px;
+    right: 50px !important;
+}
+
+.off-label-pointer {
+    width: 7px;
+    height: 7px;
+    transform: rotate(45deg);
+    position: absolute;
+    bottom: -3px;
+    left: 50px !important;
+}
+
+.router-active-link {
+    color: coral;
+}
+.shop-sidebar {
+    width: 170px;
+    font-size: 13px;
+}
+.shop-products {
+    width: calc(100% - 180px);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: calc(100vh - 100px) !important;
+}
+@media(max-width: 768px){
+    .shop-products {
+        height: calc(100vh - 150px) !important;
+    }
+
+}
+input:focus{
+    box-shadow: none !important;
+}input:focus .form-floating > .form-control:focus ~ label, .form-floating > .form-control:not(:placeholder-shown) ~ label, .form-floating > .form-control-plaintext ~ label, .form-floating > .form-select ~ label{
+    color: coral !important;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+.btn-none{
+    background-color: transparent !important;
+    border: 0;
+}
+.gray-scale{
+    filter: grayScale(0.9);
+    opacity: 0.7;
+}
+
+
+.notif {
+    height: 50px;
+    width: 300px;
+    position: absolute;
+    top: -60px;
+    right: 0;
+    z-index: 100;
+    border-radius: 3px;
+    background-color: rgba(96, 194, 77, 0.2);
+    padding: 15px;
+    border: 1px solid #60C24D;
+    color:#60C24D;
+    transition:500ms ease;
+}
+.slide-up{
+    -webkit-animation: slideup 2s  linear;
+}
+@-webkit-keyframes slideup {
+    0% {
+        display:block;
+
+        transform: translate(0,-15px) ;
+        opacity: 1;
+    }
+    10% {
+        transform: translate(0,-35px) ;
+        opacity: 1;
+    }
+    60% {
+        transform: translate(0,-35px) ;
+        opacity: 1;
+    }
+    99% {
+        transform: translate(0,15px) ;
+        opacity: 0.2;
+    }
+
+    100% {
+        opacity: 0;
+    }
+
+}
