@@ -3,14 +3,14 @@
 
     <div class="col-lg-10 px-4 mx-auto d-flex justify-content-xl-between p-3 ps-2 pb-5">
       <div class="pt-2 shop-sidebar">
-        <div class="w-100 mb-3 p-3 text-center  bg-white-smoke">
+        <div class="w-100 mb-2 p-3 text-center  bg-white-smoke">
           <input type="text" id="search" @input="getProducts" v-model="term" class="form-control form-control-sm "
                  placeholder="جستجوی محصول">
         </div>
-        <div class="w-100 mb-3 p-3 text-center  bg-white-smoke">
+        <div class="w-100 mb-2 p-3 text-center  bg-white-smoke">
           <button class="btn btn-sm w-100 btn-primary text-light" @click="reset">حذف فیلتر ها</button>
         </div>
-        <div class="w-100 mb-3 p-3  bg-white-smoke">
+        <div class="w-100 mb-2 p-3  bg-white-smoke">
           <div class="form-check d-flex justify-content-start">
             <input class="form-check-input" type="checkbox" name="stock" @change="getProducts" v-model="stock"
                    id="exist">
@@ -18,38 +18,59 @@
           </div>
 
         </div>
-        <div class="w-100 mb-3 p-3  bg-white-smoke">
+        <div class="w-100 mb-2 p-3  bg-white-smoke">
           <div class="form-check d-flex justify-content-start">
             <input class="form-check-input" type="checkbox" @change="getProducts" v-model="off" id="off">
             <label class="form-check-label me-4" for="off">شامل تخفیف</label>
           </div>
         </div>
-        <div v-if="categories.length" class="w-100 mb-3 p-3  bg-white-smoke">
+        <div v-if="categories.length" class="w-100 mb-2 p-3  bg-white-smoke">
           <div v-for="cat in categories" class="form-check d-flex justify-content-start">
             <input class="form-check-input" name="category_ids[]" :value="cat.id" @change="getProducts" type="checkbox"
                    :id="'cat-'+cat.id">
             <label class="form-check-label me-4" :for="'cat-'+cat.id">{{ cat.title }}</label>
           </div>
         </div>
-        <!--        <div class="w-100 mb-3 p-3  bg-white-smoke">-->
-        <!--          <div  @click="getProducts" class="form-check  d-flex justify-content-start">-->
-        <!--            <input class="form-check-input" type="radio" name="sort[]" value="new"  id="new" checked>-->
-        <!--            <label class="form-check-label me-4" for="new">جدید ترین</label>-->
-        <!--          </div>-->
-        <!--          <div @click="getProducts"  class="form-check  d-flex justify-content-start">-->
-        <!--            <input class="form-check-input" type="radio" name="sort[]" value="sale"  id="sale">-->
-        <!--            <label class="form-check-label me-4" for="sale">پر فروش ترین</label>-->
-        <!--          </div>-->
-        <!--          <div  @click="getProducts" class="form-check  d-flex justify-content-start">-->
-        <!--            <input class="form-check-input" type="radio" name="sort[]" value="cheap" id="cheap">-->
-        <!--            <label class="form-check-label me-4" for="cheap">ارزان ترین</label>-->
-        <!--          </div>-->
-        <!--          <div  @click="getProducts" class="form-check  d-flex justify-content-start">-->
-        <!--            <input class="form-check-input" type="radio" name="sort[]" value="expensive" id="expensive">-->
-        <!--            <label class="form-check-label me-4" for="expensive">گران ترین</label>-->
-        <!--          </div>-->
+<!--        <div class="w-100 mb-3 p-3  bg-white-smoke">-->
+<!--          <div @click="getProducts" class="form-check  d-flex justify-content-start">-->
+<!--            <input class="form-check-input" type="radio" name="sort[]" value="new" id="new" checked>-->
+<!--            <label class="form-check-label me-4" for="new">جدید ترین</label>-->
+<!--          </div>-->
+<!--          <div @click="getProducts" class="form-check  d-flex justify-content-start">-->
+<!--            <input class="form-check-input" type="radio" name="sort[]" value="sale" id="sale">-->
+<!--            <label class="form-check-label me-4" for="sale">پر فروش ترین</label>-->
+<!--          </div>-->
+<!--        </div>-->
+        <div class="w-100 mb-2 p-3  bg-white-smoke">
+          <div @click="getProducts" class="form-check  d-flex justify-content-start">
+            <input class="form-check-input" type="radio" @change="getProducts" name="brand" value="شیگلم" id="sheeglam" >
+            <label class="form-check-label me-4" for="sheeglam" title="sheeglam">شیگلم</label>
+          </div>
+         <div @click="getProducts" class="form-check  d-flex justify-content-start">
+            <input class="form-check-input" type="radio" @change="getProducts" name="brand" value="اوردینری" id="ordinary" >
+            <label class="form-check-label me-4" for="ordinary" title="ordinary">اوردینری</label>
+          </div>
+          <div @click="getProducts" class="form-check  d-flex justify-content-start">
+            <input class="form-check-input" type="radio" @change="getProducts" name="brand" value="کوزارکس" id="cosrx" >
+            <label class="form-check-label me-4" for="cosrx" title="cosrx">کوزارکس</label>
+          </div>
+         <div @click="getProducts" class="form-check  d-flex justify-content-start">
+            <input class="form-check-input" type="radio" @change="getProducts" name="brand" value="فیتو" id="phyto" >
+            <label class="form-check-label me-4" for="phyto" title="phyto">فیتو</label>
+          </div>
+         <div @click="getProducts" class="form-check  d-flex justify-content-start">
+            <input class="form-check-input" type="radio" @change="getProducts" name="brand" value="هیرتامین" id="hairtamin" >
+            <label class="form-check-label me-4" for="hairtamin" title="hairtamin">هیرتامین</label>
+          </div>
+         <div @click="getProducts" class="form-check  d-flex justify-content-start">
+            <input class="form-check-input" type="radio" @change="getProducts" name="brand" value="مای ویتامینز" id="myvitamins" >
+            <label class="form-check-label me-4" for="myvitamins" title="myvitamins">مای ویتامینز</label>
+          </div>  <div @click="getProducts" class="form-check  d-flex justify-content-start">
+            <input class="form-check-input" type="radio" @change="getProducts" name="brand" value="بایودنس" id="biodance" >
+            <label class="form-check-label me-4" for="biodance" title="biodance">بایودنس</label>
+          </div>
 
-        <!--        </div>-->
+        </div>
       </div>
       <div class="mt-2 px-3 shop-products" style="">
         <div class="row" v-if="products?.length">
@@ -92,15 +113,17 @@ export default {
     const off = ref(false);
     const sort = ref('new');
     const term = ref('');
+    const brand = ref('');
 
     const getProducts = () => {
       // console.log(document.getElementsByName('stock'))
       setTimeout(() => {
 
-        category_ids.value = Array.from(
-            document.querySelectorAll('input[name="category_ids[]"]:checked')
-        ).map(cb => cb.value);
-        axios.get(url + '/api/products?category_ids=' + category_ids.value + '&stock=' + stock.value + '&new=' + is_new.value + '&off=' + off.value + '&sort=' + sort.value+'&term='+term.value)
+        category_ids.value = Array.from(document.querySelectorAll('input[name="category_ids[]"]:checked')).map(cb => cb.value);
+        brand.value = document.querySelector('input[name="brand"]:checked')?.value || '';
+        axios.get(url + '/api/products?category_ids=' + category_ids.value + '&stock='
+            + stock.value + '&new=' + is_new.value + '&off=' + off.value + '&sort='
+            + sort.value + '&term=' + term.value+ '&brand=' + brand.value)
             .then((response) => {
               products.value = response.data;
             }).catch((error) => {
@@ -119,16 +142,18 @@ export default {
     const reset = () => {
       document.querySelectorAll('input[type="checkbox"]:checked')
           .forEach(cb => cb.checked = false);
-    // stock.value = false;
-    //   is_new.value = false;
-    //   off.value = false;
-    //   sort.value = 'new';
+      document.querySelectorAll('input[type="radio"]:checked')
+          .forEach(cb => cb.checked = false);
+      // stock.value = false;
+      //   is_new.value = false;
+      //   off.value = false;
+      //   sort.value = 'new';
       getProducts();
     }
 
     return {
       term, products, categories, getProducts, getCategories, url, imgUrl,
-      category_ids, stock, is_new, off, sort, reset,
+      category_ids, stock, is_new, off, sort, reset,brand
     }
   },
 }

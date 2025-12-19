@@ -17,7 +17,7 @@
                 <router-link to="/shop" class="nav-link">فروشگاه</router-link>
               </li>
               <li class="nav-item">
-                <router-link to="/help" class="nav-link">راهنما</router-link>
+                <router-link to="/contact" class="nav-link">تماس با ما</router-link>
               </li>
             </ul>
             <div class="d-flex" style="font-size: 15px">

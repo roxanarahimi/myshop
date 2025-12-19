@@ -29,21 +29,6 @@ export default {
 </script>
 
 <style scoped>
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-.loader {
-  animation: rotate 2s infinite linear;
-  animation-iteration-count: infinite;
-  position: absolute;
-  width: 20px !important;
-  top: calc(50% - 10px);
-  right: calc(50% - 10px);
-}
+
 
 </style>

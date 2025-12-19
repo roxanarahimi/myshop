@@ -23,7 +23,6 @@
             <img src="/img/qr.png"  class="img-fluid ms-5 rounded-5" style="max-width: 150px;" alt="">
             <a target="_blank" href="https://www.instagram.com/mokamel_moo_gisoo/">
               <img src="/img/instalogo.png" class="img-fluid " style="max-width: 150px;" alt="">
-
             </a>
           </div>
 
@@ -35,9 +34,9 @@
 
       <div class="row justify-content-between">
         <div class="col-md-4 d-flex justify-content-between px-5 p-md-0 mb-5 mb-md-0">
-          <a href="#">حساب کاربری</a>
-          <a href="#">راهنمای خرید</a>
-          <a href="#">ارتباط با ما</a>
+          <a href="/profile">حساب کاربری</a>
+          <a href="/cart">سبد خرید</a>
+          <a href="/contact">ارتباط با ما</a>
         </div>
         <div class="col-md-3 d-flex justify-content-between px-5 p-md-0">
         <i class="bi bi-whatsapp"></i>

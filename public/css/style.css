@@ -18,10 +18,11 @@ body, html {
 /*    overflow-y: scroll !important;*/
 /*    scroll-snap-type: y mandatory !important;*/
 /*}*/
-.en{
+.en {
     text-align: left !important;
     direction: ltr !important;
 }
+
 ::-webkit-scrollbar {
     width: 5px;
     cursor: pointer !important;
@@ -146,25 +147,29 @@ body {
     transition: all 1s ease !important;
 
 }
+
 .submit-btn {
     width: 100%;
     height: 35px;
     color: white !important;
-    border: 1px solid coral ;
+    border: 1px solid coral;
     align-self: end;
     border-radius: 0 0 2px 2px;
     transition: all 1s ease !important;
 
 }
-@media(max-width: 768px){
+
+@media (max-width: 768px) {
 
     .add-to-cart-2 {
         display: block;
     }
-    .product-txt{
+
+    .product-txt {
         font-size: 13px;
     }
 }
+
 .add-to-cart-3 {
     width: 100%;
     height: 35px;
@@ -297,27 +302,34 @@ label {
 .router-active-link {
     color: coral;
 }
+
 .shop-sidebar {
     width: 170px;
     font-size: 13px;
 }
+
 .shop-products {
     width: calc(100% - 180px);
     overflow-y: scroll;
     overflow-x: hidden;
     height: calc(100vh - 100px) !important;
 }
-@media(max-width: 768px){
+
+@media (max-width: 768px) {
     .shop-products {
-        height: calc(100vh - 150px) !important;
+        height: calc(100vh - 50px) !important;
     }
 
 }
-input:focus{
+
+input:focus {
     box-shadow: none !important;
-}input:focus .form-floating > .form-control:focus ~ label, .form-floating > .form-control:not(:placeholder-shown) ~ label, .form-floating > .form-control-plaintext ~ label, .form-floating > .form-select ~ label{
+}
+
+input:focus .form-floating > .form-control:focus ~ label, .form-floating > .form-control:not(:placeholder-shown) ~ label, .form-floating > .form-control-plaintext ~ label, .form-floating > .form-select ~ label {
     color: coral !important;
 }
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -329,11 +341,13 @@ input::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance: textfield;
 }
-.btn-none{
+
+.btn-none {
     background-color: transparent !important;
     border: 0;
 }
-.gray-scale{
+
+.gray-scale {
     filter: grayScale(0.9);
     opacity: 0.7;
 }
@@ -344,35 +358,37 @@ input[type=number] {
     width: 300px;
     position: absolute;
     top: -60px;
-    right: 0;
+    right: 10px;
     z-index: 100;
     border-radius: 3px;
     background-color: rgba(96, 194, 77, 0.2);
     padding: 15px;
     border: 1px solid #60C24D;
-    color:#60C24D;
-    transition:500ms ease;
+    color: #60C24D;
+    transition: 500ms ease;
 }
-.slide-up{
-    -webkit-animation: slideup 2s  linear;
+
+.slide-up {
+    -webkit-animation: slideup 2s linear;
 }
+
 @-webkit-keyframes slideup {
     0% {
-        display:block;
+        display: block;
 
-        transform: translate(0,-15px) ;
+        transform: translate(0, -15px);
         opacity: 1;
     }
     10% {
-        transform: translate(0,-35px) ;
+        transform: translate(0, -35px);
         opacity: 1;
     }
     60% {
-        transform: translate(0,-35px) ;
+        transform: translate(0, -35px);
         opacity: 1;
     }
     99% {
-        transform: translate(0,15px) ;
+        transform: translate(0, 15px);
         opacity: 0.2;
     }
 
@@ -380,4 +396,21 @@ input[type=number] {
         opacity: 0;
     }
 
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.loader {
+    animation: rotate 2s infinite linear;
+    animation-iteration-count: infinite;
+    position: absolute;
+    width: 20px !important;
+    top: calc(50% - 10px);
+    right: calc(50% - 10px);
 }
