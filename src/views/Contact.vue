@@ -1,6 +1,6 @@
 <template>
   <div class="row justify-content-center">
-    <div class="col-md-10 row justify-content-between flex-row-reverse">
+    <div class="col-lg-10 row justify-content-between flex-row-reverse">
       <div class="col-md-6 col-lg-5 col-xl-4 text-end">
         <img src="/img/call.png" class="w-100" alt="">
       </div>
@@ -41,6 +41,6 @@
 </script>
 <style scoped>
 .contact{
-  font-size: 20px;
+  font-size: 18px;
 }
 </style>

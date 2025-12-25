@@ -72,8 +72,8 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/help" class="nav-link">
-              <i class="bi bi-question-square"></i>
+            <router-link to="/contact" class="nav-link">
+              <i class="bi bi-telephone"></i>
             </router-link>
           </li>
           <li class="nav-item">

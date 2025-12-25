@@ -1,5 +1,5 @@
 <template>
-<div style="height: calc(100vh - 60px)">
+<div>
   <div v-if="data.length" id="carouselExampleAutoplaying w-100" class="carousel slide carousel-fade" data-bs-pause="false" data-bs-ride="carousel" data-bs-interval="2000">
     <div class="carousel-inner">
       <div v-for="(item,index) in data" :key="index" class="carousel-item w-100" :class="{'active':index==0}" data-bs-interval="2000">
@@ -24,10 +24,19 @@ export default {
   setup(){
     const data = ref([]);
     const getData = ()=>{
-      axios.get(url+'/api/get/banners')
-          .then((response)=>{
-            data.value = response.data;
+      fetch(url + '/api/get/banners')
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
           })
+          .then(res => {
+            data.value = res;
+          })
+          .catch(error => {
+            console.error(error);
+          });
     }
     const url = App.setup().url;
     const imgUrl = App.setup().imgUrl;

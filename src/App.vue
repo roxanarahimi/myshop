@@ -11,8 +11,8 @@ import theFooter from "@/components/TheFooter";
 export default {
   components: {NavBar, theFooter},
   setup(){
-    const url = 'http://localhost:8000';
-    const imgUrl = 'http://localhost:8000/storage/';
+    const url = 'https://panel.myshop.webagent.ir';
+    const imgUrl = 'https://panel.myshop.webagent.ir/storage/';
 
     return{
       url, imgUrl,
