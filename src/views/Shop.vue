@@ -74,8 +74,7 @@
       </div>
       <div class="mt-2 px-3 shop-products" style="">
         <div class="row" v-if="products?.length">
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 h-100 px-1" v-for="(item, index) in products"
-               :key="index">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 h-100 px-1" v-for="(item, index) in products" :key="index">
             <product-card :product="item" :index="index" :url="imgUrl"/>
           </div>
         </div>

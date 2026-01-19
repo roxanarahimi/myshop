@@ -8,16 +8,20 @@
 <script>
 import NavBar from "@/components/NavBar";
 import theFooter from "@/components/TheFooter";
+import LazyPage from "@/components/LazyPage.vue";
 export default {
-  components: {NavBar, theFooter},
+  components: {LazyPage, NavBar, theFooter},
   setup(){
-    const url = 'https://panel.myshop.webagent.ir';
-    const imgUrl = 'https://panel.myshop.webagent.ir/storage/';
+    // const url = 'https://panel.myshop.webagent.ir';
+    // const imgUrl = 'https://panel.myshop.webagent.ir/storage/';
+    const url = 'http://localhost:8000';
+    const imgUrl = 'http://localhost:8000/storage/';
 
     return{
       url, imgUrl,
     }
-  }
+  },
+
 }
 </script>
 <style>

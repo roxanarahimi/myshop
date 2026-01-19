@@ -21,20 +21,23 @@
                 <p class="bi bi-person-square text-center w-100 text-secondary" style="font-size: 50px"></p>
                 <form>
                   <div class="row px-3">
-                    <div class="col-12 mb-1 p-1"><label>نام</label><input type="text"
-                                                                          class="form-control form-control-sm"
-                                                                          value="رکسانا رحیمی"></div>
-                    <div class="col-12 mb-1 p-1"><label>شماره موبایل</label><input type="text"
-                                                                                   class="form-control form-control-sm en"
-                                                                                   disabled value="09128222725"></div>
-                    <div class="col-12 mb-1 p-1"><label>ایمیل</label><input type="text"
-                                                                            class="form-control form-control-sm en"
-                                                                            value="ms.roxanarahimi@gmail.com"></div>
+                    <div class="col-12 mb-1 p-1">
+                      <label>نام</label>
+                      <input type="text" class="form-control form-control-sm" value="رکسانا رحیمی">
+                    </div>
+                    <div class="col-12 mb-1 p-1">
+                      <label>شماره موبایل</label>
+                      <input type="text" class="form-control form-control-sm en" disabled value="09128222725">
+                    </div>
+                    <div class="col-12 mb-1 p-1">
+                      <label>ایمیل</label>
+                      <input type="text" class="form-control form-control-sm en" value="ms.roxanarahimi@gmail.com">
+                    </div>
                     <div class="col-12 mb-1 p-1 mt-3">
                     </div>
-                                   </div>
-                               </form>
-                         </div>
+                  </div>
+                </form>
+              </div>
               <button class="btn btn-sm btn-primary text-light w-100">ویرایش</button>
             </div>
           </div>
@@ -48,11 +51,13 @@
                 <div class="accordion" id="accordionAddress">
                   <div class="accordion-item">
                     <h2 class="accordion-header ">
-                      <button class="accordion-button px-3 py-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAddrOne" aria-expanded="true" aria-controls="collapseAddrOne">
-                         <span class="mx-3">خانه</span>
+                      <button class="accordion-button px-3 py-2" type="button" data-bs-toggle="collapse"
+                              data-bs-target="#collapseAddrOne" aria-expanded="true" aria-controls="collapseAddrOne">
+                        <span class="mx-3">خانه</span>
                       </button>
                     </h2>
-                    <div id="collapseAddrOne" class="accordion-collapse collapse show" data-bs-parent="#accordionAddress">
+                    <div id="collapseAddrOne" class="accordion-collapse collapse show"
+                         data-bs-parent="#accordionAddress">
                       <div class="accordion-body px-4">
                         <div class="card p-0">
                           <div class="card-body">
@@ -68,7 +73,7 @@
                                   <input type="text" class="form-control form-control-sm" value="تهران">
                                 </div>
                                 <div class="col-6 mb-1 p-1"><label>شهر</label>
-                                  <input type="text" class="form-control form-control-sm"  value="تهران">
+                                  <input type="text" class="form-control form-control-sm" value="تهران">
                                 </div>
                                 <div class="col-12 mb-1 p-1"><label>ادرس</label>
                                   <input type="text" class="form-control form-control-sm" value="پلاک 1">
@@ -78,16 +83,17 @@
                               </div>
                             </form>
                           </div>
-                          <button class="btn btn-sm btn-primary text-light w-100">ویرایش</button>
-
+                          <!--                          <button class="btn btn-sm btn-primary text-light w-100">ویرایش</button>-->
+                          <lazy-btn title="ویرایش" :isLoading="addressLoading"/> <!-- @click="edit" -->
                         </div>
                       </div>
                     </div>
                   </div>
                   <div class="accordion-item">
                     <h2 class="accordion-header">
-                      <button class="accordion-button collapsed  p-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAddrTwo" aria-expanded="false" aria-controls="collapseAddrTwo">
-                         <span class="mx-3">دفتر</span>
+                      <button class="accordion-button collapsed  p-2" type="button" data-bs-toggle="collapse"
+                              data-bs-target="#collapseAddrTwo" aria-expanded="false" aria-controls="collapseAddrTwo">
+                        <span class="mx-3">دفتر</span>
 
                       </button>
                     </h2>
@@ -107,7 +113,7 @@
                                   <input type="text" class="form-control form-control-sm" value="تهران">
                                 </div>
                                 <div class="col-6 mb-1 p-1"><label>شهر</label>
-                                  <input type="text" class="form-control form-control-sm"  value="تهران">
+                                  <input type="text" class="form-control form-control-sm" value="تهران">
                                 </div>
                                 <div class="col-12 mb-1 p-1"><label>ادرس</label>
                                   <input type="text" class="form-control form-control-sm" value="پلاک 1">
@@ -139,8 +145,9 @@
                 <div class="accordion" id="accordionExample">
                   <div class="accordion-item">
                     <h2 class="accordion-header ">
-                      <button class="accordion-button px-3 py-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                       سفارش <span class="mx-3">12584525#</span>
+                      <button class="accordion-button px-3 py-2" type="button" data-bs-toggle="collapse"
+                              data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        سفارش <span class="mx-3">12584525#</span>
                       </button>
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
@@ -154,7 +161,7 @@
                             <th scope="col" colspan="2">وضعیت</th>
                           </tr>
                           </thead>
-                          <tbody >
+                          <tbody>
                           <tr class="border-bottom">
                             <th scope="row" colspan="2">85627</th>
                             <td colspan="2">1404/09/17</td>
@@ -177,7 +184,7 @@
                             <td>10%</td>
                             <td>2250000</td>
                           </tr>
-                          <tr >
+                          <tr>
                             <th scope="row">2</th>
                             <td>ماسک کلاژن بایودنس بسته 4 عددی</td>
                             <td>1</td>
@@ -186,7 +193,7 @@
                             <td>1300000</td>
                           </tr>
                           <tr class="border-top" style="text-align:left !important">
-                            <th scope="row"> </th>
+                            <th scope="row"></th>
                             <th>جمع کل</th>
                             <th colspan="2">تخفیف کل</th>
                             <th colspan="2">مبلغ نهایی</th>
@@ -204,7 +211,8 @@
                   </div>
                   <div class="accordion-item">
                     <h2 class="accordion-header">
-                      <button class="accordion-button collapsed  p-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      <button class="accordion-button collapsed  p-2" type="button" data-bs-toggle="collapse"
+                              data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                         سفارش <span class="mx-3">12584525#</span>
 
                       </button>
@@ -219,7 +227,7 @@
                             <th scope="col" colspan="2">وضعیت</th>
                           </tr>
                           </thead>
-                          <tbody >
+                          <tbody>
                           <tr class="border-bottom">
                             <th scope="row" colspan="2">85627</th>
                             <td colspan="2">1404/09/17</td>
@@ -242,7 +250,7 @@
                             <td>10%</td>
                             <td>2250000</td>
                           </tr>
-                          <tr >
+                          <tr>
                             <th scope="row">2</th>
                             <td>ماسک کلاژن بایودنس بسته 4 عددی</td>
                             <td>1</td>
@@ -251,7 +259,7 @@
                             <td>1300000</td>
                           </tr>
                           <tr class="border-top" style="text-align:left !important">
-                            <th scope="row"> </th>
+                            <th scope="row"></th>
                             <th>جمع کل</th>
                             <th colspan="2">تخفیف کل</th>
                             <th colspan="2">مبلغ نهایی</th>
@@ -269,7 +277,8 @@
                   </div>
                   <div class="accordion-item">
                     <h2 class="accordion-header">
-                      <button class="accordion-button collapsed  p-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      <button class="accordion-button collapsed  p-2" type="button" data-bs-toggle="collapse"
+                              data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                         سفارش <span class="mx-3">12584525#</span>
                       </button>
                     </h2>
@@ -283,7 +292,7 @@
                             <th scope="col" colspan="2">وضعیت</th>
                           </tr>
                           </thead>
-                          <tbody >
+                          <tbody>
                           <tr class="border-bottom">
                             <th scope="row" colspan="2">85627</th>
                             <td colspan="2">1404/09/17</td>
@@ -306,7 +315,7 @@
                             <td>10%</td>
                             <td>2250000</td>
                           </tr>
-                          <tr >
+                          <tr>
                             <th scope="row">2</th>
                             <td>ماسک کلاژن بایودنس بسته 4 عددی</td>
                             <td>1</td>
@@ -315,7 +324,7 @@
                             <td>1300000</td>
                           </tr>
                           <tr class="border-top" style="text-align:left !important">
-                            <th scope="row"> </th>
+                            <th scope="row"></th>
                             <th>جمع کل</th>
                             <th colspan="2">تخفیف کل</th>
                             <th colspan="2">مبلغ نهایی</th>
@@ -345,8 +354,11 @@
 </template>
 
 <script>
+import LazyBtn from "@/components/LazyBtn.vue";
+
 export default {
   name: "Profile",
+  components: {LazyBtn},
   setup() {
 
     const tabToggle = (id) => {
@@ -368,20 +380,24 @@ export default {
 </script>
 
 <style scoped>
-.table{
+.table {
   font-size: 12px;
 }
-.th, .tr, .td{
+
+.th, .tr, .td {
   border: none;
 }
-.btn, input{
+
+.btn, input {
   border-radius: 0 !important;
 }
-.card{
+
+.card {
   overflow: hidden;
   border-radius: 3px !important;
 }
-.accordion, .accordion-item,.accordion-header,.accordion-button{
+
+.accordion, .accordion-item, .accordion-header, .accordion-button {
   border-radius: 0 !important;
 }
 </style>

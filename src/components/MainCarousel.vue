@@ -24,19 +24,12 @@ export default {
   setup(){
     const data = ref([]);
     const getData = ()=>{
-      fetch(url + '/api/get/banners')
-          .then(response => {
-            if (!response.ok) {
-              throw new Error('Network response was not ok');
-            }
-            return response.json();
-          })
-          .then(res => {
-            data.value = res;
-          })
-          .catch(error => {
-            console.error(error);
-          });
+      axios.get(url+'/api/get/banners')
+          .then((response)=>{
+            data.value = response.data;
+          }).catch((error)=>{
+            console.error(error)
+      });
     }
     const url = App.setup().url;
     const imgUrl = App.setup().imgUrl;

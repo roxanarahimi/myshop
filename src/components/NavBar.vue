@@ -8,7 +8,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <router-link to="/" class="navbar-brand fw-bold">BEAUTY<span class="text-primary">LAND</span></router-link>
+            <router-link to="/" class="navbar-brand fw-bold">RX<span class="text-primary">SHOP</span></router-link>
             <ul class="navbar-nav me-auto ms-5 mb-2 mb-lg-0">
               <li class="nav-item">
                 <router-link to="/" class="nav-link active" aria-current="page">خانه</router-link>

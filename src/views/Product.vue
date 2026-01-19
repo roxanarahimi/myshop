@@ -59,10 +59,10 @@
                 <!--                  <li v-for="item in product?.features">{{ item }}</li>-->
                 <!--                </ul>-->
                 <div class=" align-self-end  d-flex justify-content-end">
-                  <button class="btn btn-sm btn-dark text-light">+</button>
-                  <input type="number" min="0" max="100" value="1"
-                         class="form-control form-control-sm rounded-0 d-inline-block text-center" style="width: 40px">
-                  <button class="btn btn-sm btn-dark text-light">-</button>
+                  <button class="btn btn-sm btn-dark text-light" @click="increase">+</button>
+                  <input type="number" min="0" max="100" value="1" style="width: 40px"
+                         id="quantity" class="form-control form-control-sm rounded-0 d-inline-block text-center">
+                  <button class="btn btn-sm btn-dark text-light" @click="decrease">-</button>
 
                 </div>
               </div>
@@ -172,9 +172,20 @@ export default {
         document.querySelector('.notif').classList.add('d-none');
       }, 1800)
     }
+
+    const increase = () => {
+      document.getElementById('quantity').value = parseInt(document.getElementById('quantity').value)+1
+    }
+    const decrease = () => {
+      if (document.getElementById('quantity').value > 0) {
+        document.getElementById('quantity').value = parseInt(document.getElementById('quantity').value)-1
+      }
+    }
+
+
     return {
       product, products, sameProducts, price, offPrice, showNumbers,
-      getData, url, imgUrl, selectedProduct, setPrice, addToCart
+      getData, url, imgUrl, selectedProduct, setPrice, addToCart, increase, decrease
     }
   }
 }
