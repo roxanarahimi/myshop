@@ -414,3 +414,76 @@ input[type=number] {
     top: calc(50% - 10px);
     right: calc(50% - 10px);
 }
+/*@keyframes blow {*/
+/*    0% {*/
+/*        transform: scale(1);*/
+/*    }*/
+/*    20% {*/
+/*        transform: scale(1.3);*/
+/*    }*/
+/*    50% {*/
+/*        transform: scale(2);*/
+/*    }*/
+/*    75% {*/
+/*        transform: scale(1.6);*/
+/*    }*/
+/*    100% {*/
+/*        transform: scale(1);*/
+/*    }*/
+/*}*/
+/*.lazyPage {*/
+/*    animation: blow 2s infinite linear;*/
+/*    animation-iteration-count: infinite;*/
+/*    position: absolute;*/
+/*    width: 100px !important;*/
+/*    top: calc(50% - 10px);*/
+/*    right: calc(50% - 10px);*/
+/*}*/
+
+
+
+/*.loader-wrapper {*/
+/*    position: fixed !important;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100vw;*/
+/*    height: 100vh;*/
+/*    z-index: 100000;*/
+/*    transition: all 3s ease;*/
+/*    background: #000000;*/
+/*    !*background: radial-gradient(circle,rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.90) 70%, transparent 100%);*!*/
+/*}*/
+
+/*.loader-inner {*/
+/*    !*position: relative;*!*/
+/*    width: 100vw;*/
+/*    height: 100vh;*/
+/*    z-index: 1000;*/
+/*    transition: all 3s ease;*/
+/*    !*background: url('/img/Hive.svg') center bottom no-repeat;*!*/
+/*    background-size: cover;*/
+/*    opacity: 0.2;*/
+/*}*/
+
+/*.loader-center {*/
+/*    position: fixed;*/
+/*    top: 0;*/
+/*    left: calc(50vw - 75px);*/
+/*    filter: drop-shadow(1px 1px 12px rgba(255, 255, 255, 0.5));*/
+/*    transition: all 5s ease;*/
+/*}*/
+
+/*.loader {*/
+/*    width: 150px;*/
+/*    height: 38px;*/
+/*    margin-top: 45vh;*/
+/*    filter: drop-shadow(1px 1px 12px rgba(255, 255, 255, 0.5));*/
+/*    -webkit-animation: circle 3s infinite linear;*/
+/*    transition: all 5s ease;*/
+/*}*/
+
+
+/*.stop-scrolling {*/
+/*    height: 100vh !important;*/
+/*    overflow: hidden !important;*/
+/*}*/

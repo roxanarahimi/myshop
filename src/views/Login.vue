@@ -34,12 +34,12 @@
               </div>
               <ul class="small invalid-feedback d-block" dir="rtl">
                 <li v-if="invalidCode">کد وارد شده اشتباه است
-                  <button class="btn-none" type="reset">پاک کن</button>
+                  <button class="btn-none" type="reset">پاک‌کن</button>
                 </li>
               </ul>
             </form>
 
-            <button class="submit-btn bg-primary text-light" @click="checkCode">ورود</button>
+            <button class="submit-btn bg-primary text-light" type="submit">ورود</button>
           </div>
         </div>
       </div>
@@ -50,6 +50,7 @@
 
 <script>
 import {onMounted, ref} from "vue";
+import App from "@/App.vue";
 
 export default {
   name: "Login",
@@ -82,14 +83,34 @@ export default {
         sendOtp(mobile);
       }
     }
-    const sendOtp = (mobile) => {
-      // api
-      // if response code is 200:
 
-      setTimeout(()=>{
-        focus1stInput();
-      },200)
+    const url = App.setup().url;
+    const mobile = ref(document.getElementById('mobile')?.value);
+
+    const time = ref(59);
+    const count = ()=>{
+      time.value = 59;
+    setInterval(()=> {
+      if (time.value >0) {
+        time.value = time.value -1;
+      }
+      }, 1000);
+
+
+
     }
+    const sendOtp = (mobile) => {
+      alert('otp sent!')
+      axios.post(url + '/api/user/otp',{mobile:mobile.value})
+          .then((response) => {
+            setTimeout(()=>{
+              count();
+              focus1stInput();
+            },200);
+          }).catch((error) => {
+        console.error(error)
+      });
+    };
     const inputHandle = (id)=>{
       document.querySelector('#code'+id).classList.remove('is-invalid');
       let value = document.querySelector('#code'+id).value;
@@ -108,17 +129,30 @@ export default {
     }
     const checkCode = (code)=>{
       if (code.length === 4){
-        if(code === '1111'){
-          invalidCode.value = false;
-          document.querySelectorAll('.code').forEach((element)=>{
-            element.classList.remove('is-invalid');
-            element.classList.add('is-valid');
-          });
-          //login
-          window.location = '/profile';
-        }else{
+        axios.post(url + '/api/user/verify',{code:code})
+            .then((response) => {
+              setTimeout(()=>{
+                invalidCode.value = false;
+                document.querySelectorAll('.code').forEach((element)=>{
+                  element.classList.remove('is-invalid');
+                  element.classList.add('is-valid');
+                });
+                //login
+                localStorage.setItem('user', JSON.stringify(response.user));
+                setTimeout(()=>{
+                  window.location = '/profile';
+                },2000)
+              },1000)
+            }).catch((error) => {
           invalidCode.value = true;
-        }
+          console.error(error)
+        });
+        // if(code === '1111'){ //verify, if 200,
+        //
+        //
+        // }else{
+        //   invalidCode.value = true;
+        // }
       }else{
         invalidCode.value = false;
       }
@@ -130,12 +164,11 @@ export default {
       invalidCode.value = false;
 
     }
-    const time = ref(59);
 
     return {
       invalidMobile, validateMobile, errors, sendOtp, invalidCode,
-      inputHandle, checkCode,focus1stInput,mobileValidated,
-      time,
+      inputHandle, checkCode,focus1stInput,mobileValidated, url,
+      time, mobile
     }
   }
 }

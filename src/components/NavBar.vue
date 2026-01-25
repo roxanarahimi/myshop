@@ -19,11 +19,20 @@
               <li class="nav-item">
                 <router-link to="/contact" class="nav-link">تماس با ما</router-link>
               </li>
+            <li v-if="!user" class="nav-item">
+                <router-link to="/login" class="nav-link">ورود/ثبت نام</router-link>
+              </li>
             </ul>
             <div class="d-flex" style="font-size: 15px">
               <router-link to="/shop" class="bi bi-search mx-3"></router-link>
-              <router-link to="/profile" class="bi bi-person-fill mx-3"></router-link>
-              <router-link to="/cart" class="nav-link position-relative">
+              <router-link v-if="user" to="/profile" class="bi bi-person-fill mx-3"></router-link>
+<!--              <router-link v-else to="/login" class="mx-3" title="ورود/ثبت نام">-->
+<!--                <i class="bi bi-lock-fill"></i>-->
+<!--                <i class="bi bi-key-fill d-inline-block" style="transform: rotate(30deg)"></i>-->
+<!--&lt;!&ndash;                <span class="fw-lighter">ورود/ثبت نام</span>&ndash;&gt;-->
+<!--              </router-link>-->
+
+              <router-link v-if="user" to="/cart" class="nav-link position-relative">
                 <i class="bi bi-cart-fill"></i>
                 <div class="cart-badge">3</div>
               </router-link>
@@ -89,8 +98,18 @@
 </template>
 
 <script>
+import {computed} from "vue";
+
 export default {
   name: "NavBar",
+  setup(){
+    const user = computed(()=>JSON.parse(localStorage.getItem('user')));
+
+
+    return{
+      user,
+    }
+  }
 }
 </script>
 
