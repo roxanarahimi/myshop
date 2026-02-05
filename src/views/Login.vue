@@ -100,7 +100,7 @@ export default {
 
     }
     const sendOtp = (mobile) => {
-      alert('otp sent!')
+      // alert('otp sent!')
       axios.post(url + '/api/user/otp',{mobile:mobile.value})
           .then((response) => {
             setTimeout(()=>{
