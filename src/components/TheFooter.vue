@@ -44,7 +44,7 @@
             <a  href="tel:09128222725"><i class="bi bi-telephone-fill"></i></a>
           </div>
           <div class="col-12 mt-5 d-md-flex justify-content-between px-5 p-md-0">
-            <p>&copy; کلیه حقوق این وبسایت متعلق به <span class="text-primary">بیوتی لند</span> میباشد </p>
+            <p>&copy; کلیه حقوق این وبسایت متعلق به <span class="text-primary">فروشگاه rx</span> میباشد </p>
             <p>تهیه شده با <i class="bi bi-heart text-primary"></i>
               توسط تیم طراحی و توسعه <a target="_blank" href="https://webagent.ir" class="text-primary">webagent</a></p>
           </div>

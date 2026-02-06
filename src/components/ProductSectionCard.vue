@@ -8,13 +8,13 @@
     <div class="p-4" :class="{'gray-scale': product.stock === 0}">
       <div class="row p-0 mx-auto w-100 product-labels">
         <div class="col-6 p-0">
-          <div v-if="product.new" class=" text-center position-relative new-label">
+          <div v-if="product.new==1 && product.stock>0" class=" text-center position-relative new-label">
             <div class="bg-success text-light text-center new-label-body justify-content-end">جدید</div>
             <div class="bg-success mx-auto new-label-pointer"></div>
           </div>
         </div>
         <div class="col-6 p-0" dir="ltr">
-          <div v-if="product.off" class=" text-center position-relative off-label" >
+          <div v-if="product.off>0 && product.stock>0" class=" text-center position-relative off-label" >
             <div class="bg-primary text-light text-center off-label-body ">{{ product.off }}%</div>
             <div class="bg-primary mx-auto off-label-pointer"></div>
           </div>

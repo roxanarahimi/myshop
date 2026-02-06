@@ -48,8 +48,8 @@ export default {
       items[8]?.classList.remove('product-section-border-right');
     }
     onMounted(() => {
-      setBorders();
       categoryToggle('');
+      // setBorders();
     });
     const categoryToggle = (id) => {
       document.querySelector('.product-active')?.classList.remove('product-active');
@@ -64,6 +64,8 @@ export default {
         axios.get(_props.url + '/api/special/products?category_id='+id)
             .then((response)=>{
               data.value = response.data;
+            }).then(()=>{
+         setBorders();
             });
 
         // Now that data.value is updated, we wait a tick for DOM updates
@@ -77,7 +79,6 @@ export default {
         }, 0); // Or use nextTick in Vue
       }, 100);
 
-      setTimeout(() => { setBorders(); }, 100);
 
     }
 
