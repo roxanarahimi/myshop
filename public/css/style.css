@@ -235,9 +235,9 @@ label {
 .router-link-active, .router-link-exact-active nav-link{
     color: var(--bs-primary) !important;
 }
-.bottom-nav-ul .nav-item .bi {
-    font-size: 16px !important;
-    color: gray;
+.bottom-nav-ul .nav-item .bi{
+    font-size: 25px !important;
+    color: black;
 }
 
 .cart-badge {
@@ -264,7 +264,7 @@ label {
         border-radius: 50%;
         background-color: var(--bs-primary);
         position: absolute;
-        top: -5px;
+        top: -4px;
         right: -5px;
         color: white;
     }

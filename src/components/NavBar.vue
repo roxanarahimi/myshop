@@ -45,7 +45,7 @@
   <div class="d-md-none w-100">
     <nav class="navbar navbar-expand bg-body-tertiary w-100" style="position: fixed; right:0; top: 0; z-index: 1000;">
       <div class="container-fluid px-0 w-100">
-        <ul class="navbar-nav px-0 w-100 bottom-nav-ul d-flex justify-content-between">
+        <ul class="mobile-nav navbar-nav px-0 w-100 bottom-nav-ul d-flex justify-content-between">
           <li class="nav-item">
             <div @click="$router.go(1)" class="nav-link">
               <i class="bi bi-caret-right"></i>
@@ -67,13 +67,13 @@
       </div>
     </nav>
     <nav class="navbar navbar-expand bg-body-tertiary w-100" style="position: fixed; right:0; bottom: 0; z-index: 1000;">
-      <div class="container-fluid px-0 w-100">
-        <ul class="navbar-nav px-0 w-100 bottom-nav-ul d-flex justify-content-between">
+      <div class="container-fluid px-0 w-100 ">
+        <ul class="mobile-nav navbar-nav px-0  w-100 bottom-nav-ul d-flex justify-content-between">
 
 
           <li class="nav-item">
             <router-link to="/" class="nav-link" aria-current="page">
-              <i class="bi bi-house" :class="{'text-primary': $route.fullPath == '/'}"></i>
+              <i class="bi bi-house-door" :class="{'text-primary': $route.fullPath == '/'}"></i>
             </router-link>
           </li>
 
@@ -119,6 +119,6 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 
 </style>
