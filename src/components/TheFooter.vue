@@ -3,9 +3,9 @@
     <div class="row justify-content-center">
       <div class="col-12 bg-light  row  justify-content-between">
 
-        <div class="col-lg-10 row p-0 m-0 mx-auto mt-5 mt-md-0">
+        <div class="col-lg-10 row justify-content-between p-0 m-0 mx-auto mt-5 mt-md-0">
 
-          <div class="col-md-4 d-grid">
+          <div class="col-md-5 d-grid">
 
             <div style="align-self: center">
               <h5 class="text-primary">
@@ -18,15 +18,27 @@
 
           </div>
 
-          <div class="col-md-8 d-grid py-4">
-            <div style="align-self: center;text-align: left">
-              <img src="/img/qr.png" class="img-fluid ms-3 rounded-5" style="max-width: 150px;" alt="">
-              <a target="_blank" href="https://www.instagram.com/mokamel_moo_gisoo/">
-                <img src="/img/instalogo.png" class="img-fluid ms-3" style="max-width: 150px;" alt="">
-              </a>
-              <div class="d-inline-block ms-3 rounded-5 bg-white text-center" style="max-width: 150px;" >
-                <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=703082&Code=OxB5grbLTG8NhIOmYm0Nm6OYdIpa1pT4'><img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=703082&Code=OxB5grbLTG8NhIOmYm0Nm6OYdIpa1pT4' alt='' style='cursor:pointer' code='OxB5grbLTG8NhIOmYm0Nm6OYdIpa1pT4'></a>
+          <div class="col-md-5 d-grid py-4">
+            <div class="row" style="align-self: center;text-align: left">
+              <div class="col-4">
+                <img src="/img/qr.png" class="img-fluid  rounded-5" style="max-width: 150px;" alt="">
               </div>
+              <div class="col-4">
+                <a target="_blank" href="https://www.instagram.com/mokamel_moo_gisoo/">
+                  <img src="/img/instalogo.png" class="img-fluid" style="max-width: 150px;" alt="">
+                </a>
+              </div>
+              <div class="col-4">
+                <div class="d-inline-block rounded-5 bg-white text-center" style="max-width: 150px;">
+                  <a referrerpolicy='origin' target='_blank'
+                     href='https://trustseal.enamad.ir/?id=703082&Code=OxB5grbLTG8NhIOmYm0Nm6OYdIpa1pT4'><img
+                      referrerpolicy='origin'
+                      src='https://trustseal.enamad.ir/logo.aspx?id=703082&Code=OxB5grbLTG8NhIOmYm0Nm6OYdIpa1pT4' alt=''
+                      style='cursor:pointer' code='OxB5grbLTG8NhIOmYm0Nm6OYdIpa1pT4'></a>
+                </div>
+              </div>
+
+
             </div>
 
           </div>
@@ -44,7 +56,7 @@
           <div class="col-md-3 d-flex justify-content-between px-5 p-md-0">
             <a target="_blank" href="https://wa.me/09128222725"><i class="bi bi-whatsapp"></i></a>
             <a target="_blank" href="https://t.me/roxanarahimi"><i class="bi bi-telegram"></i></a>
-            <a  href="tel:09128222725"><i class="bi bi-telephone-fill"></i></a>
+            <a href="tel:09128222725"><i class="bi bi-telephone-fill"></i></a>
           </div>
           <div class="col-12 mt-5 d-md-flex justify-content-between px-5 p-md-0">
             <p>&copy; کلیه حقوق این وبسایت متعلق به <span class="text-primary">بیوتی لند</span> میباشد </p>
