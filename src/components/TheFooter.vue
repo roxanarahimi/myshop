@@ -5,7 +5,7 @@
 
         <div class="col-lg-10 row p-0 m-0 mx-auto mt-5 mt-md-0">
 
-          <div class="col-md-6 d-grid">
+          <div class="col-md-4 d-grid">
 
             <div style="align-self: center">
               <h5 class="text-primary">
@@ -18,13 +18,13 @@
 
           </div>
 
-          <div class="col-md-6 d-grid py-4">
+          <div class="col-md-8 d-grid py-4">
             <div style="align-self: center;text-align: left">
-              <img src="/img/qr.png" class="img-fluid ms-5 rounded-5" style="max-width: 150px;" alt="">
+              <img src="/img/qr.png" class="img-fluid ms-3 rounded-5" style="max-width: 150px;" alt="">
               <a target="_blank" href="https://www.instagram.com/mokamel_moo_gisoo/">
-                <img src="/img/instalogo.png" class="img-fluid " style="max-width: 150px;" alt="">
+                <img src="/img/instalogo.png" class="img-fluid ms-3" style="max-width: 150px;" alt="">
               </a>
-              <div class=" ms-5 rounded-5 bg-white" style="max-width: 150px;" >
+              <div class="d-inline-block ms-3 rounded-5 bg-white text-center" style="max-width: 150px;" >
                 <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=703082&Code=OxB5grbLTG8NhIOmYm0Nm6OYdIpa1pT4'><img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=703082&Code=OxB5grbLTG8NhIOmYm0Nm6OYdIpa1pT4' alt='' style='cursor:pointer' code='OxB5grbLTG8NhIOmYm0Nm6OYdIpa1pT4'></a>
               </div>
             </div>
