@@ -1,6 +1,6 @@
 <template>
   <div class="new-section min-vh-100 pt-5 text-center">
-    <h3 class="mb-5 fw-bold" style="color: coral">پر فروش ترین محصولات</h3>
+    <h3 class="mb-5 fw-bold text-primary">پر فروش ترین محصولات</h3>
     <div class="row justify-content-center">
       <div class="col-lg-7">
         <div v-if="cats.length" class="d-flex justify-content-center">
