@@ -6,13 +6,13 @@
           class="row col-xl-10 px-3 px-md-2 py-3 px-lg-4 py-lg-3 mx-auto p-2   bg-light mt-2 mt-md-5 justify-content-center ">
         <div class="col-md-10 col-xl-10 col-xxl-8 row p-1 mx-auto product-labels mb-2">
           <div class="col-6 p-0">
-            <div v-if="product?.new" class=" text-center position-relative new-label">
+            <div v-if="product?.new==1 && product?.stock>0" class=" text-center position-relative new-label">
               <div class="bg-success text-light text-center new-label-body justify-content-end">جدید</div>
               <div class="bg-success mx-auto new-label-pointer"></div>
             </div>
           </div>
           <div class="col-6 p-0" dir="ltr">
-            <div v-if="product?.off && product?.stock" class=" text-center position-relative off-label">
+            <div v-if="product?.off>0 && product?.stock>0" class=" text-center position-relative off-label">
               <div class="bg-primary text-light text-center off-label-body ">{{ product?.off }}%</div>
               <div class="bg-primary mx-auto off-label-pointer"></div>
             </div>
@@ -38,12 +38,17 @@
                 <h3 class="">{{ product?.title }}</h3>
                 <h6 class="mb-3">{{ product?.subtitle }}</h6>
 
-                <select class="form-select rounded-0 mb-3" v-model="selectedProduct" @change="setPrice">
-                  <option v-for="(p,index) in product.products" :value="p" :key="index">{{ p.size }}</option>
-                </select>
+<!--                <select class="form-select rounded-0 mb-3" v-model="selectedProduct" @change="setPrice">-->
+<!--                  <option v-for="(p,index) in product.products" :value="p" :key="index">{{ p.size }}</option>-->
+<!--                </select>-->
+        <div class="d-flex flex-wrap mb-2">
 
-                <div v-if="product?.stock" class="d-flex">
-                  <h5 v-if="product?.off" class=" text-black-50 text-decoration-line-through ms-2">{{ price }}</h5>
+          <span class="rounded border px-2 pt-1 cursor me-2 mb-2" :class="{'border-primary':selectedProduct==p}" @click="setPrice(p)"
+                v-for="(p,index) in product.products" :data-value="p" :key="index">{{ p.size }}</span>
+        </div>
+
+                <div v-if="product?.stock>0" class="d-flex">
+                  <h5 v-if="product?.off>0" class=" text-black-50 text-decoration-line-through ms-2">{{ price }}</h5>
                   <h5 class=" text-primary">{{ offPrice }} تومان</h5>
                 </div>
                 <div v-else class="d-flex"><h5 class="text-primary">ناموجود</h5></div>
@@ -139,9 +144,8 @@ export default {
             product.value = response.data;
           })
           .then(() => {
-            selectedProduct.value = product.value.products[0];
-
-            setPrice();
+            // selectedProduct.value = product.value.products[0];
+            setPrice(product.value.products[0]);
             sameProducts.value = products.filter((element) => element.category_id == product.value.category_id && element.id != product.value.id);
 
           })
@@ -149,9 +153,10 @@ export default {
             console.error(error);
           })
     };
-    const setPrice = () => {
-      let prc = selectedProduct.value.price ? selectedProduct.value.price : product.value.price;
-      let offp = selectedProduct.value.off ? selectedProduct.value.off : product.value.off;
+    const setPrice = (p) => {
+      selectedProduct.value = p;
+      let prc = parseInt(selectedProduct.value.price)>0 ? selectedProduct.value.price : product.value.price;
+      let offp = parseInt(selectedProduct.value.off)>0 ? selectedProduct.value.off : product.value.off;
       price.value = showNumbers(prc);
       offPrice.value = showNumbers(prc - (prc * offp * 0.01));
     }
