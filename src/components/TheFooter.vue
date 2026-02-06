@@ -24,7 +24,9 @@
               <a target="_blank" href="https://www.instagram.com/mokamel_moo_gisoo/">
                 <img src="/img/instalogo.png" class="img-fluid " style="max-width: 150px;" alt="">
               </a>
-              <a class=" ms-5 rounded-5 bg-white" style="max-width: 150px;" referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=703082&Code=OxB5grbLTG8NhIOmYm0Nm6OYdIpa1pT4'><img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=703082&Code=OxB5grbLTG8NhIOmYm0Nm6OYdIpa1pT4' alt='' style='cursor:pointer' code='OxB5grbLTG8NhIOmYm0Nm6OYdIpa1pT4'></a>
+              <div class=" ms-5 rounded-5 bg-white" style="max-width: 150px;" >
+                <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=703082&Code=OxB5grbLTG8NhIOmYm0Nm6OYdIpa1pT4'><img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=703082&Code=OxB5grbLTG8NhIOmYm0Nm6OYdIpa1pT4' alt='' style='cursor:pointer' code='OxB5grbLTG8NhIOmYm0Nm6OYdIpa1pT4'></a>
+              </div>
             </div>
 
           </div>
