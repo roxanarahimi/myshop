@@ -1,6 +1,6 @@
 <template>
   <div class="row justify-content-center">
-    <div class="col-10 row py-5 justify-content-between">
+    <div class="col-md-10 row py-5 justify-content-between">
 
       <ul class="nav nav-tabs">
         <li class="nav-item">
@@ -13,7 +13,7 @@
           <a class="nav-link cursor tab tab3" @click="tabToggle('tab3')">سفارش ها</a>
         </li>
       </ul>
-      <div class="py-5">
+      <div class="p-4">
         <div id="tab1" class="tab-info row justify-content-center">
           <div class="col-lg-6">
             <div class="card">
@@ -151,7 +151,7 @@
                       </button>
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                      <div class="accordion-body p-4">
+                      <div class="accordion-body p-3 p-md-4">
 
                         <table class="table border table-borderless ">
                           <thead>
@@ -169,39 +169,33 @@
                           </tr>
 
                           <tr>
-                            <th scope="col">ردیف</th>
-                            <th scope="col">محصول</th>
-                            <th scope="col">تعداد</th>
+                            <th scope="col" colspan="2">محصول</th>
                             <th scope="col">قیمت</th>
                             <th scope="col">تخفیف</th>
                             <th scope="col">مبلغ</th>
                           </tr>
                           <tr>
-                            <td>1</td>
-                            <td>فیتو بطری 60 عددی</td>
-                            <td>1</td>
+                            <td colspan="2">  فیتو بطری 60 عددی<span class="bi bi-x text-primary fw-bold">1</span> </td>
                             <td>2500000</td>
                             <td>10%</td>
                             <td>2250000</td>
                           </tr>
                           <tr>
-                            <th scope="row">2</th>
-                            <td>ماسک کلاژن بایودنس بسته 4 عددی</td>
-                            <td>1</td>
+                            <td colspan="2">ماسک کلاژن بایودنس بسته 4 عددی<span class="bi bi-x text-primary fw-bold">1</span></td>
                             <td>1300000</td>
                             <td>0</td>
                             <td>1300000</td>
                           </tr>
                           <tr class="border-top" style="text-align:left !important">
-                            <th scope="row"></th>
-                            <th>جمع کل</th>
-                            <th colspan="2">تخفیف کل</th>
-                            <th colspan="2">مبلغ نهایی</th>
+                            <th colspan="1">جمع‌کل</th>
+                            <th colspan="1">تخفیف‌کل</th>
+                            <th colspan="1">هزینه‌ارسال</th>
+                            <th colspan="2">مبلغ‌نهایی</th>
                           </tr>
                           <tr style="text-align:left !important">
-                            <td scope="row"></td>
-                            <td>3500000</td>
-                            <td colspan="2">250000</td>
+                            <td colspan="1">3500000</td>
+                            <td colspan="1">250000</td>
+                            <td colspan="1">3250000</td>
                             <td colspan="2">3250000</td>
                           </tr>
                           </tbody>
@@ -218,7 +212,7 @@
                       </button>
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                      <div class="accordion-body">
+                      <div class="accordion-body  p-3 p-md-4">
                         <table class="table border table-borderless ">
                           <thead>
                           <tr>
@@ -235,39 +229,33 @@
                           </tr>
 
                           <tr>
-                            <th scope="col">ردیف</th>
-                            <th scope="col">محصول</th>
-                            <th scope="col">تعداد</th>
+                            <th scope="col" colspan="2">محصول</th>
                             <th scope="col">قیمت</th>
                             <th scope="col">تخفیف</th>
                             <th scope="col">مبلغ</th>
                           </tr>
                           <tr>
-                            <td>1</td>
-                            <td>فیتو بطری 60 عددی</td>
-                            <td>1</td>
+                            <td colspan="2">  فیتو بطری 60 عددی<span class="bi bi-x text-primary fw-bold">1</span> </td>
                             <td>2500000</td>
                             <td>10%</td>
                             <td>2250000</td>
                           </tr>
                           <tr>
-                            <th scope="row">2</th>
-                            <td>ماسک کلاژن بایودنس بسته 4 عددی</td>
-                            <td>1</td>
+                            <td colspan="2">ماسک کلاژن بایودنس بسته 4 عددی<span class="bi bi-x text-primary fw-bold">1</span></td>
                             <td>1300000</td>
                             <td>0</td>
                             <td>1300000</td>
                           </tr>
                           <tr class="border-top" style="text-align:left !important">
-                            <th scope="row"></th>
-                            <th>جمع کل</th>
-                            <th colspan="2">تخفیف کل</th>
-                            <th colspan="2">مبلغ نهایی</th>
+                            <th colspan="1">جمع‌کل</th>
+                            <th colspan="1">تخفیف‌کل</th>
+                            <th colspan="1">هزینه‌ارسال</th>
+                            <th colspan="2">مبلغ‌نهایی</th>
                           </tr>
                           <tr style="text-align:left !important">
-                            <td scope="row"></td>
-                            <td>3500000</td>
-                            <td colspan="2">250000</td>
+                            <td colspan="1">3500000</td>
+                            <td colspan="1">250000</td>
+                            <td colspan="1">3250000</td>
                             <td colspan="2">3250000</td>
                           </tr>
                           </tbody>
@@ -283,7 +271,7 @@
                       </button>
                     </h2>
                     <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                      <div class="accordion-body">
+                      <div class="accordion-body p-3 p-md-4">
                         <table class="table border table-borderless ">
                           <thead>
                           <tr>
@@ -300,39 +288,33 @@
                           </tr>
 
                           <tr>
-                            <th scope="col">ردیف</th>
-                            <th scope="col">محصول</th>
-                            <th scope="col">تعداد</th>
+                            <th scope="col" colspan="2">محصول</th>
                             <th scope="col">قیمت</th>
                             <th scope="col">تخفیف</th>
                             <th scope="col">مبلغ</th>
                           </tr>
                           <tr>
-                            <td>1</td>
-                            <td>فیتو بطری 60 عددی</td>
-                            <td>1</td>
+                            <td colspan="2">  فیتو بطری 60 عددی<span class="bi bi-x text-primary fw-bold">1</span> </td>
                             <td>2500000</td>
                             <td>10%</td>
                             <td>2250000</td>
                           </tr>
                           <tr>
-                            <th scope="row">2</th>
-                            <td>ماسک کلاژن بایودنس بسته 4 عددی</td>
-                            <td>1</td>
+                            <td colspan="2">ماسک کلاژن بایودنس بسته 4 عددی<span class="bi bi-x text-primary fw-bold">1</span></td>
                             <td>1300000</td>
                             <td>0</td>
                             <td>1300000</td>
                           </tr>
                           <tr class="border-top" style="text-align:left !important">
-                            <th scope="row"></th>
-                            <th>جمع کل</th>
-                            <th colspan="2">تخفیف کل</th>
-                            <th colspan="2">مبلغ نهایی</th>
+                            <th colspan="1">جمع‌کل</th>
+                            <th colspan="1">تخفیف‌کل</th>
+                            <th colspan="1">هزینه‌ارسال</th>
+                            <th colspan="2">مبلغ‌نهایی</th>
                           </tr>
                           <tr style="text-align:left !important">
-                            <td scope="row"></td>
-                            <td>3500000</td>
-                            <td colspan="2">250000</td>
+                            <td colspan="1">3500000</td>
+                            <td colspan="1">250000</td>
+                            <td colspan="1">3250000</td>
                             <td colspan="2">3250000</td>
                           </tr>
                           </tbody>
