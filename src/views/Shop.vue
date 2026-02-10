@@ -64,7 +64,7 @@
           </div>
          <div @click="getProducts" class="form-check  d-flex justify-content-start">
             <input class="form-check-input" type="radio" @change="getProducts" name="brand" value="مای ویتامینز" id="myvitamins" >
-            <label class="form-check-label me-4" for="myvitamins" title="myvitamins">مای ویتامینز</label>
+            <label class="form-check-label me-4" for="myvitamins" title="myvitamins">مای‌ویتامینز</label>
           </div>  <div @click="getProducts" class="form-check  d-flex justify-content-start">
             <input class="form-check-input" type="radio" @change="getProducts" name="brand" value="بایودنس" id="biodance" >
             <label class="form-check-label me-4" for="biodance" title="biodance">بایودنس</label>

@@ -2,7 +2,7 @@
   <div class="new-section min-vh-100 pt-5 text-center">
     <h3 class="mb-5 fw-bold text-primary">پر فروش ترین محصولات</h3>
     <div class="row justify-content-center">
-      <div class="col-lg-7">
+      <div class="col-lg-10">
         <div v-if="cats.length" class="d-flex justify-content-center">
           <button @click="categoryToggle('')" id="cat_"
                   class="product-section-btn product-active rounded-start-0">همه
@@ -15,7 +15,7 @@
         </div>
         <div class="row pt-5 products-section"><!-- data.slice(0,4) -->
           <div v-if="data.length" v-for="(item, index) in data" :key="index"
-               class="col-6 col-md-3 px-0 product-card mb-5"
+               class="col-6 col-md-3 px-0 product-card mb-md-5"
                :data-index="index" :data-category="item.category_id">
             <product-card :product="item" :index="index" :url="imgUrl"/>
           </div>

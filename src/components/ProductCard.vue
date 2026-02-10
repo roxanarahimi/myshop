@@ -1,5 +1,5 @@
 <template>
-  <div v-if="product" class="card w-100 mb-2" style="border-color: #eeeeee !important; border-radius: 2px; cursor: pointer">
+  <div v-if="product" class="card w-100 h-100 mb-2" style="border-color: #eeeeee !important; border-radius: 2px; cursor: pointer">
    <div class="card-body p-0 h-100"  >
       <a :href="'/product/'+product.slug" class="w-100">
         <div class="w-100 text-center" style="position: absolute;top:50px;left:0; z-index:100;">
@@ -24,13 +24,15 @@
           <!--        <img :src="product.image" class="img-fluid w-100" alt="">-->
           <lazy-image v-if="product.id" :data="{image:url+product?.images[0],title:product.title}"/>
           <div class="text-center">
-            <small class="fw-bold titles-font-size">{{ product.title }}</small><br>
-            <small class=" titles-font-size">محصول کشور {{ product.made_in }}</small><br>
-            <div  v-if="product.stock >0" class="d-flex justify-content-center">
+            <div style="height:50px !important">
+              <small class="fw-bold titles-font-size mb-0">{{ product.title }}</small>
+            </div>
+<!--            <small class=" titles-font-size">محصول کشور {{ product.made_in }}</small><br>-->
+            <div  v-if="product.stock >0" class="d-flex justify-content-center mb-1">
               <b v-if="product.off>0" class="titles-font-size text-black-50 text-decoration-line-through ms-2">{{ price }}</b>
               <b  class="titles-font-size text-primary">{{ offPrice }} تومان</b>
             </div>
-            <div v-else  class="d-flex justify-content-center"> <b class="titles-font-size text-primary">ناموجود</b></div>
+            <div v-else  class="d-flex justify-content-center mb-1"> <b class="titles-font-size text-primary">ناموجود</b></div>
 
 
           </div>

@@ -22,6 +22,9 @@ body, html {
     text-align: left !important;
     direction: ltr !important;
 }
+.fs-big{
+    font-size: 50px;
+}
 
 ::-webkit-scrollbar {
     width: 5px;
@@ -158,7 +161,16 @@ body {
     transition: all 1s ease !important;
 
 }
-
+.carousel-item{
+    height: auto !important;
+}
+.carousel-item img{
+    width: 100% !important;
+    height:auto !important;
+}
+.carousel-inner{
+    border-radius: 0 !important;
+}
 @media (max-width: 768px) {
 
     .add-to-cart-2 {
@@ -167,6 +179,18 @@ body {
 
     .product-txt {
         font-size: 13px;
+    }
+
+    .carousel-item{
+        height: 60vh !important;
+
+    }
+    .carousel-item img{
+        height: 100% !important;
+        width:auto !important;
+    }
+    .carousel-inner{
+        border-radius: 10px !important;
     }
 }
 
@@ -193,12 +217,14 @@ body {
 
 .product-card {
     cursor: pointer;
+    /*transform: scale(0,0);*/
+
 }
 
 .product-card:hover {
     transition: all 0.2s ease !important;
     /*background-color: white;*/
-    /*transform: scale(1.01);*/
+    /*transform: scale(0,0);*/
     box-shadow: 0 25px 29px rgba(63, 78, 100, 0.15) !important;
     border: solid 2px rgba(235, 235, 235, 1) !important;
 }
@@ -217,7 +243,7 @@ a, a:hover {
 }
 
 .titles-font-size {
-    font-size: 11px !important;
+    font-size: 13px !important;
 }
 
 label {
@@ -236,7 +262,7 @@ label {
     color: var(--bs-primary) !important;
 }
 .bottom-nav-ul .nav-item .bi{
-    font-size: 25px !important;
+    font-size: 22px !important;
     color: black;
 }
 
@@ -321,6 +347,17 @@ label {
 @media (max-width: 768px) {
     .shop-products {
         height: calc(100vh - 50px) !important;
+    }
+    .shop-sidebar {
+        width: 130px;
+        font-size: 13px;
+    }
+
+    .shop-products {
+        width: calc(100% - 140px);
+        overflow-y: scroll;
+        overflow-x: hidden;
+        height: calc(100vh - 100px) !important;
     }
 
 }
