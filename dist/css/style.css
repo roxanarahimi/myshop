@@ -349,12 +349,12 @@ label {
         height: calc(100vh - 50px) !important;
     }
     .shop-sidebar {
-        width: 130px;
+        width: 152px;
         font-size: 13px;
     }
 
     .shop-products {
-        width: calc(100% - 140px);
+        width: calc(100% - 162px);
         overflow-y: scroll;
         overflow-x: hidden;
         height: calc(100vh - 100px) !important;
