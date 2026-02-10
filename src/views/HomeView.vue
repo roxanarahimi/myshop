@@ -20,7 +20,7 @@
     </div>
   </div>
 
-  <div class="row bg-light pt-5">
+  <div class="row bg-light pt-md-5 ">
     <div class="col-lg-10 mx-auto row px-5">
       <div v-for="item in categories" class="col-md-4 p-4">
         <div class="row bg-white cat-section ">
