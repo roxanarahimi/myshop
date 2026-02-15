@@ -97,7 +97,7 @@
           <li class="nav-item" >
             <router-link to="/cart" class="d-block nav-link position-relative">
               <i class="bi bi-cart" :class="{'text-primary': $route.fullPath == '/cart'}"></i>
-              <div class="cart-badge">3</div>
+              <div class="cart-badge cart-badge-2">3</div>
               <small class="d-block">سبد خرید</small>
 
             </router-link>
@@ -127,5 +127,8 @@ export default {
 <style>
 .nav-link{
   text-align: center !important;
+}
+.cart-badge-2{
+  right: 5px !important;
 }
 </style>

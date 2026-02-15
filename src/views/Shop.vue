@@ -3,14 +3,14 @@
 
     <div class="col-lg-10 px-4 mx-auto d-flex justify-content-xl-between p-3 ps-2 pb-5">
       <div class="pt-2 shop-sidebar">
-        <div class="w-100 mb-2 p-3 text-center  bg-white-smoke">
+        <div class="w-100 mb-2 p-2 p-md-3 text-center  bg-white-smoke">
           <input type="text" id="search" @input="getProducts" v-model="term" class="form-control form-control-sm "
                  placeholder="جستجوی محصول">
         </div>
-        <div class="w-100 mb-2 p-3 text-center  bg-white-smoke">
+        <div class="w-100 mb-2 p-2 p-md-3 text-center  bg-white-smoke">
           <button class="btn btn-sm w-100 btn-primary text-light" @click="reset">حذف فیلتر ها</button>
         </div>
-        <div class="w-100 mb-2 p-3  bg-white-smoke">
+        <div class="w-100 mb-2 p-2 p-md-3  bg-white-smoke">
           <div class="form-check d-flex justify-content-start">
             <input class="form-check-input" type="checkbox" name="stock" @change="getProducts" v-model="stock"
                    id="exist">
@@ -18,18 +18,49 @@
           </div>
 
         </div>
-        <div class="w-100 mb-2 p-3  bg-white-smoke">
+        <div class="w-100 mb-2 p-2 p-md-3  bg-white-smoke">
           <div class="form-check d-flex justify-content-start">
             <input class="form-check-input" type="checkbox" @change="getProducts" v-model="off" id="off">
             <label class="form-check-label me-4" for="off">شامل تخفیف</label>
           </div>
         </div>
-        <div v-if="categories.length" class="w-100 mb-2 p-3  bg-white-smoke">
+        <div v-if="categories.length" class="w-100 mb-2 p-2 p-md-3  bg-white-smoke">
           <div v-for="cat in categories" class="form-check d-flex justify-content-start">
             <input class="form-check-input" name="category_ids[]" :value="cat.id" @change="getProducts" type="checkbox"
                    :id="'cat-'+cat.id">
             <label class="form-check-label me-4" :for="'cat-'+cat.id">{{ cat.title }}</label>
           </div>
+        </div>
+        <div class="w-100 mb-2 p-2 p-md-3  bg-white-smoke">
+          <div @click="getProducts" class="form-check  d-flex justify-content-start">
+            <input class="form-check-input" type="radio" @change="getProducts" name="brand" value="شیگلم" id="sheglam" >
+            <label class="form-check-label me-4" for="sheeglam" title="sheeglam">شیگلم</label>
+          </div>
+          <div @click="getProducts" class="form-check  d-flex justify-content-start">
+            <input class="form-check-input" type="radio" @change="getProducts" name="brand" value="اوردینری" id="ordinary" >
+            <label class="form-check-label me-4" for="ordinary" title="ordinary">اوردینری</label>
+          </div>
+          <div @click="getProducts" class="form-check  d-flex justify-content-start">
+            <input class="form-check-input" type="radio" @change="getProducts" name="brand" value="کوزارکس" id="cosrx" >
+            <label class="form-check-label me-4" for="cosrx" title="cosrx">کوزارکس</label>
+          </div>
+          <div @click="getProducts" class="form-check  d-flex justify-content-start">
+            <input class="form-check-input" type="radio" @change="getProducts" name="brand" value="فیتو" id="phyto" >
+            <label class="form-check-label me-4" for="phyto" title="phyto">فیتو</label>
+          </div>
+          <div @click="getProducts" class="form-check  d-flex justify-content-start">
+            <input class="form-check-input" type="radio" @change="getProducts" name="brand" value="هیرتامین" id="hairtamin" >
+            <label class="form-check-label me-4" for="hairtamin" title="hairtamin">هیرتامین</label>
+          </div>
+          <div @click="getProducts" class="form-check  d-flex justify-content-start">
+            <input class="form-check-input" type="radio" @change="getProducts" name="brand" value="مای‌ویتامینز" id="myvitamins" >
+            <label class="form-check-label me-4" for="myvitamins" title="myvitamins">مای‌ویتامینز</label>
+          </div>
+          <div @click="getProducts" class="form-check  d-flex justify-content-start">
+            <input class="form-check-input" type="radio" @change="getProducts" name="brand" value="بایودنس" id="biodance" >
+            <label class="form-check-label me-4" for="biodance" title="biodance">بایودنس</label>
+          </div>
+
         </div>
 <!--        <div class="w-100 mb-3 p-3  bg-white-smoke">-->
 <!--          <div @click="getProducts" class="form-check  d-flex justify-content-start">-->
@@ -41,37 +72,6 @@
 <!--            <label class="form-check-label me-4" for="sale">پر فروش ترین</label>-->
 <!--          </div>-->
 <!--        </div>-->
-        <div class="w-100 mb-2 p-3  bg-white-smoke">
-          <div @click="getProducts" class="form-check  d-flex justify-content-start">
-            <input class="form-check-input" type="radio" @change="getProducts" name="brand" value="شیگلم" id="sheglam" >
-            <label class="form-check-label me-4" for="sheeglam" title="sheeglam">شیگلم</label>
-          </div>
-         <div @click="getProducts" class="form-check  d-flex justify-content-start">
-            <input class="form-check-input" type="radio" @change="getProducts" name="brand" value="اوردینری" id="ordinary" >
-            <label class="form-check-label me-4" for="ordinary" title="ordinary">اوردینری</label>
-          </div>
-          <div @click="getProducts" class="form-check  d-flex justify-content-start">
-            <input class="form-check-input" type="radio" @change="getProducts" name="brand" value="کوزارکس" id="cosrx" >
-            <label class="form-check-label me-4" for="cosrx" title="cosrx">کوزارکس</label>
-          </div>
-         <div @click="getProducts" class="form-check  d-flex justify-content-start">
-            <input class="form-check-input" type="radio" @change="getProducts" name="brand" value="فیتو" id="phyto" >
-            <label class="form-check-label me-4" for="phyto" title="phyto">فیتو</label>
-          </div>
-         <div @click="getProducts" class="form-check  d-flex justify-content-start">
-            <input class="form-check-input" type="radio" @change="getProducts" name="brand" value="هیرتامین" id="hairtamin" >
-            <label class="form-check-label me-4" for="hairtamin" title="hairtamin">هیرتامین</label>
-          </div>
-         <div @click="getProducts" class="form-check  d-flex justify-content-start">
-            <input class="form-check-input" type="radio" @change="getProducts" name="brand" value="مای‌ویتامینز" id="myvitamins" >
-            <label class="form-check-label me-4" for="myvitamins" title="myvitamins">مای‌ویتامینز</label>
-          </div>
-          <div @click="getProducts" class="form-check  d-flex justify-content-start">
-            <input class="form-check-input" type="radio" @change="getProducts" name="brand" value="بایودنس" id="biodance" >
-            <label class="form-check-label me-4" for="biodance" title="biodance">بایودنس</label>
-          </div>
-
-        </div>
       </div>
       <div class="mt-2 px-3 shop-products" style="">
         <div class="row" v-if="products?.length">
