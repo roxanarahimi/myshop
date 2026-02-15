@@ -1,22 +1,22 @@
 <template>
   <main-carousel/>
 
-  <div class="bg-primary text-center text-light row p-4 px-lg-5">
+  <div class="bg-primary text-center text-light row p-1 pt-3 pb-0 ">
     <div class="col-6 col-md-3 mb-3">
       <i class="bi bi-patch-check d-block fs-big"></i>
-      <small>محصولات اورجینال</small>
+      <small class="fs-small">محصولات اورجینال</small>
     </div>
      <div class="col-6 col-md-3 mb-3">
       <i class="bi bi-star d-block fs-big"></i>
-      <small>محصولات ترند</small>
+      <small class="fs-small">محصولات ترند</small>
     </div>
     <div class="col-6 col-md-3 mb-3">
       <i class="bi bi-headset d-block fs-big"></i>
-      <small>پشتیبانی 24 ساعته</small>
+      <small class="fs-small">پشتیبانی 24 ساعته</small>
     </div>
     <div class="col-6 col-md-3 mb-3">
       <i class="bi bi-shield-lock d-block fs-big"></i>
-      <small>پرداخت امن</small>
+      <small class="fs-small">پرداخت امن</small>
     </div>
   </div>
 
