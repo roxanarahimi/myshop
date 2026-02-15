@@ -45,13 +45,13 @@
   </div>
 
   <div class="bg-primary d-flex flex-wrap justify-content-between pt-4 ">
-    <div class="brand"><img src="/img/brands/cosrx.jpg" class="rounded w-100" alt=""></div>
-    <div class="brand"><img src="/img/brands/phyto.jpg" class="rounded w-100" alt=""></div>
+    <div class="brand"><img src="/img/brands/cosrx.jpg" class="w-100" alt=""></div>
+    <div class="brand"><img src="/img/brands/phyto.jpg" class="w-100" alt=""></div>
 <!--    <div class="brand"><img src="/img/brands/myvitamins.jpg" class="rounded w-100" alt=""></div>-->
-    <div class="brand"><img src="/img/brands/numbozin.jpg" class="rounded w-100" alt=""></div>
-    <div class="brand"><img src="/img/brands/hairtamin.png" class="rounded w-100" alt=""></div>
-    <div class="brand"><img src="/img/brands/ordinary.png" class="rounded w-100" alt=""></div>
-    <div class="brand"><img src="/img/brands/sheglam.png" class="rounded w-100" alt=""></div>
+    <div class="brand"><img src="/img/brands/numbozin.jpg" class="w-100" alt=""></div>
+    <div class="brand"><img src="/img/brands/hairtamin.png" class="w-100" alt=""></div>
+    <div class="brand"><img src="/img/brands/ordinary.png" class="w-100" alt=""></div>
+    <div class="brand"><img src="/img/brands/sheglam.png" class="w-100" alt=""></div>
   </div>
 </template>
 
