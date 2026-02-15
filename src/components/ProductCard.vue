@@ -29,7 +29,7 @@
             </div>
 <!--            <small class=" titles-font-size">محصول کشور {{ product.made_in }}</small><br>-->
             <div  v-if="product.stock >0" class="d-flex justify-content-center mb-1">
-              <b v-if="product.off >0" class="titles-font-size text-black-50 text-decoration-line-through ms-2">{{ price }}</b>
+              <b v-if="product.off >0" class="titles-font-size text-black-30 text-decoration-line-through ms-2">{{ price }}</b>
               <b  class="titles-font-size text-primary">{{ offPrice }} تومان</b>
             </div>
             <div v-else  class="d-flex justify-content-center mb-1"> <b class="titles-font-size text-primary">ناموجود</b></div>
