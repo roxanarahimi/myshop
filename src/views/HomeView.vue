@@ -2,19 +2,19 @@
   <main-carousel/>
 
   <div class="bg-primary text-center text-light row p-1 pt-3 pb-0 ">
-    <div class="col-6 col-md-3 mb-3">
+    <div class="col-3 p-0 col-md-3 mb-3">
       <i class="bi bi-patch-check d-block fs-big"></i>
-      <small class="fs-small">محصولات اورجینال</small>
+      <small class="fs-small">100% اورجینال</small>
     </div>
-     <div class="col-6 col-md-3 mb-3">
+     <div class="col-3 p-0 col-md-3 mb-3">
       <i class="bi bi-star d-block fs-big"></i>
       <small class="fs-small">محصولات ترند</small>
     </div>
-    <div class="col-6 col-md-3 mb-3">
+    <div class="col-3 p-0 col-md-3 mb-3">
       <i class="bi bi-headset d-block fs-big"></i>
-      <small class="fs-small">پشتیبانی 24 ساعته</small>
+      <small class="fs-small">پشتیبانی فوری</small>
     </div>
-    <div class="col-6 col-md-3 mb-3">
+    <div class="col-3 p-0 col-md-3 mb-3">
       <i class="bi bi-shield-lock d-block fs-big"></i>
       <small class="fs-small">پرداخت امن</small>
     </div>
@@ -42,6 +42,16 @@
 
   <div class="text-center">
     <router-link to="/shop" class="btn btn-primary d-inline-block px-5 mb-5 mt-5 mt-md-0 border-radius-2 ">فروشگاه</router-link>
+  </div>
+
+  <div class="bg-primary d-flex flex-wrap justify-content-between pt-4 ">
+    <div class="brand"><img src="/img/brands/cosrx.jpg" class="rounded w-100" alt=""></div>
+    <div class="brand"><img src="/img/brands/phyto.jpg" class="rounded w-100" alt=""></div>
+<!--    <div class="brand"><img src="/img/brands/myvitamins.jpg" class="rounded w-100" alt=""></div>-->
+    <div class="brand"><img src="/img/brands/numbozin.jpg" class="rounded w-100" alt=""></div>
+    <div class="brand"><img src="/img/brands/hairtamin.png" class="rounded w-100" alt=""></div>
+    <div class="brand"><img src="/img/brands/ordinary.png" class="rounded w-100" alt=""></div>
+    <div class="brand"><img src="/img/brands/sheglam.png" class="rounded w-100" alt=""></div>
   </div>
 </template>
 

@@ -41,11 +41,15 @@ export default {
     const setBorders = () => {
       document.querySelectorAll('.product-card').forEach(element => {
         element.classList.add('product-section-border-right');
+        element.classList.add('product-section-border-bottom');
       })
       let items = document.querySelectorAll('.product-card:not(.d-none)');
       items[0]?.classList.remove('product-section-border-right');
       items[4]?.classList.remove('product-section-border-right');
-      items[8]?.classList.remove('product-section-border-right');
+      items[2]?.classList.remove('product-section-border-bottom');
+      items[3]?.classList.remove('product-section-border-bottom');
+      items[6]?.classList.remove('product-section-border-bottom');
+      items[7]?.classList.remove('product-section-border-bottom');
     }
     onMounted(() => {
       categoryToggle('');
