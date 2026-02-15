@@ -40,6 +40,9 @@
   </div>
   <new-products-section :cats="categories" :url="url" :imgUrl="imgUrl" />
 
+  <div class="text-center">
+    <router-link to="/shop" class="btn btn-primary d-inline-block px-5 mb-5 mt-5 mt-md-0 border-radius-2 ">فروشگاه</router-link>
+  </div>
 </template>
 
 <script>

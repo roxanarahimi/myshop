@@ -43,7 +43,7 @@
 <!--        </div>-->
         <div class="w-100 mb-2 p-3  bg-white-smoke">
           <div @click="getProducts" class="form-check  d-flex justify-content-start">
-            <input class="form-check-input" type="radio" @change="getProducts" name="brand" value="شیگلم" id="sheeglam" >
+            <input class="form-check-input" type="radio" @change="getProducts" name="brand" value="شیگلم" id="sheglam" >
             <label class="form-check-label me-4" for="sheeglam" title="sheeglam">شیگلم</label>
           </div>
          <div @click="getProducts" class="form-check  d-flex justify-content-start">
@@ -63,9 +63,10 @@
             <label class="form-check-label me-4" for="hairtamin" title="hairtamin">هیرتامین</label>
           </div>
          <div @click="getProducts" class="form-check  d-flex justify-content-start">
-            <input class="form-check-input" type="radio" @change="getProducts" name="brand" value="مای ویتامینز" id="myvitamins" >
+            <input class="form-check-input" type="radio" @change="getProducts" name="brand" value="مای‌ویتامینز" id="myvitamins" >
             <label class="form-check-label me-4" for="myvitamins" title="myvitamins">مای‌ویتامینز</label>
-          </div>  <div @click="getProducts" class="form-check  d-flex justify-content-start">
+          </div>
+          <div @click="getProducts" class="form-check  d-flex justify-content-start">
             <input class="form-check-input" type="radio" @change="getProducts" name="brand" value="بایودنس" id="biodance" >
             <label class="form-check-label me-4" for="biodance" title="biodance">بایودنس</label>
           </div>

@@ -280,7 +280,9 @@ label {
     right: -7px;
     color: white;
 }
-
+.border-radius-2{
+    border-radius: 2px !important;
+}
 @media (max-width: 768px) {
     .cart-badge {
         width: 17px;

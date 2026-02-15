@@ -28,9 +28,9 @@
       </div>
       <div class="text-center product-txt">
         <small class="fw-bold">{{ product.title}}</small><br>
-        <small>محصول کشور {{ product.made_in }}</small><br>
-        <div  v-if="product.stock" class="d-flex justify-content-center">
-          <b v-if="product.off" class=" text-black-50 text-decoration-line-through ms-2">{{ price }}</b>
+        <small>محصول کشور {{ product.brand.made_in }}</small><br>
+        <div  v-if="product.stock>0" class="d-flex justify-content-center">
+          <b v-if="product.off>0" class=" text-black-50 text-decoration-line-through ms-2">{{ price }}</b>
           <b  class=" text-primary">{{ offPrice }} تومان</b>
         </div>
         <div v-else  class="d-flex justify-content-center"> <b class="text-primary">ناموجود</b></div>
@@ -38,7 +38,7 @@
     </div>
   </router-link>
   <div style="height: 40px; display: grid">
-    <button v-if="product.stock" class="add-to-cart">
+    <button v-if="product.stock>0" class="add-to-cart">
       <i class="bi bi-cart-plus-fill"></i>
     </button>
   </div>

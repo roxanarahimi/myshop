@@ -51,11 +51,10 @@
               <i class="bi bi-caret-right"></i>
             </div>
           </li>
-          <li class="nav-item" >
-            <router-link to="/cart" class="d-block nav-link position-relative">
-              <i class="bi bi-cart" :class="{'text-primary': $route.fullPath == '/cart'}"></i>
-              <div class="cart-badge">3</div>
-            </router-link>
+
+
+          <li class="nav-item text-center">
+            <router-link to="/" class="navbar-brand nav-link fw-bold  m-0 mt-1"> RX<span class="text-primary">SHOP</span></router-link>
           </li>
           <li class="nav-item">
             <div @click="$router.go(-1)" class="nav-link">
@@ -70,31 +69,37 @@
       <div class="container-fluid px-0 w-100 ">
         <ul class="mobile-nav navbar-nav px-0  w-100 bottom-nav-ul d-flex justify-content-between">
 
-
-          <li class="nav-item">
-            <router-link to="/" class="nav-link" aria-current="page">
-              <i class="bi bi-house-door" :class="{'text-primary': $route.fullPath == '/'}"></i>
+          <li  class="nav-item">
+            <router-link to="/profile" class="nav-link">
+              <i class="bi bi-person" :class="{'text-primary': $route.fullPath == '/profile'}"></i>
+              <small class="d-block">پروفایل</small>
             </router-link>
           </li>
 
+<!--          <li v-else class="nav-item">-->
+<!--            <router-link to="/login" class="nav-link">-->
+<!--              <i class="bi bi-key" :class="{'text-primary': $route.fullPath == '/login'}"></i>-->
+<!--            </router-link>-->
+<!--          </li>-->
           <li class="nav-item">
             <router-link to="/shop" class="nav-link">
               <i class="bi bi-shop-window " :class="{'text-primary': $route.fullPath == '/shop'}"></i>
+              <small class="d-block">فروشگاه</small>
             </router-link>
           </li>
           <li class="nav-item">
             <router-link to="/contact" class="nav-link">
               <i class="bi bi-telephone" :class="{'text-primary': $route.fullPath == '/contact'}"></i>
+              <small class="d-block">تماس باما</small>
             </router-link>
           </li>
-          <li v-if="$user" class="nav-item">
-            <router-link to="/profile" class="nav-link">
-              <i class="bi bi-person" :class="{'text-primary': $route.fullPath == '/profile'}"></i>
-            </router-link>
-          </li>
-        <li v-else class="nav-item">
-            <router-link to="/login" class="nav-link">
-              <i class="bi bi-key" :class="{'text-primary': $route.fullPath == '/login'}"></i>
+
+          <li class="nav-item" >
+            <router-link to="/cart" class="d-block nav-link position-relative">
+              <i class="bi bi-cart" :class="{'text-primary': $route.fullPath == '/cart'}"></i>
+              <div class="cart-badge">3</div>
+              <small class="d-block">سبد خرید</small>
+
             </router-link>
           </li>
         </ul>
@@ -120,5 +125,7 @@ export default {
 </script>
 
 <style>
-
+.nav-link{
+  text-align: center !important;
+}
 </style>

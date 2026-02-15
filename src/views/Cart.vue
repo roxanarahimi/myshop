@@ -7,7 +7,7 @@
       </div>
 
       <div class="overflow-y-scroll">
-        <table class="table border table-borderless  mb-0">
+        <table class="table border  mb-0">
           <thead>
           <tr>
             <th class="d-none d-lg-table-cell" style="width: 20px">ردیف</th>
@@ -17,7 +17,7 @@
             <th>قیمت</th>
             <th>تخفیف</th>
             <th>مبلغ</th>
-            <th class="d-none d-lg-table-cell" style="width: 20px"></th>
+            <th class="" style="width: 20px"></th>
           </tr>
           </thead>
           <tbody>
