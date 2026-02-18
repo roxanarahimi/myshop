@@ -22,7 +22,7 @@
 
   <div class="row bg-light pt-md-5  ">
     <div class="col-lg-10 mx-auto row px-4 px-md-5 py-4 py-md-0  mb-md-5">
-      <div v-for="item in categories" class="col-12 col-md-4 p-4">
+      <div v-for="item in categories" class="col-12 col-md-4 p-4 pb-0 mb-md-4">
         <div class="row bg-white cat-section ">
           <div class="col-4 col-md-6 px-0 text-center cat-img-container">
             <img :src="imgUrl+item.image" class="img-fluid cat-img w-100" alt="">
@@ -43,7 +43,7 @@
    <div class="row justify-content-center justify-content-md-between col-md-8">
      <div class="col-md-5 d-grid">
        <div class="align-self-center p-5 pb-0 p-md-0">
-         <h2 class="cta-txt text-light">
+         <h2 class="cta-txt ">
            برای گرفتن کدتخفیف اولین
            <br>
            خریدت همین الان عضو شو!
@@ -67,7 +67,7 @@
     </router-link>
   </div>
 
-  <div class=" d-flex flex-wrap justify-content-between px-3 pt-4 brands-wrapper " style="background-color: #ffaad5">
+  <div class=" d-flex flex-wrap justify-content-between px-3 pt-4 brands-wrapper " >
     <div class="brand"><img src="/img/brands/cosrx.jpg" class="w-100" alt=""></div>
     <div class="brand"><img src="/img/brands/phyto.jpg" class="w-100" alt=""></div>
     <div class="brand"><img src="/img/brands/sheglam.png" class="w-100" alt=""></div>
