@@ -3,9 +3,13 @@
   <div class="col-md-8 border-radius-2 justify-content-between row m-0 banner1 mb-3 mb-md-0">
     <div class="col-6 col-md-6 text-light px-0 d-grid my-md-5">
       <div class="align-self-center px-0 px-md-3">
-        <p class="fw-bolder  mb-2 mb-md-4 banner1-head">به فروشگاه rx خوش آمدید</p>
-        <p class="fw-bolder  mb-2 banner1-txt" style="">
-          زیبای Natural باش، حرفه ای Make up کن!
+        <p class="fw-bolder  mb-2 mb-md-4 d-none d-md-block banner1-head">به فروشگاه rx خوش آمدید</p>
+        <p class="f" style="">
+          <p class="d-inline-block fw-bolder  mb-0 banner1-txt">زیبــــــایی Natural...   </p>
+
+          <br class="d-md-none">
+          <p class="d-inline-block fw-bolder  mb-0 banner1-txt"> Make up حـــرفه ای! </p>
+
         </p>
         <router-link to="/shop" class="btn btn-lg d-none d-md-block btn-primary border-radius-2  d-block mt-5">برو به فروشگاه</router-link>
         <router-link to="/shop" class="btn btn-sm d-md-none btn-primary border-radius-2  d-block">برو به فروشگاه</router-link>

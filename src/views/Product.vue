@@ -19,7 +19,7 @@
           </div>
 
         </div>
-        <div class="col-md-4 col-xl-5 col-xxl-5 d-grid h-md-100 bg-white ms-md-1" style="border-radius: 2px">
+        <div class="col-md-4 col-xl-5 col-xxl-5 d-grid h-md-100 bg-white ms-md-1 border-radius-2">
           <!--          <div class="w-100 align-self-center">-->
           <!--&lt;!&ndash;            <img :src="product.image" class="img-fluid w-100"  :alt="product.title">&ndash;&gt;-->
           <!--            <lazy-image v-if="product?.id" style="align-self: center" :data="{image:imgUrl+product.images[0],title:product.title}"/>-->
@@ -32,7 +32,7 @@
         <div class="col-md-6 col-xl-5 col-xxl-5 h-md-100 bg-white px-0 me-md-1">
 
 
-          <div v-if="product.id" class="details h-100 d-grid" style="border-radius: 2px">
+          <div v-if="product.id" class="details h-100 d-grid border-radius-2" >
             <div class="details-inner p-0 d-grid">
               <div class="p-3 p-md-5 d-grid">
                 <h3 class="">{{ product?.title }}</h3>
@@ -43,12 +43,12 @@
 <!--                </select>-->
         <div class="d-flex flex-wrap mb-2">
 
-          <span class="rounded border px-2 pt-1 cursor me-2 mb-2" :class="{'border-primary':selectedProduct==p}" @click="setPrice(p)"
+          <span class="border-radius-2 border border-2 px-2 pt-1 cursor me-2 mb-2" :class="{'border-primary':selectedProduct==p}" @click="setPrice(p)"
                 v-for="(p,index) in product.products" :data-value="p" :key="index">{{ p.size }}</span>
         </div>
 
                 <div v-if="product?.stock>0" class="d-flex">
-                  <h5 v-if="product?.off>0" class=" text-black-50 text-decoration-line-through ms-2">{{ price }}</h5>
+                  <h5 v-if="product?.off>0" class=" text-black-30 text-decoration-line-through ms-2">{{ price }}</h5>
                   <h5 class=" text-primary">{{ offPrice }} تومان</h5>
                 </div>
                 <div v-else class="d-flex"><h5 class="text-primary">ناموجود</h5></div>

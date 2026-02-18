@@ -4,11 +4,11 @@
     <div class="col-lg-10 px-4 mx-auto d-flex justify-content-xl-between p-3 ps-2 pb-5">
       <div class="pt-2 shop-sidebar">
         <div class="w-100 mb-2 p-2 p-md-3 text-center  bg-white-smoke">
-          <input type="text" id="search" @input="getProducts" v-model="term" class="form-control form-control-sm "
+          <input type="text" id="search" @input="getProducts" v-model="term" class=" border-radius-2 form-control form-control-sm "
                  placeholder="جستجوی محصول">
         </div>
         <div class="w-100 mb-2 p-2 p-md-3 text-center  bg-white-smoke">
-          <button class="btn btn-sm w-100 btn-primary text-light" @click="reset">حذف فیلتر ها</button>
+          <button class="btn btn-sm w-100 btn-primary text-light border-radius-2 " @click="reset">حذف فیلتر ها</button>
         </div>
         <div class="w-100 mb-2 p-2 p-md-3  bg-white-smoke">
           <div class="form-check d-flex justify-content-start">
