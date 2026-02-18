@@ -98,7 +98,7 @@
             <router-link to="/cart" class="d-block nav-link position-relative">
               <i class="bi bi-cart" :class="{'text-primary': $route.fullPath == '/cart'}"></i>
               <div class="cart-badge cart-badge-2">3</div>
-              <small class="d-block">سبد خرید</small>
+              <small class="d-block">سبد</small>
 
             </router-link>
           </li>

@@ -1,7 +1,7 @@
 <template>
-  <main-carousel/>
-
-  <div class=" text-center row p-1 pt-3 pb-0 "  style="background-color: rgba(230,0,118,0.15); color: rgba(0,0,0,0.5)">
+<!--  <main-carousel/>-->
+<main-banners />
+  <div class=" text-center row p-1 pt-3 pb-0 bg-primary"  style="color: white; ">
     <div class="col-3 p-0 col-md-3 mb-3">
       <i class="bi bi-patch-check d-block fs-big"></i>
       <small class="fs-small">100% اورجینال</small>
@@ -59,13 +59,14 @@
 <script>
 // @ is an alias to /src
 import mainCarousel from "@/components/MainCarousel";
+import mainBanners from "@/components/MainBanners.vue";
 import newProductsSection from "@/components/ProductsSection";
 import {onBeforeMount, ref} from "vue";
 import App from "@/App.vue";
 
 export default {
   name: 'HomeView',
-  components: {mainCarousel, newProductsSection,},
+  components: {mainBanners, newProductsSection,},
   setup(){
     const categories = ref([]);
     const getCats = ()=>{
