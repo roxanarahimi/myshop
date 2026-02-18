@@ -1,6 +1,6 @@
 <template>
   <div id="productsSection" class="new-section min-vh-100 pt-5 text-center">
-    <h3 class="mb-5 fw-bold text-primary mt-4">پر فروش ترین محصولات</h3>
+    <h3 class="mb-5 fw-bold text-primary mt-4" style="font-family: 'YekanBakhExtraBold' !important; ">پر فروش ترین محصولات</h3>
     <div class="row justify-content-center">
       <div class="col-lg-10">
         <div v-if="cats.length" class="d-flex justify-content-center">

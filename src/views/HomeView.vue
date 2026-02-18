@@ -1,9 +1,9 @@
 <template>
   <!--  <main-carousel/>-->
   <main-banners/>
-  <div class=" text-center row p-1 pt-3 pb-0 bg-primary" style="color: white; ">
+  <div class=" text-center row p-1 pt-3 pb-0 text-primary icons ">
     <div class="col-3 p-0 col-md-3 mb-3">
-      <i class="bi bi-patch-check d-block fs-big"></i>
+      <i class="bi bi-patch-check d-block fs-big "></i>
       <small class="fs-small">100% اورجینال</small>
     </div>
     <div class="col-3 p-0 col-md-3 mb-3">
@@ -49,7 +49,7 @@
            خریدت همین الان عضو شو!
          </h2>
          <div class="align-self-center d-flex justify-content-md-end mb-md-5  ps-5">
-           <router-link class="btn btn-success border-radius-2 text-light fw-bold px-5" to="/login">ثبت نام</router-link>
+           <router-link class="btn btn-success border-radius-2 text-light fw-bold px-5" to="/login">ثبت نام خیـــلی سریع</router-link>
          </div>
        </div>
      </div>

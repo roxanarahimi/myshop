@@ -4,9 +4,9 @@
     <div class="col-6 col-md-6 text-light px-0 d-grid my-md-5">
       <div class="align-self-center px-0 px-md-3">
         <p class="fw-bolder  mb-2 mb-md-4 banner1-head">به فروشگاه rx خوش آمدید</p>
-        <p class="fw-bolder  mb-2 banner1-txt" style="">بهترین و جدیدترین محصــولات روز دنیـــا
-          <br class="d-none d-md-block">
-          با ضمـــانت اورجیـــنال بودن و بهترین قیمت</p>
+        <p class="fw-bolder  mb-2 banner1-txt" style="">
+          زیبای Natural باش، حرفه ای Make up کن!
+        </p>
         <router-link to="/shop" class="btn btn-lg d-none d-md-block btn-primary border-radius-2  d-block mt-5">برو به فروشگاه</router-link>
         <router-link to="/shop" class="btn btn-sm d-md-none btn-primary border-radius-2  d-block">برو به فروشگاه</router-link>
       </div>
