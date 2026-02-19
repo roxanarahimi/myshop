@@ -7,20 +7,20 @@
           <a class="nav-link cursor tab tab1 active" @click="tabToggle('tab1')" aria-current="page">اطلاعات</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link cursor tab tab2" @click="tabToggle('tab2')">آدرس ها</a>
+          <a class="nav-link cursor tab tab2" @click="tabToggle('tab2')">آدرس‌ها</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link cursor tab tab3" @click="tabToggle('tab3')">سفارش ها</a>
+          <a class="nav-link cursor tab tab3" @click="tabToggle('tab3')">سفارش‌ها</a>
         </li>
       </ul>
-      <div class="p-4">
+      <div class="p-3 p-md-4">
         <div id="tab1" class="tab-info row justify-content-center">
           <div class="col-lg-6">
-            <div class="card">
-              <div class="card-body">
+            <div class="card pr ">
+              <div class="card-body px-2 px-md-3">
                 <p class="bi bi-person-square text-center w-100 text-secondary" style="font-size: 50px"></p>
                 <form>
-                  <div class="row px-3">
+                  <div class="row px-0 px-md-3">
                     <div class="col-12 mb-1 p-1">
                       <label>نام</label>
                       <input type="text" class="form-control form-control-sm" value="رکسانا رحیمی">
@@ -38,31 +38,31 @@
                   </div>
                 </form>
               </div>
-              <button class="btn btn-sm btn-primary text-light w-100">ویرایش</button>
+              <button class="btn btn-sm btn-primary text-light w-100 ">ویرایش</button>
             </div>
           </div>
         </div>
         <div id="tab2" class="tab-info d-none  row justify-content-center">
           <div class="col-lg-6">
-            <div class="card">
-              <div class="card-body">
+            <div class="card pr">
+              <div class="card-body px-0 px-md-3">
                 <p class="bi bi-pin-map-fill text-center w-100 text-secondary" style="font-size: 50px"></p>
 
                 <div class="accordion" id="accordionAddress">
                   <div class="accordion-item">
                     <h2 class="accordion-header ">
-                      <button class="accordion-button px-3 py-2" type="button" data-bs-toggle="collapse"
+                      <button class="accordion-button px-0 px-md-3 py-2" type="button" data-bs-toggle="collapse"
                               data-bs-target="#collapseAddrOne" aria-expanded="true" aria-controls="collapseAddrOne">
                         <span class="mx-3">خانه</span>
                       </button>
                     </h2>
                     <div id="collapseAddrOne" class="accordion-collapse collapse show"
                          data-bs-parent="#accordionAddress">
-                      <div class="accordion-body px-4">
-                        <div class="card p-0">
+                      <div class="accordion-body px-3 px-md-4">
+                        <div class="card pr p-0">
                           <div class="card-body">
                             <form>
-                              <div class="row px-3">
+                              <div class="row px-0 px-md-3">
                                 <div class="col-6 mb-1 p-1"><label>عنوان</label>
                                   <input type="text" class="form-control form-control-sm" value="خانه">
                                 </div>
@@ -138,8 +138,8 @@
         </div>
         <div id="tab3" class="tab-info d-none row justify-content-center">
           <div class="col-lg-6">
-            <div class="card">
-              <div class="card-body">
+            <div class="card pr">
+              <div class="card-body  px-0 px-md-3">
                 <p class="bi bi-gift text-center w-100 text-secondary" style="font-size: 50px"></p>
 
                 <div class="accordion" id="accordionExample">

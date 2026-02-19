@@ -333,7 +333,7 @@ body {
 
 }
 
-.card:hover {
+.card:hover:not(.pr) {
     transform: scale(1.001);
     box-shadow: 0 2px 5px rgba(63, 78, 100, 0.15) !important;
     border: solid 1px rgba(235, 235, 235, 1) !important;
@@ -414,6 +414,9 @@ label {
 }
 
 @media (max-width: 768px) {
+    .pr{
+        border: none !important;
+    }
     .cart-badge {
         width: 17px;
         height: 17px;
