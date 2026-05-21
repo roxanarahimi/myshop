@@ -27,10 +27,17 @@
 
             <form class="p-3" dir="ltr" @reset="focus1stInput" @submit.prevent="checkCode">
               <div class="d-flex">
-                <input type="number" @input="inputHandle('1')" class="code me-2 form-control text-center rounded rounded-1" min="0" max="9" minlength="1" maxlength="1" :class="{'border-danger': invalidCode}" id="code1">
-                <input type="number" @input="inputHandle('2')" class="code me-2 form-control text-center rounded rounded-1" min="0" max="9" minlength="1" maxlength="1" :class="{'border-danger': invalidCode}" id="code2">
-                <input type="number" @input="inputHandle('3')" class="code me-2 form-control text-center rounded rounded-1" min="0" max="9" minlength="1" maxlength="1" :class="{'border-danger': invalidCode}" id="code3">
-                <input type="number" @input="inputHandle('4')" class="code form-control text-center rounded rounded-1"  min="0" max="9" minlength="1" maxlength="1" :class="{'border-danger': invalidCode}" id="code4">
+                <input type="number" @input="inputHandle('1')"
+                       class="code me-2 form-control text-center rounded rounded-1" min="0" max="9" minlength="1"
+                       maxlength="1" :class="{'border-danger': invalidCode}" id="code1">
+                <input type="number" @input="inputHandle('2')"
+                       class="code me-2 form-control text-center rounded rounded-1" min="0" max="9" minlength="1"
+                       maxlength="1" :class="{'border-danger': invalidCode}" id="code2">
+                <input type="number" @input="inputHandle('3')"
+                       class="code me-2 form-control text-center rounded rounded-1" min="0" max="9" minlength="1"
+                       maxlength="1" :class="{'border-danger': invalidCode}" id="code3">
+                <input type="number" @input="inputHandle('4')" class="code form-control text-center rounded rounded-1"
+                       min="0" max="9" minlength="1" maxlength="1" :class="{'border-danger': invalidCode}" id="code4">
               </div>
               <ul class="small invalid-feedback d-block" dir="rtl">
                 <li v-if="invalidCode">کد وارد شده اشتباه است
@@ -59,18 +66,23 @@ export default {
     const mobileValidated = ref();
     const invalidCode = ref(false);
     const errors = ref([]);
-    onMounted(()=>{
-      document.querySelector('#mobile').focus();
+    const url = App.setup().url;
+    const mobile = ref("");
+
+    onMounted(() => {
+      // localStorage.clear();
+      console.log('storage', localStorage);
+      document.querySelector('#mobile')?.focus();
     })
     const validateMobile = () => {
       errors.value = [];
-      let mobile = document.querySelector('#mobile').value;
+      let mob = document.querySelector('#mobile').value;
       document.querySelector('#mobile').classList?.remove('is-invalid');
 
-      if (!mobile.startsWith('09')) {
+      if (!mob.startsWith('09')) {
         errors.value.push('شماره موبایل باید با 09 شروع شود')
       }
-      if (mobile.length !== 11) {
+      if (mob.length !== 11) {
         errors.value.push('شماره موبایل باید 11 رقم باشد')
       }
       if (errors.value.length) {
@@ -78,71 +90,68 @@ export default {
       } else {
         document.querySelector('#mobile').classList.add('is-valid');
         mobileValidated.value = true;
-        localStorage.setItem('mobile',mobile);
-        //send otp
-        sendOtp(mobile);
+        localStorage.setItem('mobile', mob);
+        mobile.value = document.querySelector('#mobile').value;
+        sendOtp(mob);
       }
     }
 
-    const url = App.setup().url;
-    const mobile = ref(document.getElementById('mobile')?.value);
 
     const time = ref(59);
-    const count = ()=>{
+    const count = () => {
       time.value = 59;
-    setInterval(()=> {
-      if (time.value >0) {
-        time.value = time.value -1;
-      }
+      setInterval(() => {
+        if (time.value > 0) {
+          time.value = time.value - 1;
+        }
       }, 1000);
-
 
 
     }
     const sendOtp = (mobile) => {
-      // alert('otp sent!')
-      axios.post(url + '/api/user/otp',{mobile:mobile.value})
+      axios.post(url + '/api/user/otp', {mobile: mobile})
           .then((response) => {
-            setTimeout(()=>{
+            setTimeout(() => {
               count();
               focus1stInput();
-            },200);
+            }, 200);
           }).catch((error) => {
         console.error(error)
       });
     };
-    const inputHandle = (id)=>{
-      document.querySelector('#code'+id).classList.remove('is-invalid');
-      let value = document.querySelector('#code'+id).value;
-      if (value<0 || value>9){
-        document.querySelector('#code'+id).classList.add('is-invalid');
-      }else{
+    const inputHandle = (id) => {
+      document.querySelector('#code' + id).classList.remove('is-invalid');
+      let value = document.querySelector('#code' + id).value;
+      if (value < 0 || value > 9) {
+        document.querySelector('#code' + id).classList.add('is-invalid');
+      } else {
         console.log(value);
-        if (value != '' && value <=9 && value >= 0 ){
-          let n = parseInt(id)+1
-          document.querySelector('#code'+n)?.focus();
+        if (value != '' && value <= 9 && value >= 0) {
+          let n = parseInt(id) + 1
+          document.querySelector('#code' + n)?.focus();
         }
 
       }
-      let code = document.querySelector('#code1').value +  document.querySelector('#code3').value+document.querySelector('#code3').value+document.querySelector('#code4').value;
+      let code = document.querySelector('#code1').value + document.querySelector('#code3').value + document.querySelector('#code3').value + document.querySelector('#code4').value;
       checkCode(code);
     }
-    const checkCode = (code)=>{
-      if (code.length === 4){
-        axios.post(url + '/api/user/verify',{code:code})
+    const checkCode = (code) => {
+      if (code.length === 4) {
+        axios.post(url + '/api/user/verify',
+            {code: code, mobile: mobile.value})
             .then((response) => {
-              setTimeout(()=>{
+              setTimeout(() => {
                 invalidCode.value = false;
-                document.querySelectorAll('.code').forEach((element)=>{
+                document.querySelectorAll('.code').forEach((element) => {
                   element.classList.remove('is-invalid');
                   element.classList.add('is-valid');
                 });
                 //login
-                localStorage.setItem('user', JSON.stringify(response.user));
-                setTimeout(()=>{
+                localStorage.setItem('user', JSON.stringify(response.data.user));
+                setTimeout(() => {
                   window.location = '/profile';
-                },2000)
-              },1000)
+                }, 2000)
+              }, 1000)
             }).catch((error) => {
           invalidCode.value = true;
           console.error(error)
@@ -153,12 +162,11 @@ export default {
         // }else{
         //   invalidCode.value = true;
         // }
-      }else{
+      } else {
         invalidCode.value = false;
       }
     }
-    const focus1stInput = ()=>
-    {
+    const focus1stInput = () => {
       console.log(document.querySelector('#code1'))
       document.querySelector('#code1').focus();
       invalidCode.value = false;
@@ -167,7 +175,7 @@ export default {
 
     return {
       invalidMobile, validateMobile, errors, sendOtp, invalidCode,
-      inputHandle, checkCode,focus1stInput,mobileValidated, url,
+      inputHandle, checkCode, focus1stInput, mobileValidated, url,
       time, mobile
     }
   }

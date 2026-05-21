@@ -2,53 +2,52 @@
   <div class="">
 
     <div class="row px-4 ">
-      <div
-          class="row col-xl-10 px-3 px-md-2 py-3 px-lg-4 py-lg-3 mx-auto p-2   bg-light mt-2 mt-md-5 justify-content-center ">
+      <div v-if="product"  style="min-height: 300px;" class="row col-xl-10 px-3 px-md-2 py-3 px-lg-4 py-lg-3 mx-auto p-2 bg-light mt-2 mt-md-5 justify-content-center ">
         <div class="col-md-10 col-xl-10 col-xxl-8 row p-1 mx-auto product-labels mb-2">
           <div class="col-6 p-0">
-            <div v-if="product?.new==1 && product?.stock>0" class=" text-center position-relative new-label">
+            <div v-if="product.new==1 && product.stock>0" class=" text-center position-relative new-label">
               <div class="bg-success text-light text-center new-label-body justify-content-end">جدید</div>
               <div class="bg-success mx-auto new-label-pointer"></div>
             </div>
           </div>
           <div class="col-6 p-0" dir="ltr">
-            <div v-if="product?.off>0 && product?.stock>0" class=" text-center position-relative off-label">
-              <div class="bg-primary text-light text-center off-label-body ">{{ product?.off }}%</div>
+            <div v-if="product.off>0 && product.stock>0" class=" text-center position-relative off-label">
+              <div class="bg-primary text-light text-center off-label-body ">{{ product.off }}%</div>
               <div class="bg-primary mx-auto off-label-pointer"></div>
             </div>
           </div>
 
         </div>
-        <div class="col-md-4 col-xl-5 col-xxl-5 d-grid h-md-100 bg-white ms-md-1 border-radius-2">
+        <div  style="min-height: 200px;" class="col-md-4 col-xl-5 col-xxl-5 d-grid h-md-100 bg-white ms-md-1 border-radius-2">
           <!--          <div class="w-100 align-self-center">-->
           <!--&lt;!&ndash;            <img :src="product.image" class="img-fluid w-100"  :alt="product.title">&ndash;&gt;-->
-          <!--            <lazy-image v-if="product?.id" style="align-self: center" :data="{image:imgUrl+product.images[0],title:product.title}"/>-->
+          <!--            <lazy-image v-if="product.id" style="align-self: center" :data="{image:imgUrl+product.images[0],title:product.title}"/>-->
 
           <!--          </div>-->
 
 
-          <product-images-carousel v-if="product?.id" :images="product.images" :url="imgUrl"/>
+          <product-images-carousel v-if="product.id" :images="product.images" :url="imgUrl" :title="product.title"/>
         </div>
         <div class="col-md-6 col-xl-5 col-xxl-5 h-md-100 bg-white px-0 me-md-1">
 
 
-          <div v-if="product.id" class="details h-100 d-grid border-radius-2" >
+          <div v-if="product.id" class="details h-100 d-grid border-radius-2">
             <div class="details-inner p-0 d-grid">
               <div class="p-3 p-md-5 d-grid">
-                <h3 class="">{{ product?.title }}</h3>
-                <h6 class="mb-3">{{ product?.subtitle }}</h6>
+                <h3 class="">{{ product.title }}</h3>
+                <h6 class="mb-3">{{ product.subtitle }}</h6>
 
-<!--                <select class="form-select rounded-0 mb-3" v-model="selectedProduct" @change="setPrice">-->
-<!--                  <option v-for="(p,index) in product.products" :value="p" :key="index">{{ p.size }}</option>-->
-<!--                </select>-->
-        <div class="d-flex flex-wrap mb-2">
+                <!--                <select class="form-select rounded-0 mb-3" v-model="selectedProduct" @change="setPrice">-->
+                <!--                  <option v-for="(p,index) in product.products" :value="p" :key="index">{{ p.size }}</option>-->
+                <!--                </select>-->
+                <div class="d-flex flex-wrap mb-2">
+                  <span class="border-radius-2 border border-2 px-2 pt-1 cursor me-2 mb-2"
+                        :class="{'border-primary':selectedProduct==p}" @click="setPrice(p)"
+                        v-for="(p,index) in product.products" :data-value="p" :key="index">{{ p.size }}</span>
+                </div>
 
-          <span class="border-radius-2 border border-2 px-2 pt-1 cursor me-2 mb-2" :class="{'border-primary':selectedProduct==p}" @click="setPrice(p)"
-                v-for="(p,index) in product.products" :data-value="p" :key="index">{{ p.size }}</span>
-        </div>
-
-                <div v-if="product?.stock>0" class="d-flex">
-                  <h5 v-if="product?.off>0" class=" text-black-30 text-decoration-line-through ms-2">{{ price }}</h5>
+                <div v-if="product.stock>0" class="d-flex">
+                  <h5 v-if="product.off>0" class=" text-black-30 text-decoration-line-through ms-2">{{ price }}</h5>
                   <h5 class=" text-primary">{{ offPrice }} تومان</h5>
                 </div>
                 <div v-else class="d-flex"><h5 class="text-primary">ناموجود</h5></div>
@@ -56,20 +55,20 @@
 
                 <div class="my-4 align-self-center">
                   <p class="mb-0">اورجینال</p>
-                  <p class="mb-0">محصول کشور {{ product?.made_in }}</p>
-                  <!--                  <p class="mb-0">تاریخ انقضا : {{ // product?.expire }}</p>-->
+                  <p class="mb-0">محصول کشور {{ product.brand?.made_in }}</p>
+                  <!--                  <p class="mb-0">تاریخ انقضا : {{ // product.expire }}</p>-->
                 </div>
 
                 <!--                <ul class="pe-3">-->
-                <!--                  <li v-for="item in product?.features">{{ item }}</li>-->
+                <!--                  <li v-for="item in product.features">{{ item }}</li>-->
                 <!--                </ul>-->
-                <div class=" align-self-end  d-flex justify-content-end">
-                  <button class="btn btn-sm btn-dark text-light" @click="increase">+</button>
-                  <input type="number" min="0" max="100" value="1" style="width: 40px"
-                         id="quantity" class="form-control form-control-sm rounded-0 d-inline-block text-center">
-                  <button class="btn btn-sm btn-dark text-light" @click="decrease">-</button>
+                <!--                <div class=" align-self-end  d-flex justify-content-end">-->
+                <!--                  <button class="btn btn-sm btn-dark text-light" @click="increase">+</button>-->
+                <!--                  <input type="number" min="0" max="100" value="1" style="width: 40px"-->
+                <!--                         id="quantity" class="form-control form-control-sm rounded-0 d-inline-block text-center">-->
+                <!--                  <button class="btn btn-sm btn-dark text-light" @click="decrease">-</button>-->
 
-                </div>
+                <!--                </div>-->
               </div>
 
             </div>
@@ -89,18 +88,17 @@
 
 
         </div>
-
       </div>
       <div class="row col-xl-10  mx-auto py-3 px-0 ">
         <div class="col-12 mt-5 px-3 px-md-0 py-0">
           <p style="text-align: justify">
-            {{ product?.text }}
+            {{ product.text }}
           </p>
         </div>
         <h3 class="mt-5">محصولات مشابه</h3>
         <div class="col-12 px-0 row justify-content-end">
           <div class="row col-md-10 px-0" dir="ltr">
-            <div class="col-6 col-md-2 p-0 pe-1" v-for="(item, index) in product?.sames" :key="index" dir="rtl">
+            <div class="col-6 col-md-2 p-0 pe-1" v-for="(item, index) in product.sames" :key="index" dir="rtl">
               <product-card :product="item" :index="index" :url="imgUrl"/>
             </div>
           </div>
@@ -113,19 +111,20 @@
 </template>
 
 <script>
-import {onMounted, ref} from "vue";
+import { onMounted, ref} from "vue";
 import Shop from './Shop';
 import {useRoute} from "vue-router/dist/vue-router";
 import ProductCard from '@/components/ProductCard.vue'
 import LazyImage from '@/components/LazyImage.vue'
 import App from "@/App.vue";
+import Navbar from "@/components/NavBar.vue";
 import productImagesCarousel from "@/components/ProductImagesCarousel.vue";
 
 export default {
   name: "Product",
-  components: {Shop, ProductCard, LazyImage, productImagesCarousel},
+  components: {Shop, ProductCard, LazyImage, productImagesCarousel,Navbar},
   setup() {
-    const products = Shop.setup().data;
+    const products = ref([]);
     const product = ref({});
     const sameProducts = ref([]);
     const route = useRoute();
@@ -137,17 +136,14 @@ export default {
     const offPrice = ref();
     const url = App.setup().url;
     const imgUrl = App.setup().imgUrl;
-
     const getData = () => {
       axios.get(url + '/api/get/product/' + route.params.slug)
           .then((response) => {
             product.value = response.data;
           })
           .then(() => {
-            // selectedProduct.value = product.value.products[0];
             setPrice(product.value.products[0]);
-            sameProducts.value = products.filter((element) => element.category_id == product.value.category_id && element.id != product.value.id);
-
+            sameProducts.value = products.value.filter((element) => element.category_id == product.value.category_id && element.id != product.value.id);
           })
           .catch((error) => {
             console.error(error);
@@ -155,42 +151,58 @@ export default {
     };
     const setPrice = (p) => {
       selectedProduct.value = p;
-      let prc = parseInt(selectedProduct.value.price)>0 ? selectedProduct.value.price : product.value.price;
-      let offp = parseInt(selectedProduct.value.off)>0 ? selectedProduct.value.off : product.value.off;
+      let prc = parseInt(selectedProduct.value.price) > 0 ? selectedProduct.value.price : product.value.price;
+      let offp = parseInt(selectedProduct.value.off) > 0 ? selectedProduct.value.off : product.value.off;
       price.value = showNumbers(prc);
       offPrice.value = showNumbers(prc - (prc * offp * 0.01));
     }
+
+    const user = ref()
+    const cart = ref()
     onMounted(() => {
+      user.value = JSON.parse(localStorage.getItem('user'))
       console.log(route.params)
       window.scrollTo({top: 0, behavior: 'smooth'});
       getData();
     })
-
     const addToCart = () => {
-      //axios...
-
       //if 200
+      if (user.value) {
+        cart.value = user.value.cart;
+        axios.post(url + '/api/add/to/cart', {
+          user_id: user.value.id,
+          product_id: selectedProduct.value.id,
+        }).then((response) => {
+          cart.value = response.data;
+          user.value.cart = response.data;
 
-      document.querySelector('.notif').classList.remove('d-none');
-      document.querySelector('.notif').classList.add('slide-up');
-      setTimeout(() => {
-        document.querySelector('.notif').classList.add('d-none');
-      }, 1800)
-    }
 
-    const increase = () => {
-      document.getElementById('quantity').value = parseInt(document.getElementById('quantity').value)+1
-    }
-    const decrease = () => {
-      if (document.getElementById('quantity').value > 0) {
-        document.getElementById('quantity').value = parseInt(document.getElementById('quantity').value)-1
+        })
+            .then(()=>{
+              document.getElementById('sum').innerText = cart.value.sum;
+              document.getElementById('sum2').innerText = cart.value.sum;
+              document.getElementById('sum').style.display='block';
+              document.getElementById('sum2').style.display='block';
+              localStorage.setItem('user', JSON.stringify(user.value));
+              document.querySelector('.notif').classList.remove('d-none');
+              document.querySelector('.notif').classList.add('slide-up');
+              setTimeout(() => {
+                document.querySelector('.notif')?.classList.add('d-none');
+              }, 1800);
+            })
+            .catch((error) => console.error(error))
+
+
+      } else {
+        alert('برای خرید محصول لطفا ابتدا وارد سایت شوید');
       }
+
     }
 
 
     return {
       product, products, sameProducts, price, offPrice, showNumbers,
-      getData, url, imgUrl, selectedProduct, setPrice, addToCart, increase, decrease
+      getData, url, imgUrl, selectedProduct, setPrice, addToCart, user, cart
     }
   }
 }

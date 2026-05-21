@@ -37,13 +37,14 @@
 
           </div>
         </div>
+        <div style="height: 35px; display: grid">
+          <button v-if="product.stock" class="add-to-cart-2 bg-primary">
+            <i class="bi bi-cart-plus-fill"></i>
+          </button>
+        </div>
       </a>
 
-      <div style="height: 35px; display: grid">
-        <button v-if="product.stock" class="add-to-cart-2 bg-primary">
-          <i class="bi bi-cart-plus-fill"></i>
-        </button>
-      </div>
+
     </div>
   </div>
 </template>

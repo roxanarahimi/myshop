@@ -7,7 +7,7 @@
           <a class="nav-link cursor tab tab1 active" @click="tabToggle('tab1')" aria-current="page">اطلاعات</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link cursor tab tab2" @click="tabToggle('tab2')">آدرس‌ها</a>
+          <a class="nav-link cursor tab tab2" @click="tabToggle('tab2')">نشانی‌ها</a>
         </li>
         <li class="nav-item">
           <a class="nav-link cursor tab tab3" @click="tabToggle('tab3')">سفارش‌ها</a>
@@ -22,23 +22,26 @@
                 <form>
                   <div class="row px-0 px-md-3">
                     <div class="col-12 mb-1 p-1">
-                      <label>نام</label>
-                      <input type="text" class="form-control form-control-sm" value="رکسانا رحیمی">
+                      <label for="name">نام</label>
+                      <input id="name" type="text" class="form-control form-control-sm" :value="user.name">
                     </div>
                     <div class="col-12 mb-1 p-1">
-                      <label>شماره موبایل</label>
-                      <input type="text" class="form-control form-control-sm en" disabled value="09128222725">
+                      <label for="mobile">شماره موبایل</label>
+                      <input id="mobile" type="text" class="form-control form-control-sm en" disabled :value="user.mobile">
                     </div>
                     <div class="col-12 mb-1 p-1">
-                      <label>ایمیل</label>
-                      <input type="text" class="form-control form-control-sm en" value="ms.roxanarahimi@gmail.com">
+                      <label for="email">ایمیل</label>
+                      <input id="email" type="text" class="form-control form-control-sm en" :value="user.email">
                     </div>
                     <div class="col-12 mb-1 p-1 mt-3">
                     </div>
                   </div>
                 </form>
               </div>
-              <button class="btn btn-sm btn-primary text-light w-100 ">ویرایش</button>
+              <button class="btn btn-sm btn-primary text-light w-100" @click.prevent="updateUser">ویرایش</button>
+            </div>
+            <div class="d-md-none mt-5">
+              <button class="btn btn-sm btn-secondary" @click="logout">خروج</button>
             </div>
           </div>
         </div>
@@ -47,27 +50,27 @@
             <div class="card pr">
               <div class="card-body px-0 px-md-3">
                 <p class="bi bi-pin-map-fill text-center w-100 text-secondary" style="font-size: 50px"></p>
-
-                <div class="accordion" id="accordionAddress">
-                  <div class="accordion-item">
+                <div v-if="user.addresses.length>0" class="accordion" id="accordionAddress">
+                  <div v-for="(item,index) in user.addresses" :key="item.id" class="accordion-item">
                     <h2 class="accordion-header ">
-                      <button class="accordion-button px-0 px-md-3 py-2" type="button" data-bs-toggle="collapse"
-                              data-bs-target="#collapseAddrOne" aria-expanded="true" aria-controls="collapseAddrOne">
-                        <span class="mx-3">خانه</span>
+                      <button class="accordion-button px-0 px-md-3 py-2 " :class="{'collapsed': index>0}"  type="button" data-bs-toggle="collapse"
+                              :data-bs-target="'#collapseAddr'+index" :aria-expanded="index>0?false:true" :aria-controls="'collapseAddr'+index">
+                        <span class="mx-3">{{ item.title }}</span>
                       </button>
                     </h2>
-                    <div id="collapseAddrOne" class="accordion-collapse collapse show"
+                    <div :id="'collapseAddr'+index" class="accordion-collapse collapse" :class="{'show':index==0}"
                          data-bs-parent="#accordionAddress">
                       <div class="accordion-body px-3 px-md-4">
                         <div class="card pr p-0">
                           <div class="card-body">
                             <form>
                               <div class="row px-0 px-md-3">
-                                <div class="col-6 mb-1 p-1"><label>عنوان</label>
-                                  <input type="text" class="form-control form-control-sm" value="خانه">
+                                <div class="col-6 mb-1 p-1">
+                                  <label>عنوان</label>
+                                  <input type="text" class="form-control form-control-sm" :value="item.title">
                                 </div>
                                 <div class="col-6 mb-1 p-1"><label>کد پستی</label>
-                                  <input type="text" class="form-control form-control-sm en" value="1731899411">
+                                  <input type="text" class="form-control form-control-sm en" :value="item.postal_code">
                                 </div>
                                 <div class="col-6 mb-1 p-1"><label>استان</label>
                                   <input type="text" class="form-control form-control-sm" value="تهران">
@@ -75,8 +78,8 @@
                                 <div class="col-6 mb-1 p-1"><label>شهر</label>
                                   <input type="text" class="form-control form-control-sm" value="تهران">
                                 </div>
-                                <div class="col-12 mb-1 p-1"><label>ادرس</label>
-                                  <input type="text" class="form-control form-control-sm" value="پلاک 1">
+                                <div class="col-12 mb-1 p-1"><label>نشانی</label>
+                                  <input type="text" class="form-control form-control-sm" :value="item.address">
                                 </div>
                                 <div class="col-12 mb-1 p-1 mt-3">
                                 </div>
@@ -89,48 +92,11 @@
                       </div>
                     </div>
                   </div>
-                  <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button class="accordion-button collapsed  p-2" type="button" data-bs-toggle="collapse"
-                              data-bs-target="#collapseAddrTwo" aria-expanded="false" aria-controls="collapseAddrTwo">
-                        <span class="mx-3">دفتر</span>
 
-                      </button>
-                    </h2>
-                    <div id="collapseAddrTwo" class="accordion-collapse collapse" data-bs-parent="#accordionAddress">
-                      <div class="accordion-body">
-                        <div class="card p-0">
-                          <div class="card-body">
-                            <form>
-                              <div class="row px-3">
-                                <div class="col-6 mb-1 p-1"><label>عنوان</label>
-                                  <input type="text" class="form-control form-control-sm" value="دفتر">
-                                </div>
-                                <div class="col-6 mb-1 p-1"><label>کد پستی</label>
-                                  <input type="text" class="form-control form-control-sm en" value="1731899411">
-                                </div>
-                                <div class="col-6 mb-1 p-1"><label>استان</label>
-                                  <input type="text" class="form-control form-control-sm" value="تهران">
-                                </div>
-                                <div class="col-6 mb-1 p-1"><label>شهر</label>
-                                  <input type="text" class="form-control form-control-sm" value="تهران">
-                                </div>
-                                <div class="col-12 mb-1 p-1"><label>ادرس</label>
-                                  <input type="text" class="form-control form-control-sm" value="پلاک 1">
-                                </div>
-                                <div class="col-12 mb-1 p-1 mt-3">
-                                </div>
-                              </div>
-                            </form>
-                          </div>
-                          <button class="btn btn-sm btn-primary text-light w-100">ویرایش</button>
-
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
-
+                <div v-else>
+                  <p>نشانی شما ثبت نشده است.</p>
+                </div>
 
               </div>
             </div>
@@ -142,188 +108,99 @@
               <div class="card-body  px-0 px-md-3">
                 <p class="bi bi-gift text-center w-100 text-secondary" style="font-size: 50px"></p>
 
-                <div class="accordion" id="accordionExample">
-                  <div class="accordion-item">
+
+                <div v-if="user.orders?.length>0" class="accordion" id="accordionExample2">
+                  <div v-for="(order,index) in user.orders" :key="index" class="accordion-item">
                     <h2 class="accordion-header ">
-                      <button class="accordion-button px-3 py-2" type="button" data-bs-toggle="collapse"
-                              data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        سفارش <span class="mx-3">12584525#</span>
+                      <button class="accordion-button px-3 py-2" :class="{'collapsed':index>0}" type="button" data-bs-toggle="collapse"
+                              :data-bs-target="'#collapse'+index" :aria-expanded="index>0?false:true" :aria-controls="'collapse'+index">
+                        سفارش <span class="mx-3">{{ order.code }}#</span>
                       </button>
                     </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                    <div :id="'collapse'+index" class="accordion-collapse collapse show" data-bs-parent="#accordionExample2">
                       <div class="accordion-body p-3 p-md-4">
-
-                        <table class="table border table-borderless ">
-                          <thead>
-                          <tr>
-                            <th scope="col" colspan="2">شماره سفارش</th>
-                            <th scope="col" colspan="2">تاریخ</th>
-                            <th scope="col" colspan="2">وضعیت</th>
-                          </tr>
-                          </thead>
+                        <div class="border border-bottom-0">
+                          <table class="table table-borderless mb-0 w-100">
+                            <tbody class="">
+                            <tr class="">
+                              <th scope="col">شماره سفارش</th>
+                              <td scope="row">{{ order.code }}</td>
+                              <th scope="col">تاریخ ثبت</th>
+                              <td>{{  order.payed_at }}</td>
+                            </tr>
+                            <tr class="">
+                            </tr>
+                            <tr class="">
+                              <th scope="col">وضعیت</th>
+                              <td><span class="badge bg-warning">{{ order.status }}</span></td>
+                            </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <table class="table border mb-0">
                           <tbody>
-                          <tr class="border-bottom">
-                            <th scope="row" colspan="2">85627</th>
-                            <td colspan="2">1404/09/17</td>
-                            <td colspan="2">آماده سازی</td>
-                          </tr>
+                          <tr class="" v-for="(item,indexx) in order.items" :key="indexx">
+                            <td class="position-relative" style="width: 120px">
+                              <input class="d-none" type="hidden" :value="item.id" name="items">
+                              <a :href="'/product/'+item.product_info.slug" >
+<!--                              <img :src="imgUrl+item.product_info.images[0]" class="rounded mb-3" width="80px" alt="">-->
+                                <lazy-image class="" style="width: 80px" :data="{image:imgUrl+item.product_info.images[0], title: imgUrl+item.product_info.title}" />
 
-                          <tr>
-                            <th scope="col" colspan="2">محصول</th>
-                            <th scope="col">قیمت</th>
-                            <th scope="col">تخفیف</th>
-                            <th scope="col">مبلغ</th>
-                          </tr>
-                          <tr>
-                            <td colspan="2">  فیتو بطری 60 عددی<span class="bi bi-x text-primary fw-bold">1</span> </td>
-                            <td>2500000</td>
-                            <td>10%</td>
-                            <td>2250000</td>
-                          </tr>
-                          <tr>
-                            <td colspan="2">ماسک کلاژن بایودنس بسته 4 عددی<span class="bi bi-x text-primary fw-bold">1</span></td>
-                            <td>1300000</td>
-                            <td>0</td>
-                            <td>1300000</td>
-                          </tr>
-                          <tr class="border-top" style="text-align:left !important">
-                            <th colspan="1">جمع‌کل</th>
-                            <th colspan="1">تخفیف‌کل</th>
-                            <th colspan="1">هزینه‌ارسال</th>
-                            <th colspan="2">مبلغ‌نهایی</th>
-                          </tr>
-                          <tr style="text-align:left !important">
-                            <td colspan="1">3500000</td>
-                            <td colspan="1">250000</td>
-                            <td colspan="1">3250000</td>
-                            <td colspan="2">3250000</td>
+                              </a>
+                              <div class="text-center text-left " style="position: absolute; bottom: 30px; left: 30px">
+                                <div class="cart-badge-2">{{ item.quantity }}</div>
+                              </div>
+                            </td>
+                            <td class="text-right align-content-start align-top" >
+                              <div class="h-100">
+                                <div class=" text-right" >
+                                  {{ item.product_info.title }}
+                                </div>
+                                <small class=" text-right mb-3" >
+                                  {{ item.product.size }}
+                                </small>
+                                <div class="text-right text-black-50">
+                                  <small><i class="bi bi-coin ms-2"></i>{{ item.price }}</small>
+                                </div>
+                                <div v-if="item.off>0" class="text-right text-black-50" data-data="item.off">
+                                  <small> <i class="bi bi-gift ms-2"></i>{{ item.off }}%</small>
+                                </div>
+                                <div class="text-right" data-data="item.amount">
+                                  <i class="bi bi-cash-stack ms-2"></i>{{ item.price*(1-item.off/100)*item.quantity }}
+                                </div>
+                              </div>
+                            </td>
                           </tr>
                           </tbody>
                         </table>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button class="accordion-button collapsed  p-2" type="button" data-bs-toggle="collapse"
-                              data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        سفارش <span class="mx-3">12584525#</span>
+                        <div class="border border-top-0 ">
+                          <table class="table table-borderless w-100">
+                            <tbody class="">
+                            <tr class="">
+                              <th class="text-center">جمع کل</th>
+                              <th class="text-center">تخفیف کل</th>
+                              <th class="text-center">هزینه ارسال</th>
+                              <th class="text-center">مبلغ نهایی</th>
+                            </tr>
+                            <tr class="">
+                              <td class="text-center">{{ order.total_amount }}</td>
+                              <td class="text-center">{{ order.total_off }}</td>
+                              <td class="text-center">{{ order.delivery_amount }}</td>
+                              <td class="text-center">{{ order.amount }}</td>
+                            </tr>
 
-                      </button>
-                    </h2>
-                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                      <div class="accordion-body  p-3 p-md-4">
-                        <table class="table border table-borderless ">
-                          <thead>
-                          <tr>
-                            <th scope="col" colspan="2">شماره سفارش</th>
-                            <th scope="col" colspan="2">تاریخ</th>
-                            <th scope="col" colspan="2">وضعیت</th>
-                          </tr>
-                          </thead>
-                          <tbody>
-                          <tr class="border-bottom">
-                            <th scope="row" colspan="2">85627</th>
-                            <td colspan="2">1404/09/17</td>
-                            <td colspan="2">آماده سازی</td>
-                          </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <a :href="'/factor/'+order.code" class="btn btn-sm btn-block bg-primary d-block text-light" >مشاهده فاکتور</a>
 
-                          <tr>
-                            <th scope="col" colspan="2">محصول</th>
-                            <th scope="col">قیمت</th>
-                            <th scope="col">تخفیف</th>
-                            <th scope="col">مبلغ</th>
-                          </tr>
-                          <tr>
-                            <td colspan="2">  فیتو بطری 60 عددی<span class="bi bi-x text-primary fw-bold">1</span> </td>
-                            <td>2500000</td>
-                            <td>10%</td>
-                            <td>2250000</td>
-                          </tr>
-                          <tr>
-                            <td colspan="2">ماسک کلاژن بایودنس بسته 4 عددی<span class="bi bi-x text-primary fw-bold">1</span></td>
-                            <td>1300000</td>
-                            <td>0</td>
-                            <td>1300000</td>
-                          </tr>
-                          <tr class="border-top" style="text-align:left !important">
-                            <th colspan="1">جمع‌کل</th>
-                            <th colspan="1">تخفیف‌کل</th>
-                            <th colspan="1">هزینه‌ارسال</th>
-                            <th colspan="2">مبلغ‌نهایی</th>
-                          </tr>
-                          <tr style="text-align:left !important">
-                            <td colspan="1">3500000</td>
-                            <td colspan="1">250000</td>
-                            <td colspan="1">3250000</td>
-                            <td colspan="2">3250000</td>
-                          </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button class="accordion-button collapsed  p-2" type="button" data-bs-toggle="collapse"
-                              data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        سفارش <span class="mx-3">12584525#</span>
-                      </button>
-                    </h2>
-                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                      <div class="accordion-body p-3 p-md-4">
-                        <table class="table border table-borderless ">
-                          <thead>
-                          <tr>
-                            <th scope="col" colspan="2">شماره سفارش</th>
-                            <th scope="col" colspan="2">تاریخ</th>
-                            <th scope="col" colspan="2">وضعیت</th>
-                          </tr>
-                          </thead>
-                          <tbody>
-                          <tr class="border-bottom">
-                            <th scope="row" colspan="2">85627</th>
-                            <td colspan="2">1404/09/17</td>
-                            <td colspan="2">آماده سازی</td>
-                          </tr>
-
-                          <tr>
-                            <th scope="col" colspan="2">محصول</th>
-                            <th scope="col">قیمت</th>
-                            <th scope="col">تخفیف</th>
-                            <th scope="col">مبلغ</th>
-                          </tr>
-                          <tr>
-                            <td colspan="2">  فیتو بطری 60 عددی<span class="bi bi-x text-primary fw-bold">1</span> </td>
-                            <td>2500000</td>
-                            <td>10%</td>
-                            <td>2250000</td>
-                          </tr>
-                          <tr>
-                            <td colspan="2">ماسک کلاژن بایودنس بسته 4 عددی<span class="bi bi-x text-primary fw-bold">1</span></td>
-                            <td>1300000</td>
-                            <td>0</td>
-                            <td>1300000</td>
-                          </tr>
-                          <tr class="border-top" style="text-align:left !important">
-                            <th colspan="1">جمع‌کل</th>
-                            <th colspan="1">تخفیف‌کل</th>
-                            <th colspan="1">هزینه‌ارسال</th>
-                            <th colspan="2">مبلغ‌نهایی</th>
-                          </tr>
-                          <tr style="text-align:left !important">
-                            <td colspan="1">3500000</td>
-                            <td colspan="1">250000</td>
-                            <td colspan="1">3250000</td>
-                            <td colspan="2">3250000</td>
-                          </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </div>
                   </div>
                 </div>
-
+                <div v-else>
+                  <p>هیچ سفارشی ثبت نشده است.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -337,12 +214,17 @@
 
 <script>
 import LazyBtn from "@/components/LazyBtn.vue";
+import {computed, onBeforeMount, onMounted, ref} from "vue";
+import App from "@/App.vue";
+import LazyImage from "@/components/LazyImage.vue";
 
 export default {
   name: "Profile",
-  components: {LazyBtn},
+  components: {LazyImage, LazyBtn},
   setup() {
-
+    const url = App.setup().url;
+    const imgUrl = App.setup().imgUrl;
+    const user = ref(JSON.parse(localStorage.getItem('user')));
     const tabToggle = (id) => {
       document.querySelectorAll('.active')?.forEach((el) => {
         el?.classList?.remove('active');
@@ -353,9 +235,29 @@ export default {
       document.querySelector('.' + id).classList.add('active');
       document.querySelector('#' + id).classList.remove('d-none');
     }
+    const updateUser = ()=>{
+      axios.post(url+'/api/update/user',{
+        id:user.value.id,
+        name: document.querySelector('#name').value,
+        email: document.querySelector('#email').value,
+      }).then((response)=>{
+        localStorage.setItem('user',JSON.stringify(response.data.user));
+        user.value = response.data.user;
+      }).catch((error)=>{console.error(error)})
+    }
+    onBeforeMount(()=>{
+      if(!user.value){
+        window.location = '/login'
+      }
+    })
+    const logout = () => {
+      localStorage.clear();
+      user.vaue = null;
+      window.location = '/';
 
+    }
     return {
-      tabToggle
+      tabToggle, user,updateUser,url,imgUrl,logout
     }
   }
 }

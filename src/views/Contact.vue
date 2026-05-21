@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-lg-10 row justify-content-between flex-row-reverse">
       <div class="col-md-6 col-lg-5 col-xl-4 text-end">
-        <img src="/img/call.png" class="w-100" alt="">
+        <lazy-image class="w-100" :data="{image: '/img/call.png', title: 'concatus'}" />
       </div>
       <div class="col-md-6  col-xl-5 px-4 py-5">
         <h2 class="mb-5 fw-bold">تماس با ما</h2>
@@ -38,6 +38,7 @@
 </template>
 <script setup>
 
+import LazyImage from "@/components/LazyImage.vue";
 </script>
 <style scoped>
 .contact{
