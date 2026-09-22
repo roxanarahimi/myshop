@@ -37,8 +37,8 @@ export default {
     document.querySelector('.loader-wrapper')?.classList.add('opacity-0')
   },
   setup(){
-    const url = 'http://panel.rxshop.ir';
-    const imgUrl = 'http://panel.rxshop.ir/storage/';
+    const url = 'https://panel.rxshop.ir';
+    const imgUrl = 'https://panel.rxshop.ir/storage/';
     // const url = 'http://localhost:8000';
     // const imgUrl = 'http://localhost:8000/storage/';
 

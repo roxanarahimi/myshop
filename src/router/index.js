@@ -69,6 +69,13 @@ const routes = [
         props: true,
         params: true,
         component: () => import(/* webpackChunkName: "profile" */ '../views/Profile.vue')
+    },
+    {
+        path: '/verification',
+        name: 'verification',
+        props: true,
+        params: true,
+        component: () => import(/* webpackChunkName: "verification" */ '../views/Verification.vue')
     }
 ]
 

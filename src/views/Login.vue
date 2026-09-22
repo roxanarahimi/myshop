@@ -79,7 +79,7 @@ export default {
       let mob = document.querySelector('#mobile').value;
       document.querySelector('#mobile').classList?.remove('is-invalid');
 
-      if (!mob.startsWith('09')) {
+      if (!(mob.startsWith('09') || mob.startsWith('۰۹'))) {
         errors.value.push('شماره موبایل باید با 09 شروع شود')
       }
       if (mob.length !== 11) {
@@ -109,7 +109,7 @@ export default {
 
     }
     const sendOtp = (mobile) => {
-      axios.post(url + '/api/user/otp', {mobile: mobile})
+      axios.post(url + '/api/mobile/otp', {mobile: mobile})
           .then((response) => {
             setTimeout(() => {
               count();
@@ -137,7 +137,7 @@ export default {
     }
     const checkCode = (code) => {
       if (code.length === 4) {
-        axios.post(url + '/api/user/verify',
+        axios.post(url + '/api/mobile/verify',
             {code: code, mobile: mobile.value})
             .then((response) => {
               setTimeout(() => {

@@ -13,6 +13,9 @@ body, html {
 * {
     transition: all 0.5s ease !important;
 }
+.navbar{
+    z-index: 50000;
+}
 .banners{
     font-family: 'YekanBakhExtraBold'
 }
@@ -585,10 +588,10 @@ input[type=number] {
 
 @keyframes rotate {
     0% {
-        transform: rotate(0deg);
+        transform: rotate(360deg);
     }
     100% {
-        transform: rotate(360deg);
+        transform: rotate(0deg);
     }
 }
 
@@ -687,18 +690,19 @@ label:not(.shop-sidebar>>label){
 input[type=text], textarea, select,.tab{
     border-radius: 2px !important;
 }
-.loader-wrapper {
+
+.page-loader-wrapper {
     position: absolute !important;
     top: 0;
     right: 0;
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 50px);
+    margin-top:50px;
     z-index: 100000;
     transition: all 3s ease;
-    background: whitesmoke;
+    background: white;
     /*background: radial-gradient(circle,rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.90) 70%, transparent 100%);*/
 }
-
 .loader-inner {
     /*position: relative;*/
     width: 100vw;
@@ -719,11 +723,14 @@ input[type=text], textarea, select,.tab{
 }
 
 .loader {
-    width: 150px;
-    height: 38px;
-    margin-top: 45vh;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    z-index: 20000;
+    right:0;
+    top:calc(50% - 10px);
     filter: drop-shadow(1px 1px 12px rgba(255, 255, 255, 0.5));
-    -webkit-animation: circle 3s infinite linear;
+    animation: rotate 1s infinite linear;
     transition: all 5s ease;
 }
 
