@@ -132,7 +132,7 @@ export default {
         }
 
       }
-      let code = document.querySelector('#code1').value + document.querySelector('#code3').value + document.querySelector('#code3').value + document.querySelector('#code4').value;
+      let code = document.querySelector('#code1').value + document.querySelector('#code2').value + document.querySelector('#code3').value + document.querySelector('#code4').value;
       checkCode(code);
     }
     const checkCode = (code) => {

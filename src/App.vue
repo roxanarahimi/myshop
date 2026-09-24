@@ -38,7 +38,7 @@ export default {
   },
   setup(){
     const url = 'https://panel.rxshop.ir';
-    const imgUrl = 'https://panel.rxshop.ir/storage/';
+    const imgUrl = 'https://panel.rxshop.ir/storage';
     // const url = 'http://localhost:8000';
     // const imgUrl = 'http://localhost:8000/storage/';
 
