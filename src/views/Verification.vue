@@ -28,6 +28,7 @@ export default {
     };
 
     onMounted(()=>{
+      console.log(route.params)
       verifyPayment();
     })
   }
