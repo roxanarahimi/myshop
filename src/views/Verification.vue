@@ -17,7 +17,7 @@ export default {
 
     const verifyPayment = ()=>{
       axios.post(url + '/api/verify/payment',{
-
+        Authority: route.params.Authority
       }).then((response)=>{
         result.value = response.data
 
