@@ -18,7 +18,8 @@ export default {
 
     const verifyPayment = ()=>{
       axios.post(url + '/api/verify/payment',{
-        Authority: route.params.Authority
+        Authority: authority,
+        Status: status
       }).then((response)=>{
 
       }).catch((error)=>{
