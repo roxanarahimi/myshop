@@ -28,9 +28,13 @@ export default {
     };
 
     onMounted(()=>{
-      console.log(route.params)
+      console.log(route)
       verifyPayment();
     })
+
+    return{
+      route, verifyPayment, result
+    }
   }
 }
 </script>
