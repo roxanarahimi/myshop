@@ -20,6 +20,7 @@ export default {
 
       }).then((response)=>{
         result.value = response.data
+
       }).catch((error)=>{
         console.error(error)
       })

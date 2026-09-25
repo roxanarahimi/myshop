@@ -265,7 +265,7 @@ export default {
         amount: cart.value.amount,
         user_id: cart.value.user_id,
       }).then((response)=>{
-        console.log(response.data);
+        window.location = response.data.url
       }).catch((error)=>{
         console.error(error);
       })
