@@ -2,13 +2,13 @@
 <div>
   <div class="row d-grid vh-100">
     <div class="col-md-8 col-lg-5 mx-auto align-self-center">
-     <div class="card w-100 border border-dashed">
+     <div v-if="result" class="card w-100 border border-dashed">
        <div class="card-body">
          <h3 class="w-100 text-center">{{result.title}}</h3>
          <b class="w-100 text-center">{{result.message}}</b>
-         <div class="d-flex justify-content-between"><b>شماره سفارش</b><b>{{result.code}}</b></div>
-         <div class="d-flex justify-content-between"><b>پرداخت شما</b><b>{{result.amount}}</b></div>
-         <div class="d-flex justify-content-between"><b>کد پیگیری تراکنش</b><b>{{result.referenceId}}</b></div>
+         <div v-if="result.code" class="d-flex justify-content-between"><b>شماره سفارش</b><b>{{result.code}}</b></div>
+         <div v-if="result.amount" class="d-flex justify-content-between"><b>پرداخت شما</b><b>{{result.amount}}</b></div>
+         <div v-if="result.referenceId" class="d-flex justify-content-between"><b>کد پیگیری تراکنش</b><b>{{result.referenceId}}</b></div>
        </div>
      </div>
     </div>
