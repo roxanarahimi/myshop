@@ -145,7 +145,7 @@
               <tr>
                 <td class="px-4" colspan="4">
                   <div class="w-100 d-flex justify-content-end">
-                    <a href="/confirm" class="btn btn-success text-light">ثبت نهایی</a>
+                    <button class="btn btn-success text-light" @click = "payOrder">پرداخت</button>
                   </div>
 
                 </td>
@@ -258,6 +258,18 @@ export default {
       }
 
     })
+
+    const payOrder = ()=>{
+      axios.post(url + '/api/user/pay',{
+        order_id:cart.value.id,
+        amount: cart.value.amount,
+        user_id: cart.value.user_id,
+      }).then((response)=>{
+        console.log(response.data);
+      }).catch((error)=>{
+        console.error(error);
+      })
+    }
     return {
       cart,
       user,
@@ -271,7 +283,8 @@ export default {
       selectedProvince,
       getCities,
       getProvinces,
-      updateUser
+      updateUser,
+      payOrder
     }
   }
 }

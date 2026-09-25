@@ -5,7 +5,29 @@
 </template>
 
 <script>
+import {useRoute} from "vue-router/dist/vue-router";
+import App from "@/App.vue";
+import {ref} from "vue";
 
+export default {
+  setup(){
+    const route = useRoute()
+    const url = App.setup().url;
+    const result = ref({});
+
+    const verifyPayment = ()=>{
+      axios.post(url + '/api/verify/payment',{
+
+      }).then((response)=>{
+        result.value = response.data
+      }).catch((error)=>{
+        console.error(error)
+      })
+      ;
+    };
+
+  }
+}
 </script>
 
 <style scoped>

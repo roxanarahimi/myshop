@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkmyshop"]=self["webpackChunkmyshop"]||[]).push([[298],{179:function(u,n,e){e.r(n),e.d(n,{default:function(){return a}});var r=e(6768);function t(u,n,e,t,s,h){return(0,r.uX)(),(0,r.CE)("div",null," hhiihihi ")}var s=e(8512),h=e(2746),i=e(144),c={setup(){(0,s.lq)(),h.A.setup().url,(0,i.KR)({})}},l=e(1241);const p=(0,l.A)(c,[["render",t]]);var a=p}}]);
+//# sourceMappingURL=verification.46711a9c.js.map
