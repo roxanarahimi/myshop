@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkmyshop"]=self["webpackChunkmyshop"]||[]).push([[298],{145:function(e,n,t){t.r(n),t.d(n,{default:function(){return p}});var r=t(6768);function u(e,n,t,u,s,a){return(0,r.uX)(),(0,r.CE)("div",null," hhiihihi ")}var s=t(8512),a=t(2746),i=t(144),o={setup(){(0,s.lq)();const e=a.A.setup().url,n=(0,i.KR)({}),t=()=>{axios.post(e+"/api/verify/payment",{}).then(e=>{n.value=e.data}).catch(e=>{console.error(e)})};(0,r.sV)(()=>{t()})}},c=t(1241);const h=(0,c.A)(o,[["render",u]]);var p=h}}]);
+//# sourceMappingURL=verification.b72d5ff4.js.map

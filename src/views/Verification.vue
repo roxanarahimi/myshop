@@ -7,7 +7,7 @@
 <script>
 import {useRoute} from "vue-router/dist/vue-router";
 import App from "@/App.vue";
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
 
 export default {
   setup(){
@@ -27,6 +27,9 @@ export default {
       ;
     };
 
+    onMounted(()=>{
+      verifyPayment();
+    })
   }
 }
 </script>
