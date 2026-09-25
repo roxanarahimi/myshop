@@ -13,13 +13,13 @@ export default {
   setup(){
     const route = useRoute()
     const url = App.setup().url;
-    const result = ref({});
+    const authority = route.query.Authority
+    const status = route.query.Status
 
     const verifyPayment = ()=>{
       axios.post(url + '/api/verify/payment',{
         Authority: route.params.Authority
       }).then((response)=>{
-        result.value = response.data
 
       }).catch((error)=>{
         console.error(error)
@@ -33,7 +33,7 @@ export default {
     })
 
     return{
-      route, verifyPayment, result
+      route, verifyPayment, authority,status
     }
   }
 }
