@@ -9,10 +9,8 @@
             <b class="w-100 text-center">{{ result?.message }}</b>
             <div v-if="result?.code" class="d-flex justify-content-between"><b>شماره سفارش</b><b>{{ result.code }}</b>
             </div>
-            <div v-if="result?.amount" class="d-flex justify-content-between"><b>پرداخت
-              شما</b><b>{{ result.amount }}</b></div>
-            <div v-if="result?.referenceId" class="d-flex justify-content-between"><b>کد پیگیری
-              تراکنش</b><b>{{ result.referenceId }}</b></div>
+            <div v-if="result?.amount" class="d-flex justify-content-between"><b>پرداخت شما</b><b>{{ result.amount }}</b></div>
+            <div v-if="result?.referenceId" class="d-flex justify-content-between"><b>کد پیگیری تراکنش</b><b>{{ result.referenceId }}</b></div>
           </div>
         </div>
       </div>
@@ -52,6 +50,22 @@ export default {
         } else {
           result.value = response.data
         }
+      }).then((response) => {
+       updateUser()
+      }).then((response) => {
+        if (route.query.Status == 'NOK') {
+          title.value = 'پرداخت انجام نشد'
+        }
+      }).catch((error) => {
+        console.error(error)
+        result.value = error.data
+      })
+      ;
+
+    };
+    const updateUser = () => {
+      axios.get(url + '/api/user/'+JSON.parse(localStorage.getItem('user')).id).then((response) => {
+          localStorage.setItem('user',JSON.stringify(response.data))
       }).catch((error) => {
         console.error(error)
         result.value = error.data
@@ -61,17 +75,11 @@ export default {
     };
 
     onMounted(() => {
-
       verifyPayment();
-      setTimeout(()=>{
-        if (route.query.Status == 'NOK') {
-          title.value = 'پرداخت انجام نشد'
-        }
-      },3000)
     })
 
     return {
-      route, verifyPayment, authority, status, order_id, result,title
+      route, verifyPayment, authority, status, order_id, result,title,updateUser
     }
   }
 }
