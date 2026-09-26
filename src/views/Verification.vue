@@ -3,8 +3,9 @@
     <div class="row d-grid vh-100">
       <div class="col-md-8 col-lg-5 mx-auto align-self-center">
         <div class="card w-100 border border-dashed">
-          <div class="card-body">
+          <div class="card-body py-5">
             <h3 class="w-100 text-center">{{ result?.title }}</h3>
+            <h3 class="w-100 text-center">{{ title }}</h3>
             <b class="w-100 text-center">{{ result?.message }}</b>
             <div v-if="result?.code" class="d-flex justify-content-between"><b>شماره سفارش</b><b>{{ result.code }}</b>
             </div>
@@ -33,6 +34,7 @@ export default {
     const status = route.query.Status
     const order_id = route.query.oid
     const result = ref({})
+    const title = ref('')
 
     const verifyPayment = () => {
       axios.post(url + '/api/verify/payment',
@@ -63,13 +65,13 @@ export default {
       verifyPayment();
       setTimeout(()=>{
         if (route.query.Status == 'NOK') {
-          result.value.title = 'پرداخت انجام نشد'
+          title.value = 'پرداخت انجام نشد'
         }
-      },1500)
+      },3000)
     })
 
     return {
-      route, verifyPayment, authority, status, order_id, result
+      route, verifyPayment, authority, status, order_id, result,title
     }
   }
 }
