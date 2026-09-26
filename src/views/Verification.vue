@@ -45,10 +45,11 @@ export default {
         if(response.status === 200){
           result.value = response.data
         }else{
-          result.value = {message:'پرداخت ناموفق'}
+          result.value = response.data
         }
       }).catch((error)=>{
         console.error(error)
+        result.value = error.data
       })
       ;
     };
