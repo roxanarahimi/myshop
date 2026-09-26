@@ -57,7 +57,7 @@ export default {
     onMounted(()=>{
       console.log(route)
       if (status === 'NOK'){
-        result.value.message = 'پرداخت انجام نشد'
+        result.value = {message:'پرداخت انجام نشد'}
       }
       verifyPayment();
     })
