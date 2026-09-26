@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="row d-grid vh-100">
+    <div class="row d-grid" style="height: calc(100vh - 100px)">
       <div class="col-md-8 col-lg-5 mx-auto align-self-center">
         <div class="card w-100 border border-dashed">
           <div class="card-body py-5">
@@ -9,8 +9,11 @@
             <b class="w-100 text-center">{{ result?.message }}</b>
             <div v-if="result?.code" class="d-flex justify-content-between"><b>شماره سفارش</b><b>{{ result.code }}</b>
             </div>
-            <div v-if="result?.amount" class="d-flex justify-content-between"><b>پرداخت شما</b><b>{{ result.amount }}</b></div>
-            <div v-if="result?.referenceId" class="d-flex justify-content-between"><b>کد پیگیری تراکنش</b><b>{{ result.referenceId }}</b></div>
+            <div v-if="result?.amount" class="d-flex justify-content-between"><b>پرداخت شما</b><b>{{
+                result.amount
+              }}</b></div>
+            <div v-if="result?.referenceId" class="d-flex justify-content-between"><b>کد پیگیری
+              تراکنش</b><b>{{ result.referenceId }}</b></div>
           </div>
         </div>
       </div>
@@ -44,16 +47,23 @@ export default {
               order_id: order_id
             }
 
-          }).then((response) => {
-        if (response.status === 200) {
-          result.value = response.data
-        } else {
-          result.value = response.data
-        }
-      }).catch((error) => {
-        console.error(error)
-        result.value = error.data
-      })
+          })
+          .then((response) => {
+            if (response.status === 200) {
+              result.value = response.data
+            } else {
+              result.value = response.data
+            }
+          })
+          .then(() => {
+            if (route.query.Status == 'NOK') {
+              title.value = 'پرداخت انجام نشد'
+            }
+          })
+          .catch((error) => {
+            console.error(error)
+            result.value = error.data
+          })
       ;
 
     };
@@ -61,15 +71,13 @@ export default {
     onMounted(() => {
 
       verifyPayment();
-      setTimeout(()=>{
-        if (route.query.Status == 'NOK') {
-          title.value = 'پرداخت انجام نشد'
-        }
-      },3000)
+      setTimeout(() => {
+
+      }, 3000)
     })
 
     return {
-      route, verifyPayment, authority, status, order_id, result,title
+      route, verifyPayment, authority, status, order_id, result, title
     }
   }
 }
