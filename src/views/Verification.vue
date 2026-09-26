@@ -54,11 +54,11 @@ export default {
           result.value = response.data
         }
       }).then((response) => {
-        updateUser()
-      }).then((response) => {
         if (route.query.Status == 'NOK') {
           title.value = 'پرداخت انجام نشد'
         }
+      }).then((response) => {
+        updateUser()
       }).catch((error) => {
         console.error(error)
         result.value = error.data
