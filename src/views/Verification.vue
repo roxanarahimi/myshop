@@ -53,13 +53,15 @@ export default {
         } else {
           result.value = response.data
         }
-      }).then((response) => {
-        if (route.query.Status == 'NOK') {
-          title.value = 'پرداخت انجام نشد'
-        }
-      }).then((response) => {
-        updateUser()
-      }).catch((error) => {
+      })
+          .then(() => {
+            updateUser()
+          })
+          .then(() => {
+            if (route.query.Status == 'NOK') {
+              title.value = 'پرداخت انجام نشد'
+            }
+          }).catch((error) => {
         console.error(error)
         result.value = error.data
       })
@@ -72,7 +74,7 @@ export default {
             localStorage.setItem('user', JSON.stringify(response.data))
           })
           .then(() => {
-            let cart  = JSON.parse(localStorage.getItem('user')).cart
+            let cart = JSON.parse(localStorage.getItem('user')).cart
             document.getElementById('sum').innerText = cart.sum;
             document.getElementById('sum2').innerText = cart.sum;
             if (cart.sum === 0) {
