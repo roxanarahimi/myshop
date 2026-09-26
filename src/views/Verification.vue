@@ -65,7 +65,7 @@ export default {
         if (route.query.Status == 'NOK') {
           result.value.title = 'پرداخت انجام نشد'
         }
-      },500)
+      },1500)
     })
 
     return {
