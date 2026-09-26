@@ -50,10 +50,6 @@ export default {
         } else {
           result.value = response.data
         }
-      }).then(() => {
-        if (route.query.Status == 'NOK') {
-          title.value = 'پرداخت انجام نشد'
-        }
       }).catch((error) => {
         console.error(error)
         result.value = error.data
@@ -65,6 +61,11 @@ export default {
     onMounted(() => {
 
       verifyPayment();
+      setTimeout(()=>{
+        if (route.query.Status == 'NOK') {
+          title.value = 'پرداخت انجام نشد'
+        }
+      },3000)
     })
 
     return {
