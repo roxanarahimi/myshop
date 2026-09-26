@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="row d-grid vh-100">
+    <div class="row d-grid" style="height: calc(100vh - 100px )">
       <div class="col-md-8 col-lg-5 mx-auto align-self-center">
         <div class="card w-100 border border-dashed">
           <div class="card-body py-5">
@@ -9,8 +9,11 @@
             <b class="w-100 text-center">{{ result?.message }}</b>
             <div v-if="result?.code" class="d-flex justify-content-between"><b>شماره سفارش</b><b>{{ result.code }}</b>
             </div>
-            <div v-if="result?.amount" class="d-flex justify-content-between"><b>پرداخت شما</b><b>{{ result.amount }}</b></div>
-            <div v-if="result?.referenceId" class="d-flex justify-content-between"><b>کد پیگیری تراکنش</b><b>{{ result.referenceId }}</b></div>
+            <div v-if="result?.amount" class="d-flex justify-content-between"><b>پرداخت شما</b><b>{{
+                result.amount
+              }}</b></div>
+            <div v-if="result?.referenceId" class="d-flex justify-content-between"><b>کد پیگیری
+              تراکنش</b><b>{{ result.referenceId }}</b></div>
           </div>
         </div>
       </div>
@@ -51,7 +54,7 @@ export default {
           result.value = response.data
         }
       }).then((response) => {
-       updateUser()
+        updateUser()
       }).then((response) => {
         if (route.query.Status == 'NOK') {
           title.value = 'پرداخت انجام نشد'
@@ -64,12 +67,24 @@ export default {
 
     };
     const updateUser = () => {
-      axios.get(url + '/api/user/'+JSON.parse(localStorage.getItem('user')).id).then((response) => {
-          localStorage.setItem('user',JSON.stringify(response.data))
-      }).catch((error) => {
-        console.error(error)
-        result.value = error.data
-      })
+      axios.get(url + '/api/user/' + JSON.parse(localStorage.getItem('user')).id)
+          .then((response) => {
+            localStorage.setItem('user', JSON.stringify(response.data))
+          })
+          .then(() => {
+            let cart  = JSON.parse(localStorage.getItem('user')).cart
+            document.getElementById('sum').innerText = cart.sum;
+            document.getElementById('sum2').innerText = cart.sum;
+            if (cart.sum === 0) {
+              document.getElementById('sum').style.display = 'none';
+              document.getElementById('sum2').style.display = 'none';
+            }
+
+          })
+          .catch((error) => {
+            console.error(error)
+            result.value = error.data
+          })
       ;
 
     };
@@ -79,7 +94,7 @@ export default {
     })
 
     return {
-      route, verifyPayment, authority, status, order_id, result,title,updateUser
+      route, verifyPayment, authority, status, order_id, result, title, updateUser
     }
   }
 }
