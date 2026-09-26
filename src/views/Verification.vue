@@ -55,14 +55,17 @@ export default {
         result.value = error.data
       })
       ;
+
     };
 
     onMounted(() => {
 
       verifyPayment();
-      if (route.query.Status == 'NOK') {
-        result.value.title = 'پرداخت انجام نشد'
-      }
+      setTimeout(()=>{
+        if (route.query.Status == 'NOK') {
+          result.value.title = 'پرداخت انجام نشد'
+        }
+      },500)
     })
 
     return {
