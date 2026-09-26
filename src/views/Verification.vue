@@ -2,7 +2,7 @@
 <div>
   <div class="row d-grid vh-100">
     <div class="col-md-8 col-lg-5 mx-auto align-self-center">
-     <div v-if="result" class="card w-100 border border-dashed">
+     <div class="card w-100 border border-dashed">
        <div class="card-body">
          <h3 class="w-100 text-center">{{result.title}}</h3>
          <b class="w-100 text-center">{{result.message}}</b>
@@ -56,6 +56,9 @@ export default {
 
     onMounted(()=>{
       console.log(route)
+      if (status === 'NOK'){
+        result.message = 'پرداخت انجام نشد'
+      }
       verifyPayment();
     })
 
