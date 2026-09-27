@@ -72,7 +72,7 @@ export default {
           .then(()=>{
             document.getElementById('sum').innerText = cart.sum;
             document.getElementById('sum2').innerText = cart.sum;
-            if(cart.value.sum === 0){
+            if(cart.sum === 0){
               document.getElementById('sum').style.display='none';
               document.getElementById('sum2').style.display='none';
             }
