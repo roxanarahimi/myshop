@@ -1,8 +1,8 @@
 <template>
 <div>
-  <div class="row d-grid vh-100">
+  <div class="row d-grid" style="height: calc(100vh - 100px)">
     <div class="col-md-8 col-lg-5 mx-auto align-self-center">
-     <div class="card w-100 border border-dashed">
+     <div class="card w-100 border-dashed">
        <div class="card-body py-5">
          <h3 class="w-100 text-center">{{result.title}}</h3>
          <b class="w-100 text-center d-block">{{result.message}}</b>
