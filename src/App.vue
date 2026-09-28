@@ -47,6 +47,7 @@ export default {
       axios.get(url+'/api/user/'+JSON.parse(localStorage.getItem('user')).id)
           .then((response)=>{
             user = response.data;
+            cart = response.data.cart;
             localStorage.setItem('user', JSON.stringify(user));
           })
           .then(()=>{
