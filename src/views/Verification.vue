@@ -2,7 +2,7 @@
 <div>
   <div class="row d-grid" style="height: calc(100vh - 100px)">
     <div class="col-md-8 col-lg-5 mx-auto align-self-center">
-     <div class="px-4 py-5 w-100" style="border: 2px black dashed; border-radius: 2px">
+     <div v-if="result || title" class="px-4 py-5 w-100" style="border: 1px var(--bs-primary) dashed; border-radius: 2px">
          <h3 class="w-100 text-center">{{result.title}}</h3>
          <b class="w-100 text-center d-block">{{result.message}}</b>
          <h3 v-if="title" class="w-100 text-center">{{title}}</h3>
