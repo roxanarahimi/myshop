@@ -19,10 +19,10 @@
           <div v-else id="verify-mobile">
             <p class="p-3 small">کد تایید 4 رقمی برای شما پیامک شد. لطفا کد را وارد کنید.</p>
             <div class="col-12 d-flex justify-content-between px-3 ">
-              <small disabled id="resend" @click="resend" class="text-black-50">ارسال مجدد کد
+              <small  id="resend" @click="resend" class="text-black-50 disabled">ارسال مجدد کد
                 <span id="time">{{ time }}</span>
               </small>
-              <small @click="editNumber" class="text-black-50 cursor">ویرایش شماره</small>
+<!--              <small @click="editNumber" class="text-black-50 cursor">ویرایش شماره</small>-->
             </div>
 
             <form class="p-3" dir="ltr" @reset="focus1stInput" @submit.prevent="checkCode">
@@ -98,17 +98,38 @@ export default {
 
 
     const time = ref(59);
+    const counterInterval = ref();
+
     const count = () => {
+
+      clearInterval(counterInterval.value);
+
+      document.getElementById('resend').classList.add('disabled');
+      document.getElementById('resend').classList.add('text-black-50');
+      document.getElementById('resend').classList.remove('text-info');
+      document.getElementById('resend').classList.remove('cursor');
+      document.getElementById('time').classList.remove('d-none');
+
+
       time.value = 59;
-      setInterval(() => {
+
+      counterInterval.value = setInterval(() => {
         if (time.value > 0) {
-          time.value = time.value - 1;
+          time.value--;
+        } else {
+          clearInterval(counterInterval.value);
+
+          document.getElementById('resend').classList.remove('disabled');
+          document.getElementById('resend').classList.remove('text-black-50');
+          document.getElementById('resend').classList.add('text-info');
+          document.getElementById('resend').classList.add('cursor');
+          document.getElementById('time').classList.add('d-none');
         }
       }, 1000);
 
-
     }
     const sendOtp = (mobile) => {
+      localStorage.setItem('mobile',mobile);
       axios.post(url + '/api/mobile/otp', {mobile: mobile})
           .then((response) => {
             setTimeout(() => {
@@ -149,6 +170,7 @@ export default {
                 //login
                 localStorage.setItem('user', JSON.stringify(response.data.user));
                 setTimeout(() => {
+                  localStorage.removeItem('mobile');
                   window.location = '/profile';
                 }, 2000)
               }, 1000)
@@ -172,11 +194,15 @@ export default {
       invalidCode.value = false;
 
     }
-
+    const resend = ()=>{
+      if (!document.getElementById('resend').classList.contains('disabled')){
+        sendOtp(localStorage.getItem('mobile'));
+      }
+    }
     return {
       invalidMobile, validateMobile, errors, sendOtp, invalidCode,
       inputHandle, checkCode, focus1stInput, mobileValidated, url,
-      time, mobile
+      time, mobile,resend,counterInterval
     }
   }
 }
