@@ -2,7 +2,7 @@
 <div>
   <div class="row d-grid" style="height: calc(100vh - 100px)">
     <div class="col-md-8 col-lg-5 mx-auto align-self-center">
-     <div class="card w-100 border-dashed">
+     <div class="card w-100" style="border: 1px lightgray dashed !important">
        <div class="card-body py-5">
          <h3 class="w-100 text-center">{{result.title}}</h3>
          <b class="w-100 text-center d-block">{{result.message}}</b>
@@ -60,10 +60,25 @@ export default {
       }).then(()=>{
       updateUser();
       }).catch((error)=>{
-        console.error(error)
         if(route.query.Status === 'NOK'){
           title.value = 'تراکنش انجام نشد'
           message.value = 'لطفا پس از بررسی صورت حساب بانکی خود، مجدد اقدام کنید.'
+        }
+        if (error.request && !error.response) {
+          // احتمال زیاد CORS یا Network Error
+          console.log('CORS / Network Error');
+          title.value = 'این صفحه در دسترس نیست'
+          message.value = ''
+        } else if (error.response) {
+          // سرور پاسخ داده
+          console.log('HTTP Error:', error.response.status);
+          title.value = 'خطا'
+          message.value = 'HTTP Error: '+ error.response.status
+        } else {
+          // خطای خود Axios
+          console.log('Axios Error:', error.message);
+          title.value = 'خطا'
+          message.value = 'Axios Error: '+ error.message
         }
         updateUser();
       })
