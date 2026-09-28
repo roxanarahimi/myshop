@@ -41,9 +41,27 @@ export default {
     const imgUrl = 'https://panel.rxshop.ir/storage/';
     // const url = 'http://localhost:8000';
     // const imgUrl = 'http://localhost:8000/storage/';
+    const updateUser=()=>{
+      let user = {}
+      let cart = {}
+      axios.get(url+'/api/user/'+JSON.parse(localStorage.getItem('user')).id)
+          .then((response)=>{
+            user = response.data;
+            localStorage.setItem('user', JSON.stringify(user));
+          })
+          .then(()=>{
+            document.getElementById('sum').innerText = cart.sum;
+            document.getElementById('sum2').innerText = cart.sum;
+            if(cart.sum === 0){
+              document.getElementById('sum').style.display='none';
+              document.getElementById('sum2').style.display='none';
+            }
+          })
+          .catch((error) => console.error(error))
+    }
 
     return{
-      url, imgUrl,
+      url, imgUrl,updateUser
     }
   },
 

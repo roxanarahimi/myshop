@@ -2,10 +2,10 @@
 <div>
   <div class="row d-grid px-4 " style="height: calc(100vh - 100px)">
     <div class="col-md-8 col-lg-4 mx-auto align-self-center">
-     <div v-if="result || title" class="px-4 py-5 w-100" style="border: 1px var(--bs-primary) dashed; border-radius: 2px">
-         <h3 class="w-100 text-center">{{result.title}}</h3>
+     <div v-if="result || title" class="px-4 py-5 w-100" style="border: 2px var(--bs-primary) dotted; border-radius: 2px">
+         <h4 class="w-100 text-center">{{result.title}}</h4>
          <b class="w-100 text-center d-block">{{result.message}}</b>
-         <h3 v-if="title" class="w-100 text-center">{{title}}</h3>
+         <h4 v-if="title" class="w-100 text-center">{{title}}</h4>
          <b v-if="message" class="w-100 text-center d-block">{{message}}</b>
          <div v-if="result.code" class="d-flex justify-content-between mt-3"><b>شماره سفارش</b><b>{{result.code}}</b></div>
          <div v-if="result.amount" class="d-flex justify-content-between"><b>پرداخت شما</b><b>{{result.amount}}</b></div>
@@ -56,7 +56,7 @@ export default {
           message.value = 'لطفا پس از بررسی صورت حساب بانکی خود، مجدد اقدام کنید.'
         }
       }).then(()=>{
-      updateUser();
+        App.setup().updateUser();
       }).catch((error)=>{
         if(route.query.Status === 'NOK'){
           title.value = 'تراکنش انجام نشد'
@@ -78,7 +78,7 @@ export default {
           title.value = 'خطا'
           message.value = 'Axios Error: '+ error.message
         }
-        updateUser();
+        App.setup().updateUser();
       })
       ;
     };
@@ -87,26 +87,9 @@ export default {
       console.log(route)
       verifyPayment();
     })
-    const updateUser=()=>{
-      let user = {}
-      let cart = {}
-      axios.get(url+'/api/user/'+JSON.parse(localStorage.getItem('user')).id)
-          .then((response)=>{
-            user = response.data;
-            localStorage.setItem('user', JSON.stringify(user.value));
-          })
-          .then(()=>{
-            document.getElementById('sum').innerText = cart.sum;
-            document.getElementById('sum2').innerText = cart.sum;
-            if(cart.sum === 0){
-              document.getElementById('sum').style.display='none';
-              document.getElementById('sum2').style.display='none';
-            }
-          })
-          .catch((error) => console.error(error))
-    }
+
     return{
-      route, verifyPayment, authority,status,order_id,result,updateUser,title,message
+      route, verifyPayment, authority,status,order_id,result,title,message
     }
   }
 }
