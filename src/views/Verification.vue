@@ -2,16 +2,14 @@
 <div>
   <div class="row d-grid" style="height: calc(100vh - 100px)">
     <div class="col-md-8 col-lg-5 mx-auto align-self-center">
-     <div class="card w-100" style="border: 1px lightgray dashed !important">
-       <div class="card-body py-5">
+     <div class="px-4 py-5 w-100" style="border: 2px black dashed; border-radius: 2px">
          <h3 class="w-100 text-center">{{result.title}}</h3>
          <b class="w-100 text-center d-block">{{result.message}}</b>
          <h3 v-if="title" class="w-100 text-center">{{title}}</h3>
          <b v-if="message" class="w-100 text-center d-block">{{message}}</b>
-         <div v-if="result.code" class="d-flex justify-content-between"><b>شماره سفارش</b><b>{{result.code}}</b></div>
+         <div v-if="result.code" class="d-flex justify-content-between mt-3"><b>شماره سفارش</b><b>{{result.code}}</b></div>
          <div v-if="result.amount" class="d-flex justify-content-between"><b>پرداخت شما</b><b>{{result.amount}}</b></div>
          <div v-if="result.referenceId" class="d-flex justify-content-between"><b>کد پیگیری تراکنش</b><b>{{result.referenceId}}</b></div>
-       </div>
      </div>
     </div>
 
