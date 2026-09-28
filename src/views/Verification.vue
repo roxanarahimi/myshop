@@ -6,6 +6,8 @@
        <div class="card-body">
          <h3 class="w-100 text-center">{{result.title}}</h3>
          <b class="w-100 text-center">{{result.message}}</b>
+         <h3 v-if="title" class="w-100 text-center">{{title}}</h3>
+         <b v-if="message" class="w-100 text-center">{{message}}</b>
          <div v-if="result.code" class="d-flex justify-content-between"><b>شماره سفارش</b><b>{{result.code}}</b></div>
          <div v-if="result.amount" class="d-flex justify-content-between"><b>پرداخت شما</b><b>{{result.amount}}</b></div>
          <div v-if="result.referenceId" class="d-flex justify-content-between"><b>کد پیگیری تراکنش</b><b>{{result.referenceId}}</b></div>
@@ -30,6 +32,8 @@ export default {
     const status = route.query.Status
     const order_id = route.query.oid
     const result = ref({})
+    const title = ref('')
+    const message = ref('')
 
     const verifyPayment = ()=>{
       axios.post(url + '/api/verify/payment',
@@ -48,10 +52,18 @@ export default {
           result.value = response.data
         }
       }).then(()=>{
+        if(route.query.Status === 'NOK'){
+          title.value = 'تراکنش انجام نشد'
+          message.value = 'لطفا پس از بررسی صورت حساب بانکی خود، مجدد اقدام کنید.'
+        }
+      }).then(()=>{
       updateUser();
       }).catch((error)=>{
         console.error(error)
-        result.value = error.data
+        if(route.query.Status === 'NOK'){
+          title.value = 'تراکنش انجام نشد'
+          message.value = 'لطفا پس از بررسی صورت حساب بانکی خود، مجدد اقدام کنید.'
+        }
         updateUser();
       })
       ;
@@ -80,7 +92,7 @@ export default {
           .catch((error) => console.error(error))
     }
     return{
-      route, verifyPayment, authority,status,order_id,result,updateUser
+      route, verifyPayment, authority,status,order_id,result,updateUser,title,message
     }
   }
 }
