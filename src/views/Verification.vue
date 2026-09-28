@@ -49,7 +49,8 @@ export default {
         if(response.status === 200){
           result.value = response.data
         }else{
-          result.value = response.data
+          title.value = 'تراکنش انجام نشد'
+          message.value = 'لطفا پس از بررسی صورت حساب بانکی خود، مجدد اقدام کنید.'
         }
       }).then(()=>{
         if(route.query.Status === 'NOK'){
