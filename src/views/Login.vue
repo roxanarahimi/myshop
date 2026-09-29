@@ -27,7 +27,7 @@
 
             <form class="p-3" dir="ltr" @reset="focus1stInput" @submit.prevent="checkCode">
               <div class="d-flex">
-                <input type="number" @input="inputHandle('1')"
+                <input type="number" @input="inputHandle('1')" @keydown="handleErase($event,1)"
                        class="code me-2 form-control text-center rounded rounded-1" min="0" max="9" minLength="1"
                        maxLength="1" :class="{'border-danger': invalidCode}" id="code1">
                 <input type="number" @input="inputHandle('2')" @keydown="handleErase($event,2)"
@@ -143,9 +143,8 @@ export default {
     };
     const inputHandle = (id) => {
       let val = document.querySelector('#code' + id).value
-      if (val.length>1){
-        document.querySelector('#code' + id).value = val.slice(0, 1)
-      }
+      document.querySelector('#code' + id).value = val.charAt(0);
+
       document.querySelector('#code' + id).classList.remove('is-invalid');
       let value = document.querySelector('#code' + id).value;
       if (value < 0 || value > 9) {
@@ -161,9 +160,10 @@ export default {
       checkCode(code);
     }
     const handleErase = (event,id)=>{
-     if(event.key==='Backspace'){
-       let prevId = parseInt(id)-1;
-       if(document.getElementById('code'+id).value === ''){
+      let prevId = parseInt(id)-1;
+      let nextId = parseInt(id)+1;
+      if(event.key==='Backspace'){
+       if(document.getElementById('code'+id).value === '' && id !== 1){
          setTimeout(()=>{
            document.getElementById('code'+prevId).focus();
            document.getElementById('code'+prevId).value ='';
@@ -171,6 +171,13 @@ export default {
        }
 
      }
+     if(event.key === 'ArrowLeft' && id !== 1){
+       document.getElementById('code'+prevId).focus();
+     }
+      if(event.key === 'ArrowRight'&& id !== 4){
+       document.getElementById('code'+nextId).focus();
+     }
+
     }
     const checkCode = (code) => {
       if (code.length === 4) {
