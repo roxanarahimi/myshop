@@ -19,25 +19,26 @@
           <div v-else id="verify-mobile">
             <p class="p-3 small">کد تایید 4 رقمی برای شما پیامک شد. لطفا کد را وارد کنید.</p>
             <div class="col-12 d-flex justify-content-between px-3 ">
-              <small  id="resend" @click="resend" class="text-black-50 disabled">ارسال مجدد کد
+              <small id="resend" @click="resend" class="text-black-50 disabled">ارسال مجدد کد
                 <span id="time">{{ time }}</span>
               </small>
-<!--              <small @click="editNumber" class="text-black-50 cursor">ویرایش شماره</small>-->
+              <!--              <small @click="editNumber" class="text-black-50 cursor">ویرایش شماره</small>-->
             </div>
 
             <form class="p-3" dir="ltr" @reset="focus1stInput" @submit.prevent="checkCode">
               <div class="d-flex">
                 <input type="number" @input="inputHandle('1')"
-                       class="code me-2 form-control text-center rounded rounded-1" min="0" max="9" minlength="1"
-                       maxlength="1" :class="{'border-danger': invalidCode}" id="code1">
-                <input type="number" @input="inputHandle('2')"
-                       class="code me-2 form-control text-center rounded rounded-1" min="0" max="9" minlength="1"
-                       maxlength="1" :class="{'border-danger': invalidCode}" id="code2">
-                <input type="number" @input="inputHandle('3')"
-                       class="code me-2 form-control text-center rounded rounded-1" min="0" max="9" minlength="1"
-                       maxlength="1" :class="{'border-danger': invalidCode}" id="code3">
-                <input type="number" @input="inputHandle('4')" class="code form-control text-center rounded rounded-1"
-                       min="0" max="9" minlength="1" maxlength="1" :class="{'border-danger': invalidCode}" id="code4">
+                       class="code me-2 form-control text-center rounded rounded-1" min="0" max="9" minLength="1"
+                       maxLength="1" :class="{'border-danger': invalidCode}" id="code1">
+                <input type="number" @input="inputHandle('2')" @keydown="handleErase($event,2)"
+                       class="code me-2 form-control text-center rounded rounded-1" min="0" max="9" minLength="1"
+                       maxLength="1" :class="{'border-danger': invalidCode}" id="code2">
+                <input type="number" @input="inputHandle('3')" @keydown="handleErase($event,3)"
+                       class="code me-2 form-control text-center rounded rounded-1" min="0" max="9" minLength="1"
+                       maxLength="1" :class="{'border-danger': invalidCode}" id="code3">
+                <input type="number" @input="inputHandle('4')"  @keydown="handleErase($event,4)"
+                       class="code form-control text-center rounded rounded-1"
+                       min="0" max="9" minLength="1" maxLength="1" :class="{'border-danger': invalidCode}" id="code4">
               </div>
               <ul class="small invalid-feedback d-block" dir="rtl">
                 <li v-if="invalidCode">کد وارد شده اشتباه است
@@ -129,7 +130,7 @@ export default {
 
     }
     const sendOtp = (mobile) => {
-      localStorage.setItem('mobile',mobile);
+      localStorage.setItem('mobile', mobile);
       axios.post(url + '/api/mobile/otp', {mobile: mobile})
           .then((response) => {
             setTimeout(() => {
@@ -141,12 +142,15 @@ export default {
       });
     };
     const inputHandle = (id) => {
+      let val = document.querySelector('#code' + id).value
+      if (val.length>1){
+        document.querySelector('#code' + id).value = val.slice(0, 1)
+      }
       document.querySelector('#code' + id).classList.remove('is-invalid');
       let value = document.querySelector('#code' + id).value;
       if (value < 0 || value > 9) {
         document.querySelector('#code' + id).classList.add('is-invalid');
       } else {
-        console.log(value);
         if (value != '' && value <= 9 && value >= 0) {
           let n = parseInt(id) + 1
           document.querySelector('#code' + n)?.focus();
@@ -155,6 +159,18 @@ export default {
       }
       let code = document.querySelector('#code1').value + document.querySelector('#code2').value + document.querySelector('#code3').value + document.querySelector('#code4').value;
       checkCode(code);
+    }
+    const handleErase = (event,id)=>{
+     if(event.key==='Backspace'){
+       let prevId = parseInt(id)-1;
+       if(document.getElementById('code'+id).value === ''){
+         setTimeout(()=>{
+           document.getElementById('code'+prevId).focus();
+           document.getElementById('code'+prevId).value ='';
+         },50)
+       }
+
+     }
     }
     const checkCode = (code) => {
       if (code.length === 4) {
@@ -194,15 +210,15 @@ export default {
       invalidCode.value = false;
 
     }
-    const resend = ()=>{
-      if (!document.getElementById('resend').classList.contains('disabled')){
+    const resend = () => {
+      if (!document.getElementById('resend').classList.contains('disabled')) {
         sendOtp(localStorage.getItem('mobile'));
       }
     }
     return {
       invalidMobile, validateMobile, errors, sendOtp, invalidCode,
       inputHandle, checkCode, focus1stInput, mobileValidated, url,
-      time, mobile,resend,counterInterval
+      time, mobile, resend, counterInterval,handleErase
     }
   }
 }
