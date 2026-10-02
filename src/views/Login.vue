@@ -133,10 +133,14 @@ export default {
       localStorage.setItem('mobile', mobile);
       axios.post(url + '/api/mobile/otp', {mobile: mobile})
           .then((response) => {
-            setTimeout(() => {
-              count();
-              focus1stInput();
-            }, 200);
+            if (response.status === 200){
+              setTimeout(() => {
+                count();
+                focus1stInput();
+              }, 200);
+            }else{
+              console.log(response)
+            }
           }).catch((error) => {
         console.error(error)
       });
